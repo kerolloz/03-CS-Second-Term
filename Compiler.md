@@ -80,3 +80,33 @@ newval := oldval + 12
   - Parsing
   - Interpreting
   - and more...
+
+## TESTING MARKDOWN
+
+I have more [^1] to say up here.
+
+[^1]: To say down here.
+
+
+  Begin each line with
+  two spaces or more to
+  make text look
+  e x a c t l y
+  like  you  type i
+  t.
+
+  ~~~~
+  This is a
+  piece of code
+  in a block
+  ~~~~
+
+WordPress
+:  A semantic personal publishing platform
+
+Markdown
+:  Text-to-HTML conversion tool
+
+Markdown converts text to HTML.
+
+*[HTML]: HyperText Markup Language
