@@ -95,6 +95,19 @@ expression -> expression + expression
 *[BNF]: Backus Naur Form
 ** <!-- just to fix the bold thought by the text editor -->
 
+#### Syntax Analyzer :vs: Lexical Analyzer
+##### Which constructs recognized by lexical analyzer, and which by syntax analyzer?
+
+- Both of them do similar things; *But* the **lexical** analyzer deals
+with **simple non-recursive** constructs of the language.
+- The _syntax_ analyzer deals with _recursive_ constructs of the
+language.
+- The **lexical** analyzer **simplifies the job of** the _syntax_ analyzer.
+- The **lexical** analyzer **recognizes** the **smallest meaningful units
+(tokens)** in a source program.
+- The _syntax_ analyzer _works_ on the smallest meaningful units
+_(tokens)_ in a source program _to recognize meaningful structures_
+in our programming language.
 ### Other resources
 
 - Sheet (Answered by [AlaaOthman](//github.com/AlaaOhman)): `Not added yet`
