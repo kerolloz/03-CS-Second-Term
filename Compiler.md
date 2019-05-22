@@ -10,17 +10,17 @@
 
 # Lecture 1
 
-__*Compiler*__ a program that takes a program written in a
-source language and translates it into an equivalent
-program in a target language.<br><br>
+Compiler
+: a program that takes a program written in a source language and translates it into an equivalent program in a target language.<br><br>
+
 **Techniques** used in compiler design can be applicable
 to many problems in computer science. <br><br>
 
-| Techniques used in | Can be used in                                                                 |
-|:-------------------|:-------------------------------------------------------------------------------|
-| lexical analyzer   | text editors,information retrieval system, and pattern recognition programs    |
-| parser             | query processing system such as SQL                                            |
-| compiler design    | - Natural Language Processing (NLP) <br> - Software having a complex front-end |
+| Techniques used in | Can be used in                                                                    |
+|:-------------------|:----------------------------------------------------------------------------------|
+| lexical analyzer   | text editors,information retrieval system, and pattern recognition programs       |
+| parser             | query processing system such as SQL                                               |
+| compiler design    | - *[NLP]:Natural Language Processing <br> - Software having a complex front-end | |
 
 ## Parts of a Compiler
 
@@ -83,30 +83,6 @@ newval := oldval + 12
 
 ## TESTING MARKDOWN
 
-I have more [^1] to say up here.
+I have more [^test] to say up here.
 
-[^1]: To say down here.
-
-
-  Begin each line with
-  two spaces or more to
-  make text look
-  e x a c t l y
-  like  you  type i
-  t.
-
-  ~~~~
-  This is a
-  piece of code
-  in a block
-  ~~~~
-
-WordPress
-:  A semantic personal publishing platform
-
-Markdown
-:  Text-to-HTML conversion tool
-
-Markdown converts text to HTML.
-
-*[HTML]: HyperText Markup Language
+[^test]: To say down here.
