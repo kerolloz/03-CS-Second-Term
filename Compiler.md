@@ -99,7 +99,7 @@ expression -> expression + expression
 
 ##### Which constructs recognized by lexical analyzer, and which by syntax analyzer?
 
-- Both of them do similar things; ~~But~~ 
+- Both of them do similar things; ~~But~~
 
 |            | Lexical Analyzer                                                                                                                       | Syntax Analyzer                                                                                                                          |
 |:-----------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -107,6 +107,19 @@ expression -> expression + expression
 |            | - **simplifies the job of** the `syntax` analyzer <br> - **recognizes** the smallest meaningful units **(tokens)** in a source program | `works` on the smallest meaningful units `(tokens)` in a source program `to recognize meaningful structures` in our programming language |
 
 #### Parsing Techniques
+
+|                                | Top-Down                                                                     | Bottom-Up                                                                                                                                  |
+|:-------------------------------|:-----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| Construction of the parse tree | from root towards leaves                                                     | from leaves towards root                                                                                                                   |
+| Efficient parsers              | easily constructed by hand                                                   | created with the help of some software tools                                                                                               |
+|                                | Recursive Predictive Parsing, Non-Recursive Predictive Parsing (LL Parsing). | Operator-Precedence Parsing – simple, restrictive, easy to implement LR Parsing – much general form of shift-reduce parsing, LR, SLR, LALR |
+-----
+.  top-down  can be .
+-----
+. Normally efficient bottom-up parsers are . Bottom-up parsing is also known as shift-reduce parsing.
+-----
+
+
 
 ### Other resources
 
