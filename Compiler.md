@@ -51,7 +51,8 @@ They communicate with:
 -  Regular expressions are used to describe tokens (lexical constructs).
 -  A (Deterministic) Finite State Automaton can be used in the implementation of a lexical analyzer.
 
-<p id="token"> A <bold>token</bold> describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on)</p>
+<p id="token"> A <b>token</b></p>
+: describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on)
 Example: <br>
 newval := oldval + 12
 
@@ -72,7 +73,6 @@ newval := oldval + 12
 - TutorialsPoint(videos on YouTube): [Playlist](https://www.youtube.com/playlist?list=PLWPirh4EWFpGa0qAEcNGJo2HSRC5_KMT6)
 - TutorialsPoint(written): [Lectures](https://www.tutorialspoint.com/compiler_design/index.htm)
 - Udacity: [Programming Languages](https://www.udacity.com/course/programming-languages--cs262)
-  >what you will learn:
   - String patterns
   - Lexical Analysis
   - Grammars
@@ -85,3 +85,5 @@ newval := oldval + 12
 I have more [^test] to say up here.
 
 [^test]: To say down here.
+
+what *is after down*
