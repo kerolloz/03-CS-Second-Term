@@ -50,7 +50,6 @@ They communicate with:
 ### Lexical Analyzer
 
 > - Puts information about identifiers into the symbol table.
-
 - Regular expressions are used to describe tokens (lexical constructs).
 - A (Deterministic) Finite State Automaton can be used in the implementation of a lexical analyzer.
 
@@ -72,11 +71,11 @@ newval := oldval + 12
 
 ### Syntax Analyzer
 
-![parse tree]()
+![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg)
 
 ### Other resources
 
-- Sheet Answer(by [AlaaOthman](//github.com/AlaaOhman)): `Not added yet`
+- Sheet (Answered by [AlaaOthman](//github.com/AlaaOhman)): `Not added yet`
 - Textbook: [Compilers Principles Techniques And Tools](http://booksdl.org/get.php?md5=346B2177C8F721EE62872DCAF64B9F85)
 - TutorialsPoint(videos on YouTube): [Playlist](https://www.youtube.com/playlist?list=PLWPirh4EWFpGa0qAEcNGJo2HSRC5_KMT6)
 - TutorialsPoint(written): [Lectures](https://www.tutorialspoint.com/compiler_design/index.htm)
