@@ -16,7 +16,7 @@ Compiler
 **Techniques** used in compiler design are applicable to many computer science problems. <br><br>
 
 | Techniques used in | Can be used in                                                                 |
-| :----------------- | :----------------------------------------------------------------------------- |
+|:-------------------|:-------------------------------------------------------------------------------|
 | lexical analyzer   | text editors,information retrieval system, and pattern recognition programs    |
 | parser             | query processing system such as SQL                                            |
 | compiler design    | - Natural Language Processing (NLP) <br> - Software having a complex front-end |
@@ -24,7 +24,7 @@ Compiler
 ### Parts of a Compiler
 
 |                   | Analysis                                                                 | Synthesis                                                                       |
-| :---------------- | :----------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+|:------------------|:-------------------------------------------------------------------------|:--------------------------------------------------------------------------------|
 | **In this phase** | An intermediate representation is created from the given source program. | The equivalent target program is created from this intermediate representation. |
 | **Parts**         | - Lexical Analyzer <br>- Syntax Analyzer <br>- Semantic Analyzer         | - Intermediate Code Generator<br>- Code Generator<br>- Code Optimizer           |
 
@@ -33,7 +33,7 @@ Compiler
 From source program to target program, the compiler goes through the following phases.
 
 | Phase                                                       | what happens                                                                                                                                                                                                                    |
-| :---------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|:------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Lexical Analyzer](#lexical-analyzer)                       | reads the source program character by character and returns the [tokens](#token) of the source program.                                                                                                                         |
 | [Syntax Analyzer](#syntax-analyzer)(parser)                 | creates the syntactic structure (generally a parse tree) of the given program.                                                                                                                                                  |
 | [Semantic Analyzer](#semantic-analyzer)                     | checks the source program for semantic errors and collects the type information for the code generation.                                                                                                                        |
@@ -63,7 +63,7 @@ Example: <br>
 newval := oldval + 12
 
 | Lexemes | Tokens              |
-| :------ | :------------------ |
+|:--------|:--------------------|
 | newval  | identifier          |
 | :=      | assignment operator |
 | oldval  | identifier          |
