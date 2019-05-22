@@ -52,7 +52,7 @@ They communicate with:
 -  Regular expressions are used to describe tokens (lexical constructs).
 -  A (Deterministic) Finite State Automaton can be used in the implementation of a lexical analyzer.
 
-[id]: url "token" A **token** describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on)
+<p id="token"> A <bold>token</bold> describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on)</p>
 Example: <br>
 newval := oldval + 12
 
