@@ -14,7 +14,7 @@ to many problems in computer science. <br><br>
 
 ## Parts of a Compiler
 
-| | **Analysis**  | **Synthesis** |
+|  | **Analysis**  | **Synthesis** |
 | :------------- | :------------- |
 | **In this phase** | An intermediate representation is created from the given source program. | The equivalent target program is created from this intermediate representation. |
 | **Parts** | - Lexical Analyzer <br>- Syntax Analyzer <br>- Semantic Analyzer | - Intermediate Code Generator<br>- Code Generator<br>- Code Optimizer |
@@ -25,7 +25,7 @@ From source program to target program, the compiler goes through the following p
 
 | Phase | what happens |
 | :------------- | :------------- |
-| [Lexical Analyzer](lexical-analyzer) | reads the source program character by character and returns the [tokens](token)  of the source program |
+| Lexical Analyzer | reads the source program character by character and returns the [tokens](#token)  of the source program |
 | Syntax Analyzer | |
 | Semantic Analyzer | |
 | Intermediate Code Generator | |
@@ -37,4 +37,4 @@ They communicate with:
 * error handlers.
 * the symbol table.
 
-<p id="token"> A **token** describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on) </p>
+<p id="token"> A <b>token</b> describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on) </p>
