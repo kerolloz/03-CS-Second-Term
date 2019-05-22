@@ -96,6 +96,7 @@ expression -> expression + expression
 ** <!-- just to fix the bold thought by the text editor -->
 
 #### Syntax Analyzer :vs: Lexical Analyzer
+
 ##### Which constructs recognized by lexical analyzer, and which by syntax analyzer?
 
 - Both of them do similar things; *But* the **lexical** analyzer deals
@@ -108,6 +109,9 @@ language.
 - The _syntax_ analyzer _works_ on the smallest meaningful units
 _(tokens)_ in a source program _to recognize meaningful structures_
 in our programming language.
+
+#### Parsing Techniques
+
 ### Other resources
 
 - Sheet (Answered by [AlaaOthman](//github.com/AlaaOhman)): `Not added yet`
