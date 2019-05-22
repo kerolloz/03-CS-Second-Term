@@ -1,7 +1,8 @@
-remote_theme: pmarsceill/just-the-docs
+theme: jekyll-theme-cayman
 plugins:
   - jemoji
 search_enabled: true # Enable or disable the site search
 aux_links:
   "03-CS-Second-Term on GitHub":
     - "//github.com/kerolloz/03-CS-Second-Term"
+
