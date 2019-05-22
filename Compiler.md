@@ -114,8 +114,43 @@ expression -> expression + expression
 | Efficient parsers                     | easily constructed by hand                                                   | created with the help of some software tools                                                                                               |
 |                                       | Recursive Predictive Parsing, Non-Recursive Predictive Parsing (LL Parsing). | Operator-Precedence Parsing – simple, restrictive, easy to implement LR Parsing – much general form of shift-reduce parsing, LR, SLR, LALR |
 
+### Semantic Analyzer
 
-### Other resources
+
+
+## Lecture 2
+
+```
+Not Done Yet!
+```
+
+## Lecture 3
+
+```
+Not Done Yet!
+```
+
+## Lecture 4
+
+```
+Not Done Yet!
+```
+
+## Lecture 5
+
+```
+Not Done Yet!
+```
+
+## Lecture 6
+
+```
+Not Done Yet!
+```
+
+
+
+## Other resources
 
 - Sheet (Answered by [AlaaOthman](//github.com/AlaaOhman)): `Not added yet`
 - Textbook: [Compilers Principles Techniques And Tools](http://booksdl.org/get.php?md5=346B2177C8F721EE62872DCAF64B9F85)
