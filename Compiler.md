@@ -6,7 +6,7 @@
 - [Lecture 4](#lecture-4)
 - [Lecture 5](#lecture-5)
 - [Lecture 6](#lecture-6)
-
+- [Other resources](#other-resources)
 
 # Lecture 1
 
@@ -52,7 +52,7 @@ They communicate with:
 -  Regular expressions are used to describe tokens (lexical constructs).
 -  A (Deterministic) Finite State Automaton can be used in the implementation of a lexical analyzer.
 
-<p id="token"> A <b>token</b> describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on) </p>
+[id]: url "token" A **token** describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on)
 Example: <br>
 newval := oldval + 12
 
@@ -66,3 +66,17 @@ newval := oldval + 12
 
 ## Syntax Analyzer
 ![parse tree]()
+
+# Other resources
+- Sheet Answer(by @AlaaOthman): `Not added yet`
+- Textbook: ![Compilers Principles Techniques And Tools][http://booksdl.org/get.php?md5=346B2177C8F721EE62872DCAF64B9F85]
+- TutorialsPoint(videos on YouTube): [Playlist](https://www.youtube.com/playlist?list=PLWPirh4EWFpGa0qAEcNGJo2HSRC5_KMT6)
+- TutorialsPoint(written): [Lectures](https://www.tutorialspoint.com/compiler_design/index.htm)
+- Udacity: [Programming Languages](https://www.udacity.com/course/programming-languages--cs262)
+  what you will learn:
+  - String patterns
+  - Lexical Analysis
+  - Grammars
+  - Parsing
+  - Interpreting
+  - and more... 
