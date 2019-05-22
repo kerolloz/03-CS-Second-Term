@@ -93,7 +93,7 @@ expression -> expression + expression
 
 *[CFG]: Context Free Grammar
 *[BNF]: Backus Naur Form
-** <!-- just to fix the bold thought by the text editor -->
+*[]()* <!-- just to fix the bold thought by the text editor -->
 
 #### Syntax Analyzer :vs: Lexical Analyzer
 
