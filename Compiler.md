@@ -99,11 +99,12 @@ expression -> expression + expression
 
 ##### Which constructs recognized by lexical analyzer, and which by syntax analyzer?
 
-- Both of them do similar things; ~But~ the **lexical** analyzer deals with **simple non-recursive** constructs of the language.
-- The `syntax` analyzer deals with `recursive` constructs of the language.
-- The **lexical** analyzer **simplifies the job of** the `syntax` analyzer.
-- The **lexical** analyzer **recognizes** the **smallest meaningful units (tokens)** in a source program.
-- The `syntax` analyzer `works` on the smallest meaningful units `(tokens)` in a source program `to recognize meaningful structures` in our programming language.
+- Both of them do similar things; ~~But~~ 
+
+|            | Lexical Analyzer                                                                                                                       | Syntax Analyzer                                                                                                                          |
+|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| deals with | **simple non-recursive** constructs of the language                                                                                    | `recursive` constructs of the language                                                                                                   |
+|            | - **simplifies the job of** the `syntax` analyzer <br> - **recognizes** the smallest meaningful units **(tokens)** in a source program | `works` on the smallest meaningful units `(tokens)` in a source program `to recognize meaningful structures` in our programming language |
 
 #### Parsing Techniques
 
