@@ -108,17 +108,11 @@ expression -> expression + expression
 
 #### Parsing Techniques
 
-|                                | Top-Down                                                                     | Bottom-Up                                                                                                                                  |
-|:-------------------------------|:-----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| Construction of the parse tree | from root towards leaves                                                     | from leaves towards root                                                                                                                   |
-| Efficient parsers              | easily constructed by hand                                                   | created with the help of some software tools                                                                                               |
-|                                | Recursive Predictive Parsing, Non-Recursive Predictive Parsing (LL Parsing). | Operator-Precedence Parsing – simple, restrictive, easy to implement LR Parsing – much general form of shift-reduce parsing, LR, SLR, LALR |
------
-.  top-down  can be .
------
-. Normally efficient bottom-up parsers are . Bottom-up parsing is also known as shift-reduce parsing.
------
-
+|                                       | Top-Down                                                                     | Bottom-Up (shift-reduce parsing)                                                                                                           |
+|:--------------------------------------|:-----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| Construction of the parse tree starts | from root towards leaves                                                     | from leaves towards root                                                                                                                   |
+| Efficient parsers                     | easily constructed by hand                                                   | created with the help of some software tools                                                                                               |
+|                                       | Recursive Predictive Parsing, Non-Recursive Predictive Parsing (LL Parsing). | Operator-Precedence Parsing – simple, restrictive, easy to implement LR Parsing – much general form of shift-reduce parsing, LR, SLR, LALR |
 
 
 ### Other resources
