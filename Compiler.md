@@ -101,20 +101,21 @@ expression -> expression + expression
 
 - Both of them do similar things; ~~But~~
 
-|            | Lexical Analyzer                                                                                                                       | Syntax Analyzer                                                                                                                          |
-|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-| deals with | **simple non-recursive** constructs of the language                                                                                    | `recursive` constructs of the language                                                                                                   |
-|            | - **simplifies the job of** the `syntax` analyzer <br> - **recognizes** the smallest meaningful units **(tokens)** in a source program | `works` on the smallest meaningful units `(tokens)` in a source program `to recognize meaningful structures` in our programming language |
+|            | Lexical Analyzer                                                                                                         | Syntax Analyzer                                                                                                                    |
+|:-----------|:-------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+| deals with | simple non-recursive constructs of the language                                                                          | recursive constructs of the language                                                                                               |
+|            | - simplifies the job of the syntax analyzer <br> - recognizes the smallest meaningful units (tokens) in a source program | works on the smallest meaningful units (tokens) in a source program to recognize meaningful structures in our programming language |
 
 #### Parsing Techniques
 
-|                                       | Top-Down                                                                     | Bottom-Up (shift-reduce parsing)                                                                                                           |
+|                                       | Top-Down ⬇️                                                                   | Bottom-Up (shift-reduce parsing)                                                                                                           |
 |:--------------------------------------|:-----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
 | Construction of the parse tree starts | from root towards leaves                                                     | from leaves towards root                                                                                                                   |
 | Efficient parsers                     | easily constructed by hand                                                   | created with the help of some software tools                                                                                               |
 |                                       | Recursive Predictive Parsing, Non-Recursive Predictive Parsing (LL Parsing). | Operator-Precedence Parsing – simple, restrictive, easy to implement LR Parsing – much general form of shift-reduce parsing, LR, SLR, LALR |
 
 ### Semantic Analyzer
+
 
 
 
