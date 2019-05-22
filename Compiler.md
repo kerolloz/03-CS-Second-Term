@@ -71,9 +71,22 @@ newval := oldval + 12
 
 ### Syntax Analyzer
 
+>checks whether a given program satisfies the rules implied by a CFG or not. If it satisfies, the syntax analyzer creates a parse tree for the given program.
+
 ![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg) <br>
-_syntax of a language_ is specified by a __CFG__(CFG rules are mostly recursive)
-*[CFG]: context free grammar
+_syntax of a language_ is specified by a __CFG__ (CFG rules are mostly recursive) <br>
+we use BNF to specify a CFG <br>
+Example: <br>
+
+~~~~
+assgstmt   -> identifier := expression
+expression -> identifier
+expression -> number
+expression -> expression + expression
+~~~~
+
+*[CFG]: Context Free Grammar
+*[BNF]: Backus Naur Form
 
 ### Other resources
 
