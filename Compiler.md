@@ -72,7 +72,10 @@ newval := oldval + 12
 ### Syntax Analyzer
 
 ![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg)
-_syntax of a language_ is specified by a __*[CFG]: context free grammar__
+_syntax of a language_ is specified by a __*[CFG]: context free grammar__ <br>
+rules of
+*[CFG]: context free grammar
+are mostly _recursive_
 
 ### Other resources
 
