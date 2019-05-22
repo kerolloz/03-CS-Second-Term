@@ -13,8 +13,7 @@
 Compiler
 : a program that takes a program written in a source language and translates it into an equivalent program in a target language.<br><br>
 
-**Techniques** used in compiler design can be applicable
-to many problems in computer science. <br><br>
+**Techniques** used in compiler design are applicable to many computer science problems. <br><br>
 
 | Techniques used in | Can be used in                                                                    |
 |:-------------------|:----------------------------------------------------------------------------------|
