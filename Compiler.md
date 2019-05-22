@@ -71,11 +71,9 @@ newval := oldval + 12
 
 ### Syntax Analyzer
 
-![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg)
-<br>
-Markdown converts text to HTML.
-
-*[HTML]: HyperText Markup Language
+![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg) <br>
+_syntax of a language_ is specified by a __CFG__(CFG rules are mostly recursive)
+*[CFG]: context free grammar
 
 ### Other resources
 
