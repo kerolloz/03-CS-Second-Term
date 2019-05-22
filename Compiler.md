@@ -15,11 +15,11 @@ Compiler
 
 **Techniques** used in compiler design are applicable to many computer science problems. <br><br>
 
-| Techniques used in | Can be used in                                                                    |
-|:-------------------|:----------------------------------------------------------------------------------|
-| lexical analyzer   | text editors,information retrieval system, and pattern recognition programs       |
-| parser             | query processing system such as SQL                                               |
-| compiler design    | - *[NLP]:Natural Language Processing <br> - Software having a complex front-end | |
+| Techniques used in | Can be used in                                                                 |
+|:-------------------|:-------------------------------------------------------------------------------|
+| lexical analyzer   | text editors,information retrieval system, and pattern recognition programs    |
+| parser             | query processing system such as SQL                                            |
+| compiler design    | - Natural Language Processing (NLP) <br> - Software having a complex front-end |
 
 ## Parts of a Compiler
 
