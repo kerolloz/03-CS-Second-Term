@@ -108,7 +108,7 @@ expression -> expression + expression
 
 #### Parsing Techniques
 
-|                                       | Top-Down ⬇️                                                                   | Bottom-Up (shift-reduce parsing)                                                                                                           |
+|                                       | Top-Down :arrow_down:                                                        | Bottom-Up :arrow_up: (shift-reduce parsing)                                                                                                |
 |:--------------------------------------|:-----------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
 | Construction of the parse tree starts | from root towards leaves                                                     | from leaves towards root                                                                                                                   |
 | Efficient parsers                     | easily constructed by hand                                                   | created with the help of some software tools                                                                                               |
