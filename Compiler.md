@@ -2,9 +2,9 @@
 
 __*Compiler*__ a program that takes a program written in a
 source language and translates it into an equivalent
-program in a target language.<br>
+program in a target language.<br><br>
 **Techniques** used in compiler design can be applicable
-to many problems in computer science. <br>
+to many problems in computer science. <br><br>
 
 | **Techniques used in**  | **Can be used in** |
 | :------------- | :------------- |
@@ -25,7 +25,7 @@ From source program to target program, the compiler goes through the following p
 
 | Phase | what happens |
 | :------------- | :------------- |
-| Lexical Analyzer | |
+| [Lexical Analyzer](lexical-analyzer) | reads the source program character by character and returns the [tokens](token)  of the source program |
 | Syntax Analyzer | |
 | Semantic Analyzer | |
 | Intermediate Code Generator | |
@@ -36,3 +36,5 @@ Each phase transforms the source program from one representation into another. <
 They communicate with:
 * error handlers.
 * the symbol table.
+
+<p id="token"> A **token** describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on) </p>
