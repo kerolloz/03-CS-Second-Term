@@ -32,14 +32,14 @@ Compiler
 
 From source program to target program, the compiler goes through the following phases.
 
-| Phase                                                       | what happens                                                                                                                                                                                                                    |
-|:------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Lexical Analyzer](#lexical-analyzer)                       | reads the source program character by character and returns the [tokens](#token) of the source program.                                                                                                                         |
-| [Syntax Analyzer](#syntax-analyzer) (parser)                | creates the syntactic structure (generally a parse tree) of the given program.                                                                                                                                                  |
-| [Semantic Analyzer](#semantic-analyzer)                     | checks the source program for semantic errors and collects the type information for the code generation.                                                                                                                        |
-| [Intermediate Code Generator](#intermediate-code-generator) | produces an explicit intermediate codes representing the source program. These intermediate codes are generally machine (architecture) independent. But the level of intermediate codes is close to the level of machine codes. |
-| [Code Optimizer](#code-optimizer)                           | optimizes the code produced by the intermediate code generator in the terms of time and space.                                                                                                                                  |
-| [Code Generator](#code-generator)                           | Produces the target language in a specific architecture. The target program is normally is a relocatable object file containing the machine codes.                                                                              |
+| Phase                                                       | what happens                                                                                                                                        |
+|:------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Lexical Analyzer](#lexical-analyzer)                       | reads the source program character by character and returns the [tokens](#token) of the source program.                                             |
+| [Syntax Analyzer](#syntax-analyzer) (parser)                | creates the syntactic structure (generally a parse tree) of the given program.                                                                      |
+| [Semantic Analyzer](#semantic-analyzer)                     | checks the source program for semantic errors and collects the type information for the code generation.                                            |
+| [Intermediate Code Generator](#intermediate-code-generator) | produces an explicit intermediate codes representing the source program. These intermediate codes are generally machine (architecture) independent. |
+| [Code Optimizer](#code-optimizer)                           | optimizes the code produced by the intermediate code generator in the terms of time and space.                                                      |
+| [Code Generator](#code-generator)                           | Produces the target language in a specific architecture. The target program is normally is a relocatable object file containing the machine codes.  |
 
 Each phase transforms the source program from one representation into another. <br>
 They communicate with:
@@ -115,6 +115,65 @@ expression -> expression + expression
 |                                       | Recursive Predictive Parsing, Non-Recursive Predictive Parsing (LL Parsing). | Operator-Precedence Parsing – simple, restrictive, easy to implement LR Parsing – much general form of shift-reduce parsing, LR, SLR, LALR |
 
 ### Semantic Analyzer
+
+> - Type-checking is an important part
+- semantic information cannot be represented by a context-free language
+- CFGs used in the syntax analysis are integrated with attributes (semantic rules)
+
+The result is a syntax-directed translation (Attribute grammars)<br>
+
+Example:
+
+~~~~
+newval := oldval + 12    # The type of the identifier newval must match with type of the expression (oldval+12)
+~~~~
+
+### Intermediate Code Generation
+> The level of intermediate codes is close to the level of machine codes.
+
+Example:
+
+~~~~
+newval := oldval * fact + 1
+~~~~
+
+:arrow_down:
+
+~~~~
+id1 := id2 * id3 + 1
+~~~~
+
+Intermediates Codes :arrow_down: (Quadraples)
+
+~~~~assembly
+MULT id2,id3,temp1
+ADD temp1,#1,temp2
+MOV temp2,,id1
+~~~~
+
+
+### Code Optimizer
+
+~~~~assembly
+MULT id2,id3,temp1
+ADD temp1,#1,id1
+~~~~
+
+### Code Generator
+
+Example: <br>
+(assume that we have an architecture with instructions
+whose at least one of its operands is a machine register)
+
+~~~~assembly
+MOVE id2,R1
+MULT id3,R1
+ADD #1,R1
+MOVE R1,id1
+~~~~
+
+
+
 
 
 
