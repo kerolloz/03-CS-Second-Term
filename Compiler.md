@@ -153,7 +153,7 @@ Not Added Yet!
 
 ## Other resources
 
-- Sheet (Answered by [AlaaOthman](//github.com/AlaaOhman)): `Not Added Yet!`
+- Sheet (Answered by [AlaaOthman](//github.com/AlaaOhman)): [on Google Drive](https://drive.google.com/file/d/1yXkSxJLjOUPgtGgFM6gkJSPVtjMLJnhD/view?usp=drivesdk)
 - Textbook: [Compilers Principles Techniques And Tools](http://booksdl.org/get.php?md5=346B2177C8F721EE62872DCAF64B9F85)
 - TutorialsPoint(videos on YouTube): [Playlist](https://www.youtube.com/playlist?list=PLWPirh4EWFpGa0qAEcNGJo2HSRC5_KMT6)
 - TutorialsPoint(written): [Lectures](https://www.tutorialspoint.com/compiler_design/index.htm)
