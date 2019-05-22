@@ -72,10 +72,10 @@ newval := oldval + 12
 ### Syntax Analyzer
 
 ![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg)
-*[HTML]: Hyper Text Markup Language
-*[W3C]:  World Wide Web Consortium
-The HTML specification
-is maintained by the W3C.
+<br>
+Markdown converts text to HTML.
+
+*[HTML]: HyperText Markup Language
 
 ### Other resources
 
