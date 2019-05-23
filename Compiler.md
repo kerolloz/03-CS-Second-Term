@@ -443,9 +443,9 @@ if there is a production rule `A → ƴ` in our grammar
 
 |    |       drives in        |
 |:--:|:----------------------:|
-| ⇒* |        one step        |
-| ⇒+ |   zero or more steps   |
-| ⇒  | one step or more steps |
+| ⇒  |        one step        |
+| ⇒* |   zero or more steps   |
+| ⇒+ | one step or more steps |
 
 
 ### CFG - Terminology
