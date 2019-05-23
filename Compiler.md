@@ -180,9 +180,9 @@ MOVE R1,id1
 
 ## Lecture 2
 
-- **Lexical Analyzer:** it reads the source program character by character to produce tokens.<br>
+**Lexical Analyzer:** it reads the source program character by character to produce tokens.<br>
 
-- Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
+> Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
 
 **Tokens:**
 - Represents a set of strings described by a pattern.
