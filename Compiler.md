@@ -223,9 +223,44 @@ Lexical Analyzer
 
 ## Lecture 3
 
+
+### A context-free grammar
+> - gives a precise syntactic specification of a programming language.
+> - the design of the grammar is an initial phase of the design of a compiler.
+> - a grammar can be directly converted into a parser by some tools.
+
+In CFG, we have:
+
+- A finite set of terminals (in our case, this will be the set of tokens)
+- A finite set of non-terminals (syntactic-variables)
+- A finite set of productions rules in the following form
+  ```
+  A → α
+  ```
+  A is a non-terminal    
+  α is a string of terminals and non-terminals (including the empty string)
+- A start symbol (one of the non-terminal symbol)
+
+Example:
+
 ```
-Not Added Yet!
+E → E + E | E – E | E * E | E / E | - E
+E → ( E )
+E → id
 ```
+
+### Parser
+> Works on a stream of tokens(The smallest item is a token).
+
+parsers scan the input from left to right (one symbol at a time).  
+Efficient top-down and bottom-up parsers can be implemented only for sub-classes of context-free grammars.  
+
+LL for top-down parsing.  
+LR for bottom-up parsing.
+
+### Derivations
+
+
 
 ## Lecture 4
 
