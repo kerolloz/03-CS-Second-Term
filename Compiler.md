@@ -223,8 +223,8 @@ Lexical Analyzer
 
 ## Lecture 3
 
-
 ### A context-free grammar
+
 > - gives a precise syntactic specification of a programming language.
 > - the design of the grammar is an initial phase of the design of a compiler.
 > - a grammar can be directly converted into a parser by some tools.
@@ -250,16 +250,75 @@ E → id
 ```
 
 ### Parser
-> Works on a stream of tokens(The smallest item is a token).
 
-parsers scan the input from left to right (one symbol at a time).  
-Efficient top-down and bottom-up parsers can be implemented only for sub-classes of context-free grammars.  
+> - Works on a stream of tokens(The smallest item is a token).
+- Scans input from left to right (one symbol at a time).
+
+Efficient parsers can be implemented only for sub-classes of context-free grammars.  
 
 LL for top-down parsing.  
 LR for bottom-up parsing.
 
-### Derivations
+### Derivation
 
+> A sequence of replacements of non-terminal symbols
+
+```
+E ⇒ E+E
+```  
+E+E _derives_ from E (we can replace E by E+E)  
+
+In general a derivation step is:   
+
+α__A__β ⇒ α__ƴ__β  
+if there is a production rule `A → ƴ` in our grammar
+
+|    |       drives in        |
+|:--:|:----------------------:|
+| ⇒* |        one step        |
+| ⇒+ |   zero or more steps   |
+| ⇒  | one step or more steps |
+
+
+### CFG - Terminology
+
+L(G)
+: the language of G which is a set of sentences.
+
+sentence of L(G)
+: string of terminal symbols of G
+
+- If S is the start symbol of G then    
+ω is a sentence of L(G)  
+iff `S ⇒ ω` where ω is a string of terminals of G
+- If G is a CFG, L(G) is a context-free
+language.
+- Two grammars are equivalent if they produce the same
+language
+
+S → α  
+
+| α contains non-terminals |   it is called as    |
+|:------------------------:|:--------------------:|
+|    :heavy_check_mark:    | sentential form of G |
+|           :x:            |    sentence of G     |
+
+### Derivation Example
+
+
+left-most derivation
+: If we always choose the left-most non-terminal in each derivation step
+```
+E => -E => -(E) => -(E+E) => -(id+E) => -(id+id)
+```
+right-most derivation
+: If we always choose the right-most non-terminal in each derivation step
+```
+E => -E => -(E) => -(E+E) => -(E+id) => -(id+id)
+```
+
+At each derivation step, we can choose any of the non-terminal in the
+sentential form of G for the replacement
 
 
 ## Lecture 4
