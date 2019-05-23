@@ -84,12 +84,12 @@ _syntax of a language_ is specified by a __CFG__ (CFG rules are mostly recursive
 we use BNF to specify a CFG <br><br>
 Example:
 
-~~~~
+```
 assgstmt   -> identifier := expression
 expression -> identifier
 expression -> number
 expression -> expression + expression
-~~~~
+```
 
 *[CFG]: Context Free Grammar
 *[BNF]: Backus Naur Form
@@ -124,40 +124,40 @@ The result is a syntax-directed translation (Attribute grammars)<br>
 
 Example:
 
-~~~~
+```
 newval := oldval + 12    # The type of the identifier newval must match with type of the expression (oldval+12)
-~~~~
+```
 
 ### Intermediate Code Generation
 > The level of intermediate codes is close to the level of machine codes.
 
 Example:
 
-~~~~
+```
 newval := oldval * fact + 1
-~~~~
+```
 
 :arrow_down:
 
-~~~~
+```
 id1 := id2 * id3 + 1
-~~~~
+```
 
 Intermediates Codes :arrow_down: (Quadraples)
 
-~~~~assembly
+```assembly
 MULT id2,id3,temp1
 ADD temp1,#1,temp2
 MOV temp2,,id1
-~~~~
+```
 
 
 ### Code Optimizer
 
-~~~~assembly
+```assembly
 MULT id2,id3,temp1
 ADD temp1,#1,id1
-~~~~
+```
 
 ### Code Generator
 
@@ -165,12 +165,12 @@ Example: <br>
 (assume that we have an architecture with instructions
 whose at least one of its operands is a machine register)
 
-~~~~assembly
+```assembly
 MOVE id2,R1
 MULT id3,R1
 ADD #1,R1
 MOVE R1,id1
-~~~~
+```
 
 
 
