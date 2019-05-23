@@ -1,7 +1,7 @@
 # Compiler Lectures
 
 - [x] [Lecture 1](#lecture-1)
-- [ ] [Lecture 2](#lecture-2) :construction:
+- [x] [Lecture 2](#lecture-2) 
 - [ ] [Lecture 3](#lecture-3) :construction:
 - [ ] [Lecture 4](#lecture-4)
 - [ ] [Lecture 5](#lecture-5)
@@ -176,7 +176,6 @@ MOVE R1,id1
 
 ---
 
-
 ## Lecture 2
 
 ### Lexical Analyzer:
@@ -283,12 +282,12 @@ MOVE R1,id1
 *Thomson's Construction:*
 * Used to convert reg. expression to NFA.
 
-  Example:
+  Example:<br>
   <!-- place Example image -->
 
   * We use the generated NFA is converted then to DFA.
 
-  Example:
+  Example:<br>
 
 ```
     S 0 = Ɛ-closure({0}) = {0,1,2,4,7}
