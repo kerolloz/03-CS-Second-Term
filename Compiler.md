@@ -191,40 +191,199 @@ Lexical Analyzer
 - Token type and its attribute uniquely identifies a lexeme.
 - Regular expression is used to specify tokens.
 
-**Concepts of Languages:**
+<br><br>
+
+### Concepts of Languages:
 
 - Alphabet: set of finite symbols.
 - String: sequence of symbols on an alphabet.
 - Language: consists of set of strings.
 - Operation on Language:
-  1. Concatenation
-  1. Union
-  1. Exponentiation
-  1. Kleen Closure
-  1. Positive Closure
+    - Concatenation
+    - Union
+    - Exponentiation
+    - Kleen Closure "\*"
+    - Positive Closure "+"
+<br>
 
-**Regular Expressions:**
+### Regular Expressions:
 
-- Used to describe tokens.
-- Normally, they are built up of simpler regular expressions.
-- Regular set: a language denoted by a regular expression.
+  - Used to describe tokens.
+  - Normally, they are built up of simpler regular expressions.
+  - Regular set: a language denoted by a regular expression.
 
-**Presedence Rules in Regular Expressions:**
+### Presedence Rules in Regular Expressions:
 
-1. Parentheses
-1. Kleen Closure
-1. Concatenation
-1.
+  1. Parentheses
+  2. \* "Kleen Closure"
+  3. Concatenation.
+  4. |
 
-<!--Regular Definition Rules: -->
+### Regular Definition Rules:
+
+* We can give names to regular expressions, and we can use these names as symbols to define other regular expressions.
+* A regular definition is a sequence of the definitions of the form:
+  ` d 1 => r 1  
+    d 2 => r 2  
+    .  
+    d n => r n  
+  `
+
+Examples:
+
+1. Identifiers in Pascal
+
+  ` letter => A | B | ... | Z | a | b | ... | z  
+    digit => 0 | 1 | ... | 9  
+    id => letter (letter | digit )*  
+  `
+2. Identifiers in C
+
+  ` letter => [A-Za-z]
+    digit => [0-9]
+    CID => letter_(letter_|digit)\*
+  `
+3. Unsigned numbers in pascal
+
+  ` digit => 0 | 1 | ... | 9
+    digits => digit +
+    opt-fraction => ( . digits ) ?
+    opt-exponent => ( E (+|-)? digits ) ?
+    unsigned-num => digits opt-fraction opt-exponent
+  `
+
+4. Unsigned numbers or floating point numbers in C
+
+  ` digit => [0-9]
+    digits => digit+
+    number => digits(.digits)?(E[+-]? digits)?
+  `
+
+### Finite Automaton:
+
+- There are two types of FA:
+  - Deterministic: faster, take more space.
+  - Non-deterministic: slower, take less space.
+- Deterministic is widely used in lexical analyzer.
+- To generate DFA we have two ways:
+  - Regular Expression => NFA => DFA
+  - Regular Expression => DFA
+
+**I. NFA To DFA:**
+* NFA may have Ɛ transitions.
+* DFA Does not have Ɛ transitions.
+* In DFA, for each symbol a and state s, there is at most one labeled edge a leaving s.
+<br>
+
+  *Thomson's Construction:*
+  * Used to convert reg. expression to NFA.
+
+  Example:
+  <!-- place Example image -->
+
+  * We use the generated NFA is converted then to DFA.
+
+  Example:
+
+  ` S 0 = Ɛ-closure({0}) = {0,1,2,4,7}
+
+    Ɛ-closure(move(S0 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
+    Ɛ-closure(move(S0 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
+
+    Ɛ-closure(move(S1 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
+    Ɛ-closure(move(S1 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
+
+    Ɛ-closure(move(S2 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
+    Ɛ-closure(move(S2 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
+  `
+
+  <!-- place image of NFA -->
+
+  ` S0 is the start state of DFA since 0 is a member of S0 ={0,1,2,4,7}
+    S1 is an accepting state of DFA since 8 is a member of S1 = {1,2,3,4,6,7,8}
+  `
+
+  <!-- place image of DFA -->
+
+**II. DFA Direct Conversion:**
+
+* First we augment the given regular expression by concatenating it with a special symbol #.
+* Then each alphabet symbol (plus #) will be numbered (without Ɛ).
+* Then, we create a syntax tree for this augmented regular expression.
+* In this syntax tree, all alphabet symbols (plus # and the empty string) in the augmented regular expression will be on the leaves, and all inner nodes will be the operators in that augmented regular expression.
+* Then compute first set of the root and follow set of each character.
 
 
+  Example:
+
+  ` (a\|b) * a         convert it to augmented regular expression.
+    (a\|b) * a #       then number each alphabet and #
+
+    ( a \| b )* a #
+      1   2    3 4    then create syntax tree
+  `
+
+    <!-- place image of syntax tree -->
+
+  ` first(root) = {1, 2, 3}
+    followpos(1)={1,2,3}
+    followpos(2)={1,2,3}
+    followpos(3)={4}
+    followpos(4)={}
+
+    S1 =firstpos(root)={1,2,3}
+    a: followpos(1) and followpos(3) = {1, 2, 3, 4} = S2
+    b: followpos(2) = {1, 2, 3} = S1
+
+    S2 = {1, 2, 3, 4}
+    a: followpos(1) and followpos(3)={1,2,3,4}=S2
+    b: followpos(2) = {1, 2, 3} = S1
+  `
+
+  <!-- place imageof DFA -->
+
+**DFA Minimization:**
+* partition the set of states into two groups:
+  * G1: set of accepting states.
+  * G2: set of non-accepting states.
+
+* For each new group G:
+  * partition G into subgroups such that states s1 and s2 are in the same group if and only if for all input symbols a, states s1 and s2 have transitions to states in the same group.
+
+  Example:
+
+  <!-- Place image of DFA -->
+
+  ` G1 = {1, 2, 3}  
+    G2 = {4}  
+
+    for G1:
+         a   b
+    1 => 2   3
+    2 => 2   3
+    ---
+    3 => 4   3
+
+    So, divide G1 into {1, 2} and {3}
+
+    for G2:
+         a   b
+    4 => 2   3
+
+    Resulting DFA
+  `
+
+  <!-- place image of minmized DFA -->
+
+### Issues in Lexical Analyzer:
+* The lexical analyzer has to recognize the longest possible string.
+* the end of a token is normally not defined
+* Normally it doesn’t return a comment as a token. So, the comments are only processed by the lexical analyzer, and the don’t complicate the syntax of the language.
 
 
 ## Lecture 3
 
-### A context-free grammar
-
+## A context-free grammar
 > - gives a precise syntactic specification of a programming language.
 > - the design of the grammar is an initial phase of the design of a compiler.
 > - a grammar can be directly converted into a parser by some tools.
