@@ -174,15 +174,13 @@ ADD #1,R1
 MOVE R1,id1
 ```
 
-
-
-
-
+---
 
 
 ## Lecture 2
 
-**Lexical Analyzer:** it reads the source program character by character to produce tokens.<br>
+Lexical Analyzer
+: it reads the source program character by character to produce tokens.<br>
 
 > Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
 
@@ -198,13 +196,11 @@ MOVE R1,id1
 - String: sequence of symbols on an alphabet.
 - Language: consists of set of strings.
 - Operation on Language:
-  <ol>
-  <li>Concatenation</li>
-  <li>Union</li>
-  <li>Exponentiation</li>
-  <li>Kleen Closure</li>
-  <li>Positive Closure</li>
-  </ol>
+  1. Concatenation
+  1. Union
+  1. Exponentiation
+  1. Kleen Closure
+  1. Positive Closure
 <br><br>
 
 **Regular Expressions:**
@@ -214,13 +210,11 @@ MOVE R1,id1
 
 **Presedence Rules in Regular Expressions:**
 1. Parentheses
-2. * "Kleen Closure"
-3. Concatenation.
-4. |
+1. Kleen Closure
+1. Concatenation
+1.
 
 <!--Regular Definition Rules: -->
-
-
 
 
 
