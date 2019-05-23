@@ -177,9 +177,9 @@ MOVE R1,id1
 ## Lecture 2
 
 ### Lexical Analyzer:
-  It reads the source program character by character to produce tokens.<br>
+*  It reads the source program character by character to produce tokens.<br>
 
-* Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
+* Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br>
 
 ### Tokens:
 
@@ -187,15 +187,14 @@ MOVE R1,id1
 - Additional information should be held for that specific lexeme. This additional information is called as the attribute of the token.
 - Token type and its attribute uniquely identifies a lexeme.
 - Regular expression is used to specify tokens.
-
-<br><br>
+<br>
 
 ### Concepts of Languages:
 
-- Alphabet: set of finite symbols.
-- String: sequence of symbols on an alphabet.
-- Language: consists of set of strings.
-- Operation on Language:
+- *Alphabet:* set of finite symbols.
+- *String:* sequence of symbols on an alphabet.
+- *Language:* consists of set of strings.
+- *Operation on Language:*
     - Concatenation
     - Union
     - Exponentiation
@@ -207,42 +206,46 @@ MOVE R1,id1
 
   - Used to describe tokens.
   - Normally, they are built up of simpler regular expressions.
-  - Regular set: a language denoted by a regular expression.
+  - *Regular set:* a language denoted by a regular expression.
 
 ### Presedence Rules in Regular Expressions:
 
   1. Parentheses
   2. \* "Kleen Closure"
   3. Concatenation.
-  4. |
+  4. \|
 
 ### Regular Definition Rules:
 
 * We can give names to regular expressions, and we can use these names as symbols to define other regular expressions.
 * A regular definition is a sequence of the definitions of the form:
-  ``` d 1 => r 1  
+  ```
+    d 1 => r 1  
     d 2 => r 2  
     .  
     d n => r n  
   ```
 
-Examples:
+*Examples:*
 
 1. Identifiers in Pascal
 
-  ``` letter => A | B | ... | Z | a | b | ... | z  
+  ```
+    letter => A | B | ... | Z | a | b | ... | z  
     digit => 0 | 1 | ... | 9  
     id => letter (letter | digit )*  
   ```
 2. Identifiers in C
 
-  ``` letter => [A-Za-z]
+  ```
+    letter => [A-Za-z]
     digit => [0-9]
     CID => letter_(letter_|digit)\*
   ```
 3. Unsigned numbers in pascal
 
-  ``` digit => 0 | 1 | ... | 9
+  ```
+    digit => 0 | 1 | ... | 9
     digits => digit +
     opt-fraction => ( . digits ) ?
     opt-exponent => ( E (+|-)? digits ) ?
@@ -251,7 +254,8 @@ Examples:
 
 4. Unsigned numbers or floating point numbers in C
 
-  ``` digit => [0-9]
+  ```
+    digit => [0-9]
     digits => digit+
     number => digits(.digits)?(E[+-]? digits)?
   ```
