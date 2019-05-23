@@ -270,7 +270,7 @@ E+E _derives_ from E (we can replace E by E+E)
 
 In general a derivation step is:   
 
-α__A__β ⇒ α__ƴ__β  
+αAβ ⇒ αƴβ  
 if there is a production rule `A → ƴ` in our grammar
 
 |    |       drives in        |
@@ -286,7 +286,8 @@ L(G)
 : the language of G which is a set of sentences.
 
 sentence of L(G)
-: string of terminal symbols of G
+: string of terminal symbols of G  
+
 
 - If S is the start symbol of G then    
 ω is a sentence of L(G)  
@@ -311,6 +312,7 @@ left-most derivation
 ```
 E => -E => -(E) => -(E+E) => -(id+E) => -(id+id)
 ```
+
 right-most derivation
 : If we always choose the right-most non-terminal in each derivation step
 ```
