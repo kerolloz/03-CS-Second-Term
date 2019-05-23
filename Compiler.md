@@ -317,9 +317,24 @@ right-most derivation
 E => -E => -(E) => -(E+E) => -(E+id) => -(id+id)
 ```
 
-At each derivation step, we can choose any of the non-terminal in the
-sentential form of G for the replacement
+At each derivation step, we can choose any of the non-terminal in the sentential form of G for the replacement
 
+- top-down parsers try to find the left-most derivation
+- bottom-up parsers try to find the right-most derivation in the reverse order.
+
+#### Parse Tree
+
+> can be seen as a graphical representation of a derivation
+
+ambiguous grammar
+: produces more than one parse tree for a sentence
+
+For  most parsers, **grammar must be unambiguous**.
+
+unambiguous grammar
+: unique selection of the parse tree for a sentence
+
+eliminate ambiguity during the design phase
 
 ## Lecture 4
 
