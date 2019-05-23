@@ -1,12 +1,12 @@
 # Compiler Lectures
 
-- [Lecture 1](#lecture-1) :heavy_check_mark:
-- [Lecture 2](#lecture-2) :construction:
-- [Lecture 3](#lecture-3) :construction:
-- [Lecture 4](#lecture-4) :heavy_multiplication_x:
-- [Lecture 5](#lecture-5) :heavy_multiplication_x:
-- [Lecture 6](#lecture-6) :heavy_multiplication_x:
-- [Other resources](#other-resources) :heavy_check_mark:
+- [x] [Lecture 1](#lecture-1)
+- [ ] [Lecture 2](#lecture-2) :construction:
+- [ ] [Lecture 3](#lecture-3) :construction:
+- [ ] [Lecture 4](#lecture-4)
+- [ ] [Lecture 5](#lecture-5)
+- [ ] [Lecture 6](#lecture-6)
+- [x] [Other resources](#other-resources)
 
 ## Lecture 1
 
