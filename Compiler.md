@@ -179,12 +179,13 @@ MOVE R1,id1
 
 ## Lecture 2
 
-Lexical Analyzer
-: it reads the source program character by character to produce tokens.<br>
+### Lexical Analyzer:
+* It reads the source program character by character to produce tokens.<br>
 
-> Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.
+* Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.
+<br>
 
-**Tokens:**
+### Tokens:
 
 - Represents a set of strings described by a pattern.
 - Additional information should be held for that specific lexeme. This additional information is called as the attribute of the token.
@@ -222,52 +223,52 @@ Lexical Analyzer
 
 * We can give names to regular expressions, and we can use these names as symbols to define other regular expressions.
 * A regular definition is a sequence of the definitions of the form:
-  ```
-    d 1 => r 1  
-    d 2 => r 2  
+```
+    d1 => r1  
+    d2 => r2  
     .  
-    d n => r n  
-  ```
+    dn => rn  
+```
 
 *Examples:*
 
-1. Identifiers in Pascal
+1. Identifiers in Pascal.
 
-  ```
+```
     letter => A | B | ... | Z | a | b | ... | z  
     digit => 0 | 1 | ... | 9  
     id => letter (letter | digit )*  
-  ```
-2. Identifiers in C
+```
+2. Identifiers in C.
 
-  ```
+```
     letter => [A-Za-z]
     digit => [0-9]
     CID => letter_(letter_|digit)\*
-  ```
-3. Unsigned numbers in pascal
+```
+3. Unsigned numbers in Pascal.
 
-  ```
+```
     digit => 0 | 1 | ... | 9
     digits => digit +
     opt-fraction => ( . digits ) ?
     opt-exponent => ( E (+|-)? digits ) ?
     unsigned-num => digits opt-fraction opt-exponent
-  ```
+```
 
-4. Unsigned numbers or floating point numbers in C
+4. Unsigned numbers or floating point numbers in C.
 
-  ```
+```
     digit => [0-9]
     digits => digit+
     number => digits(.digits)?(E[+-]? digits)?
-  ```
+```
 
 ### Finite Automaton:
 
 - There are two types of FA:
-  - Deterministic: faster, take more space.
-  - Non-deterministic: slower, take less space.
+  - *Deterministic:* faster, take more space.
+  - *Non-deterministic:* slower, take less space.
 - Deterministic is widely used in lexical analyzer.
 - To generate DFA we have two ways:
   - Regular Expression => NFA => DFA
@@ -279,8 +280,8 @@ Lexical Analyzer
 * In DFA, for each symbol a and state s, there is at most one labeled edge a leaving s.
 <br>
 
-  *Thomson's Construction:*
-  * Used to convert reg. expression to NFA.
+*Thomson's Construction:*
+* Used to convert reg. expression to NFA.
 
   Example:
   <!-- place Example image -->
@@ -289,7 +290,8 @@ Lexical Analyzer
 
   Example:
 
-  ``` S 0 = Ɛ-closure({0}) = {0,1,2,4,7}
+```
+    S 0 = Ɛ-closure({0}) = {0,1,2,4,7}
 
     Ɛ-closure(move(S0 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
     Ɛ-closure(move(S0 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
@@ -299,13 +301,14 @@ Lexical Analyzer
 
     Ɛ-closure(move(S2 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
     Ɛ-closure(move(S2 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
-  ```
+```
 
   <!-- place image of NFA -->
 
-  ``` S0 is the start state of DFA since 0 is a member of S0 ={0,1,2,4,7}
+```
+    S0 is the start state of DFA since 0 is a member of S0 ={0,1,2,4,7}
     S1 is an accepting state of DFA since 8 is a member of S1 = {1,2,3,4,6,7,8}
-  ```
+```
 
   <!-- place image of DFA -->
 
@@ -320,16 +323,18 @@ Lexical Analyzer
 
   Example:
 
-  ``` (a\|b) * a         convert it to augmented regular expression.
+```
+    (a\|b) * a         convert it to augmented regular expression.
     (a\|b) * a #       then number each alphabet and #
 
     ( a \| b )* a #
       1   2    3 4    then create syntax tree
-  ```
+```
 
     <!-- place image of syntax tree -->
 
-  ``` first(root) = {1, 2, 3}
+```
+    first(root) = {1, 2, 3}
     followpos(1)={1,2,3}
     followpos(2)={1,2,3}
     followpos(3)={4}
@@ -340,9 +345,9 @@ Lexical Analyzer
     b: followpos(2) = {1, 2, 3} = S1
 
     S2 = {1, 2, 3, 4}
-    a: followpos(1) and followpos(3)={1,2,3,4}=S2
+    a: followpos(1) and followpos(3) = {1, 2, 3, 4} = S2
     b: followpos(2) = {1, 2, 3} = S1
-  ```
+```
 
   <!-- place imageof DFA -->
 
@@ -358,7 +363,8 @@ Lexical Analyzer
 
   <!-- Place image of DFA -->
 
-  ``` G1 = {1, 2, 3}  
+```
+    G1 = {1, 2, 3}  
     G2 = {4}  
 
     for G1:
@@ -375,7 +381,7 @@ Lexical Analyzer
     4 => 2   3
 
     Resulting DFA
-  ```
+```
 
   <!-- place image of minmized DFA -->
 
@@ -383,7 +389,6 @@ Lexical Analyzer
 * The lexical analyzer has to recognize the longest possible string.
 * the end of a token is normally not defined
 * Normally it doesn’t return a comment as a token. So, the comments are only processed by the lexical analyzer, and the don’t complicate the syntax of the language.
-
 
 ## Lecture 3
 
