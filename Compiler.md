@@ -182,16 +182,17 @@ MOVE R1,id1
 Lexical Analyzer
 : it reads the source program character by character to produce tokens.<br>
 
-> Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
+> Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.
 
 **Tokens:**
+
 - Represents a set of strings described by a pattern.
 - Additional information should be held for that specific lexeme. This additional information is called as the attribute of the token.
 - Token type and its attribute uniquely identifies a lexeme.
 - Regular expression is used to specify tokens.
-<br><br>
 
 **Concepts of Languages:**
+
 - Alphabet: set of finite symbols.
 - String: sequence of symbols on an alphabet.
 - Language: consists of set of strings.
@@ -201,14 +202,15 @@ Lexical Analyzer
   1. Exponentiation
   1. Kleen Closure
   1. Positive Closure
-<br><br>
 
 **Regular Expressions:**
-  - Used to describe tokens.
-  - Normally, they are built up of simpler regular expressions.
-  - Regular set: a language denoted by a regular expression.
+
+- Used to describe tokens.
+- Normally, they are built up of simpler regular expressions.
+- Regular set: a language denoted by a regular expression.
 
 **Presedence Rules in Regular Expressions:**
+
 1. Parentheses
 1. Kleen Closure
 1. Concatenation
