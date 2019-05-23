@@ -176,12 +176,12 @@ MOVE R1,id1
 
 ## Lecture 2
 
-###Lexical Analyzer:
+###  Lexical Analyzer:
   It reads the source program character by character to produce tokens.<br>
 
 * Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
 
-###Tokens:
+### Tokens:
 
 - Represents a set of strings described by a pattern.
 - Additional information should be held for that specific lexeme. This additional information is called as the attribute of the token.
@@ -190,7 +190,7 @@ MOVE R1,id1
 
 <br><br>
 
-###Concepts of Languages:
+### Concepts of Languages:
 
 - Alphabet: set of finite symbols.
 - String: sequence of symbols on an alphabet.
@@ -203,20 +203,20 @@ MOVE R1,id1
     - Positive Closure "+"
 <br>
 
-###Regular Expressions:
+### Regular Expressions:
 
   - Used to describe tokens.
   - Normally, they are built up of simpler regular expressions.
   - Regular set: a language denoted by a regular expression.
 
-###Presedence Rules in Regular Expressions:
+### Presedence Rules in Regular Expressions:
 
   1. Parentheses
   2. \* "Kleen Closure"
   3. Concatenation.
   4. |
 
-###Regular Definition Rules:
+### Regular Definition Rules:
 
 * We can give names to regular expressions, and we can use these names as symbols to define other regular expressions.
 * A regular definition is a sequence of the definitions of the form:
@@ -252,7 +252,7 @@ Examples:
   digits => digit+
   number => digits(.digits)?(E[+-]? digits)?`
 
-###Finite Automaton:
+### Finite Automaton:
 
 - There are two types of FA:
   - Deterministic: faster, take more space.
@@ -362,7 +362,7 @@ Examples:
 
   <!-- place image of minmized DFA -->
 
-###Issues in Lexical Analyzer:
+### Issues in Lexical Analyzer:
 * The lexical analyzer has to recognize the longest possible string.
 * the end of a token is normally not defined
 * Normally it doesn’t return a comment as a token. So, the comments are only processed by the lexical analyzer, and the don’t complicate the syntax of the language.
