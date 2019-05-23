@@ -220,10 +220,10 @@ MOVE R1,id1
 
 * We can give names to regular expressions, and we can use these names as symbols to define other regular expressions.
 * A regular definition is a sequence of the definitions of the form:
-  ` d 1 => r 1
-    d 2 => r 2
-    .
-    d n => r n
+  ` d 1 => r 1  
+    d 2 => r 2  
+    .  
+    d n => r n  
   `
 
 Examples:
@@ -301,6 +301,7 @@ Examples:
   `
 
   <!-- place image of DFA -->
+
 **II. DFA Direct Conversion:**
 
 * First we augment the given regular expression by concatenating it with a special symbol #.
@@ -312,10 +313,10 @@ Examples:
 
   Example:
 
-  ` (a|b) * a         convert it to augmented regular expression.
-    (a|b) * a #       then number each alphabet and #
+  ` (a\|b) * a         convert it to augmented regular expression.
+    (a\|b) * a #       then number each alphabet and #
 
-    ( a | b )* a #
+    ( a \| b )* a #
       1   2    3 4    then create syntax tree
   `
 
@@ -350,8 +351,8 @@ Examples:
 
   <!-- Place image of DFA -->
 
-  ` G1 = {1, 2, 3}
-    G2 = {4}
+  ` G1 = {1, 2, 3}  
+    G2 = {4}  
 
     for G1:
          a   b
