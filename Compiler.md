@@ -11,9 +11,9 @@
 ## Lecture 1
 
 Compiler
-: a program that takes a program written in a source language and translates it into an equivalent program in a target language.<br><br>
+: a program that takes a program written in a source language and translates it into an equivalent program in a target language.  
 
-**Techniques** used in compiler design are applicable to many computer science problems. <br><br>
+**Techniques** used in compiler design are applicable to many computer science problems.  
 
 | Techniques used in | Can be used in                                                                 |
 |:-------------------|:-------------------------------------------------------------------------------|
@@ -41,24 +41,24 @@ From source program to target program, the compiler goes through the following p
 | [Code Optimizer](#code-optimizer)                           | optimizes the code produced by the intermediate code generator in the terms of time and space.                                                      |
 | [Code Generator](#code-generator)                           | Produces the target language in a specific architecture. The target program is normally is a relocatable object file containing the machine codes.  |
 
-Each phase transforms the source program from one representation into another. <br>
-They communicate with:
+Each phase transforms the source program from one representation into another.  
 
+They communicate with:
 - error handlers.
 - the symbol table.
 
 ### Lexical Analyzer
 
 > - Puts information about identifiers into the symbol table.
-- Regular expressions are used to describe tokens (lexical constructs).
-- A (Deterministic) Finite State Automaton can be used in the implementation of a lexical analyzer.
+> - Regular expressions are used to describe tokens (lexical constructs).
+> - A (Deterministic) Finite State Automaton can be used in the implementation of a lexical analyzer.
 
 <p id="token"></p> <!-- for reference to token on phases of a compiler  -->
 
 A Token
 : describes a pattern of characters having same meaning in the source program. (such as identifiers, operators, keywords, numbers, delimiters and so on)
 
-Example: <br>
+Example:  
 newval := oldval + 12
 
 | Lexemes | Tokens              |
@@ -75,13 +75,14 @@ newval := oldval + 12
 
 #### Parse Tree
 
-![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg) <br>
+![parse tree](http://img.c4learn.com/2012/01/Parse-Tree-Syntax-Analysis-in-Compiler-Design.jpg)  
 In a parse tree,
 * All terminals are at leaves.
 * All inner nodes are non-terminals in a CFG.
 
-_syntax of a language_ is specified by a __CFG__ (CFG rules are mostly recursive) <br>
-we use BNF to specify a CFG <br><br>
+_syntax of a language_ is specified by a __CFG__ (CFG rules are mostly recursive)  
+we use BNF to specify a CFG  
+
 Example:
 
 ```
@@ -120,13 +121,14 @@ expression -> expression + expression
 - semantic information cannot be represented by a context-free language
 - CFGs used in the syntax analysis are integrated with attributes (semantic rules)
 
-The result is a syntax-directed translation (Attribute grammars)<br>
+The result is a syntax-directed translation (Attribute grammars)  
 
 Example:
 
 ```
-newval := oldval + 12    # The type of the identifier newval must match with type of the expression (oldval+12)
+newval := oldval + 12    
 ```
+` The type of the identifier newval must match with type of the expression (oldval+12)`
 
 ### Intermediate Code Generation
 > The level of intermediate codes is close to the level of machine codes.
@@ -161,7 +163,7 @@ ADD temp1,#1,id1
 
 ### Code Generator
 
-Example: <br>
+Example:  
 (assume that we have an architecture with instructions
 whose at least one of its operands is a machine register)
 
