@@ -230,9 +230,9 @@ Examples:
 
 1. Identifiers in Pascal
 
-  ` letter => A | B | ... | Z | a | b | ... | z
-    digit => 0 | 1 | ... | 9
-    id => letter (letter | digit )\*
+  ` letter => A | B | ... | Z | a | b | ... | z  
+    digit => 0 | 1 | ... | 9  
+    id => letter (letter | digit )*  
   `
 2. Identifiers in C
 
