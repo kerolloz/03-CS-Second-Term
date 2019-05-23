@@ -176,7 +176,7 @@ MOVE R1,id1
 
 ## Lecture 2
 
-###  Lexical Analyzer:
+### Lexical Analyzer:
   It reads the source program character by character to produce tokens.<br>
 
 * Normally a lexical analyzer doesn’t return a list of tokens at one shot, it returns a token when the parser asks a token from it.<br><br>
@@ -197,8 +197,8 @@ MOVE R1,id1
 - Language: consists of set of strings.
 - Operation on Language:
     - Concatenation
-    - Union</li>
-    - Exponentiation</li>
+    - Union
+    - Exponentiation
     - Kleen Closure "\*"
     - Positive Closure "+"
 <br>
@@ -220,37 +220,41 @@ MOVE R1,id1
 
 * We can give names to regular expressions, and we can use these names as symbols to define other regular expressions.
 * A regular definition is a sequence of the definitions of the form:
-  `d 1 => r 1
-  d 2 => r 2
-  .
-  d n => r n`
+  ` d 1 => r 1
+    d 2 => r 2
+    .
+    d n => r n
+  `
 
 Examples:
 
 1. Identifiers in Pascal
 
-  `letter => A | B | ... | Z | a | b | ... | z
-  digit => 0 | 1 | ... | 9
-  id => letter (letter | digit )\*
+  ` letter => A | B | ... | Z | a | b | ... | z
+    digit => 0 | 1 | ... | 9
+    id => letter (letter | digit )\*
   `
 2. Identifiers in C
 
-  `letter => [A-Za-z]
-  digit => [0-9]
-  CID => letter_(letter_|digit)\*
+  ` letter => [A-Za-z]
+    digit => [0-9]
+    CID => letter_(letter_|digit)\*
   `
 3. Unsigned numbers in pascal
 
-  `digit => 0 | 1 | ... | 9
-  digits => digit +
-  opt-fraction => ( . digits ) ?
-  opt-exponent => ( E (+|-)? digits ) ?
-  unsigned-num => digits opt-fraction opt-exponent`
+  ` digit => 0 | 1 | ... | 9
+    digits => digit +
+    opt-fraction => ( . digits ) ?
+    opt-exponent => ( E (+|-)? digits ) ?
+    unsigned-num => digits opt-fraction opt-exponent
+  `
 
 4. Unsigned numbers or floating point numbers in C
-  `digit => [0-9]
-  digits => digit+
-  number => digits(.digits)?(E[+-]? digits)?`
+
+  ` digit => [0-9]
+    digits => digit+
+    number => digits(.digits)?(E[+-]? digits)?
+  `
 
 ### Finite Automaton:
 
@@ -278,21 +282,23 @@ Examples:
 
   Example:
 
-  `S 0 = Ɛ-closure({0}) = {0,1,2,4,7}
+  ` S 0 = Ɛ-closure({0}) = {0,1,2,4,7}
 
-  Ɛ-closure(move(S0 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
-  Ɛ-closure(move(S0 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
+    Ɛ-closure(move(S0 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
+    Ɛ-closure(move(S0 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
 
-  Ɛ-closure(move(S1 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
-  Ɛ-closure(move(S1 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
+    Ɛ-closure(move(S1 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
+    Ɛ-closure(move(S1 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
 
-  Ɛ-closure(move(S2 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
-  Ɛ-closure(move(S2 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2`
+    Ɛ-closure(move(S2 ,a)) = Ɛ-closure({3,8}) = {1,2,3,4,6,7,8} = S1
+    Ɛ-closure(move(S2 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
+  `
 
   <!-- place image of NFA -->
 
-  `S0 is the start state of DFA since 0 is a member of S0 ={0,1,2,4,7}
-  S1 is an accepting state of DFA since 8 is a member of S1 = {1,2,3,4,6,7,8}`
+  ` S0 is the start state of DFA since 0 is a member of S0 ={0,1,2,4,7}
+    S1 is an accepting state of DFA since 8 is a member of S1 = {1,2,3,4,6,7,8}
+  `
 
   <!-- place image of DFA -->
 **II. DFA Direct Conversion:**
@@ -306,27 +312,29 @@ Examples:
 
   Example:
 
-  `(a|b) * a         convert it to augmented regular expression.
-   (a|b) * a #       then number each alphabet and #
+  ` (a|b) * a         convert it to augmented regular expression.
+    (a|b) * a #       then number each alphabet and #
 
-   ( a | b )* a #
-     1   2    3 4    then create syntax tree`
+    ( a | b )* a #
+      1   2    3 4    then create syntax tree
+  `
 
     <!-- place image of syntax tree -->
 
-  `first(root) = {1, 2, 3}
-  followpos(1)={1,2,3}
-  followpos(2)={1,2,3}
-  followpos(3)={4}
-  followpos(4)={}
+  ` first(root) = {1, 2, 3}
+    followpos(1)={1,2,3}
+    followpos(2)={1,2,3}
+    followpos(3)={4}
+    followpos(4)={}
 
-  S1 =firstpos(root)={1,2,3}
-  a: followpos(1) and followpos(3) = {1, 2, 3, 4} = S2
-  b: followpos(2) = {1, 2, 3} = S1
+    S1 =firstpos(root)={1,2,3}
+    a: followpos(1) and followpos(3) = {1, 2, 3, 4} = S2
+    b: followpos(2) = {1, 2, 3} = S1
 
-  S2 = {1, 2, 3, 4}
-  a: followpos(1) and followpos(3)={1,2,3,4}=S2
-  b: followpos(2) = {1, 2, 3} = S1`
+    S2 = {1, 2, 3, 4}
+    a: followpos(1) and followpos(3)={1,2,3,4}=S2
+    b: followpos(2) = {1, 2, 3} = S1
+  `
 
   <!-- place imageof DFA -->
 
@@ -342,23 +350,24 @@ Examples:
 
   <!-- Place image of DFA -->
 
-  `G1 = {1, 2, 3}
-  G2 = {4}
+  ` G1 = {1, 2, 3}
+    G2 = {4}
 
-  for G1:
-       a   b
-  1 => 2   3
-  2 => 2   3
-  ---
-  3 => 4   3
+    for G1:
+         a   b
+    1 => 2   3
+    2 => 2   3
+    ---
+    3 => 4   3
 
-  So, divide G1 into {1, 2} and {3}
+    So, divide G1 into {1, 2} and {3}
 
-  for G2:
-       a   b
-  4 => 2   3
+    for G2:
+         a   b
+    4 => 2   3
 
-  Resulting DFA`
+    Resulting DFA
+  `
 
   <!-- place image of minmized DFA -->
 
