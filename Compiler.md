@@ -2,7 +2,7 @@
 
 - [x] [Lecture 1](#lecture-1)
 - [x] [Lecture 2](#lecture-2)
-- [ ] [Lecture 3](#lecture-3) :construction:
+- [x] [Lecture 3](#lecture-3)
 - [ ] [Lecture 4](#lecture-4)
 - [ ] [Lecture 5](#lecture-5)
 - [ ] [Lecture 6](#lecture-6)
@@ -488,7 +488,7 @@ E => -E => -(E) => -(E+E) => -(E+id) => -(id+id)
 
 At each derivation step, we can choose any of the non-terminal in the sentential form of G for the replacement
 
-- top-down parsers try to find the left-most derivation
+- top-down parsers try to find the left-most derivation.
 - bottom-up parsers try to find the right-most derivation in the reverse order.
 
 #### Parse Tree & Ambiguity
@@ -545,7 +545,118 @@ G ⇒ id | (E)
 left recursive grammar
 : has a non-terminal A such that there is a derivation.
 
-`A ⇒+ Aα ` for some string α
+`A ⇒+ Aα ` for some string α  
+
+ > Top-down parsing cannot handle left-recursive grammars.
+
+we have to convert left-recursive grammar to an equivalent NON left-recursive grammar.
+
+immediate left-recursion
+: when left-recursion appear in a single step of the derivation
+
+The left-recursion may appear in one or more steps of the derivation.
+
+Example 1:  
+
+![immediate left recursion elimination example](./pics/compiler/9.png)
+
+---
+
+Example 2:  
+
+![immediate left recursion elimination example2](./pics/compiler/10.png)
+
+> Note that eliminating the **immediate left-recursion**, doesn't mean that the grammar is _NOT_ **left-recursive**.
+
+For example:  
+![left recursive grammar](./pics/compiler/11.png)
+
+#### Eliminate Left-Recursion -- Algorithm
+
+```algorithm
+- Arrange non-terminals in some order: A 1 ... A n
+- for i from 1 to n do {
+  - for j from 1 to i-1 do {
+    replace each production
+    Ai -> Aj y
+      by
+    Ai -> α1 y | ... | αk y
+    where Aj -> α1 | ... | αk
+  }
+  - eliminate immediate left-recursions among Ai productions
+}
+```
+**Example**:
+```
+S -> Aa | b
+A -> Ac | Sd | f
+
+- Order of non-terminals: S, A  
+for S:
+  - we do not enter the inner loop.
+  - there is no immediate left recursion in S.
+for A:  
+  - Replace A -> Sd with A -> Aad | bd
+  So, we will have A -> Ac | Aad | bd | f
+  - Eliminate the immediate left-recursion in A
+    A -> bdA’ | fA’  
+    A’ -> cA’ | adA’ | ε
+So, the resulting equivalent grammar which is not left-recursive is:
+  S -> Aa | b  
+  A -> bdA’ | fA’  
+  A’ -> cA’ | adA’ | ε
+```
+
+### Left-Factoring
+
+A predictive parser
+: a top-down parser without backtracking  
+insists that the grammar must be left-factored.  
+
+if we have  
+> `A -> α β1 | α β2`
+
+when processing α we cannot know whether expand  
+`A to α β1`  
+  or  
+`A to α β2`
+
+But, if we re-write the grammar as follows  
+`A -> αA ’`  
+`A’ -> β1 | β2  so, we can immediately expand A to αA’``
+
+#### Left-Factoring -- Algorithm
+
+![left recursive algorithm](./pics/compiler/12.png)
+
+##### Example 1
+
+```
+A -> abB | aB | cdg | cdeB | cdfB
+
+A -> aA ’ | cdg | cdeB | cdfB
+A ’ -> bB | B
+
+A -> aA ’ | cdA ’’
+A ’ -> bB | B
+A ’’ -> g | eB | fB
+```
+
+---
+
+##### Example 2
+
+```
+A -> ad | a | ab | abc | b
+
+A -> aA’ | b
+A’ -> d | ε | b | bc
+
+A -> aA’ | b
+A’ -> d | ε | bA’’
+A’’ -> ε | c
+```
+
 
 
 ## Lecture 4
