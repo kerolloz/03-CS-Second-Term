@@ -617,8 +617,8 @@ when processing α we cannot know whether expand
 `A to α β2`
 
 But, if we re-write the grammar as follows  
-` A -> αA’ `  
-` A’ -> β1 | β2  so, we can immediately expand A to αA’ `
+`A -> αA’`  
+`A’ -> β1 | β2  so, we can immediately expand A to αA’`
 
 #### Left-Factoring -- Algorithm
 
