@@ -1,7 +1,7 @@
 # Compiler Lectures
 
 - [x] [Lecture 1](#lecture-1)
-- [x] [Lecture 2](#lecture-2) 
+- [x] [Lecture 2](#lecture-2)
 - [ ] [Lecture 3](#lecture-3) :construction:
 - [ ] [Lecture 4](#lecture-4)
 - [ ] [Lecture 5](#lecture-5)
@@ -283,7 +283,7 @@ MOVE R1,id1
 * Used to convert reg. expression to NFA.
 
   Example:<br>
-  <!-- place Example image -->
+  ![Thomson](./pics/compiler/2.png)
 
   * We use the generated NFA is converted then to DFA.
 
@@ -302,14 +302,14 @@ MOVE R1,id1
     Ɛ-closure(move(S2 ,b)) = Ɛ-closure({5}) = {1,2,4,5,6,7} = S2
 ```
 
-  <!-- place image of NFA -->
+![Thomson](./pics/compiler/3.png)
 
 ```
     S0 is the start state of DFA since 0 is a member of S0 ={0,1,2,4,7}
     S1 is an accepting state of DFA since 8 is a member of S1 = {1,2,3,4,6,7,8}
 ```
 
-  <!-- place image of DFA -->
+![](./pics/compiler/4.png)
 
 **II. DFA Direct Conversion:**
 
@@ -323,14 +323,14 @@ MOVE R1,id1
   Example:
 
 ```
-    (a\|b) * a         convert it to augmented regular expression.
-    (a\|b) * a #       then number each alphabet and #
+    (a|b) * a         convert it to augmented regular expression.
+    (a|b) * a #       then number each alphabet and #
 
-    ( a \| b )* a #
-      1   2    3 4    then create syntax tree
+    ( a | b ) * a  #
+      1   2     3  4    then create syntax tree
 ```
 
-    <!-- place image of syntax tree -->
+![](./pics/compiler/5.png)
 
 ```
     first(root) = {1, 2, 3}
@@ -348,7 +348,7 @@ MOVE R1,id1
     b: followpos(2) = {1, 2, 3} = S1
 ```
 
-  <!-- place imageof DFA -->
+![](./pics/compiler/6.png)
 
 **DFA Minimization:**
 * partition the set of states into two groups:
@@ -360,7 +360,7 @@ MOVE R1,id1
 
   Example:
 
-  <!-- Place image of DFA -->
+  ![DFA](./pics/compiler/7.png)
 
 ```
     G1 = {1, 2, 3}  
@@ -382,7 +382,7 @@ MOVE R1,id1
     Resulting DFA
 ```
 
-  <!-- place image of minmized DFA -->
+![Minimized DFA](./pics/compiler/8.png)
 
 ### Issues in Lexical Analyzer:
 * The lexical analyzer has to recognize the longest possible string.
