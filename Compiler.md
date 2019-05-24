@@ -232,21 +232,18 @@ MOVE R1,id1
 *Examples:*
 
 1. Identifiers in Pascal.
-
 ```
     letter => A | B | ... | Z | a | b | ... | z  
     digit => 0 | 1 | ... | 9  
     id => letter (letter | digit )*  
 ```
-2. Identifiers in C.
-
+1. Identifiers in C.
 ```
     letter => [A-Za-z]
     digit => [0-9]
     CID => letter_(letter_|digit)\*
 ```
-3. Unsigned numbers in Pascal.
-
+1. Unsigned numbers in Pascal.
 ```
     digit => 0 | 1 | ... | 9
     digits => digit +
@@ -254,9 +251,7 @@ MOVE R1,id1
     opt-exponent => ( E (+|-)? digits ) ?
     unsigned-num => digits opt-fraction opt-exponent
 ```
-
-4. Unsigned numbers or floating point numbers in C.
-
+1. Unsigned numbers or floating point numbers in C.
 ```
     digit => [0-9]
     digits => digit+
