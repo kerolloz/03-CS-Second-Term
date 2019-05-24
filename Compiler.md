@@ -3,7 +3,7 @@
 - [x] [Lecture 1](#lecture-1)
 - [x] [Lecture 2](#lecture-2)
 - [x] [Lecture 3](#lecture-3)
-- [ ] [Lecture 4](#lecture-4)
+- [ ] [Lecture 4](#lecture-4) :construction:
 - [ ] [Lecture 5](#lecture-5)
 - [ ] [Lecture 6](#lecture-6)
 - [x] [Other resources](#other-resources)
