@@ -1,7 +1,7 @@
 # Computer Architecture Lectures
 
-- [x] [Lecture 1](#lecture-1):construction:
-- [ ] [Lecture 2](#lecture-2)
+- [x] [Lecture 1](#lecture-1)
+- [ ] [Lecture 2](#lecture-2):construction:
 - [ ] [Lecture 3](#lecture-3)
 - [ ] [Lecture 4](#lecture-4)
 - [ ] [Lecture 5](#lecture-5)
@@ -95,3 +95,5 @@ computer architecture = Machine organization + Instruction Set Architecture.
 * Instruction Set Architecture (ISA): Interfaces the software to the hardware, and provides support for programming.
 
 <!-- place image of ISA -->
+
+## Lecture 2
