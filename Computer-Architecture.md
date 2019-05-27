@@ -103,10 +103,10 @@ Simply:
 >Computer Architecture = Machine organization + Instruction Set Architecture
 
 
-* Instruction Set Architecture (ISA): Interfaces the software to the hardware, and provides support for programming.
-
-* It provides the mechanism by which the software tells the
-hardware what should be done.
+### Instruction Set Architecture (ISA)
+> * Interfaces the software to the hardware
+> * provides support for programming.
+> * provides the mechanism by which the software tells the hardware what should be done.
 
 ![ISA](./pics/ca/5.png)
 
