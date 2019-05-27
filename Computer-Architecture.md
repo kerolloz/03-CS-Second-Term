@@ -175,3 +175,4 @@ there are 5(0 -> 4) types of them:
 
 *[ALU]: Arithmetic Logic Unit
 *[PSW]: Processor Status Word
+*[ISA]: Instruction Set Architecture
