@@ -99,7 +99,7 @@ Loader
 
 ### What is computer architecture?
 
-Simply:
+Simply,
 >Computer Architecture = Machine organization + Instruction Set Architecture
 
 
@@ -112,67 +112,88 @@ Simply:
 
 ## Lecture 2
 
-**ISA Components:**
+### ISA Components
  - Storage cells: registers, memory.
  - Machine Instruction Set: set of possible operations.
  - The instruction format: Size and meaning of fields within the instruction.
 
-**Every instruction need to specify four things:**
+**Every instruction need to specify four _(1 which +  3 where)_ things:**
 1. Which operation to perform.
 1. Where to find the operand or operands, if there are operands.
 1. Where to put the result, if there is a result.
 1. Where to find the next instruction.
 
-*Example:*
-MOVE.W D4, D5
+*Example:*  
 
-MOVE => operations
-D4 => location of the operands
-D5 => location to put the results
-Find next instruction => implicitly in the word following this instruction.
+`MOVE.W D4, D5`  
+
+MOVE => operations  
+D4 => location of the operands  
+D5 => location to put the results  
+Find next instruction => implicitly in the word following this instruction.  
 
 
-**Instruction Cycle:**
-<!-- place image of IC slide 9 -->
+### Instruction Cycle
 
-* Fetch: get the instruction from memory into the processor.
-* Decode: internally decode what it has to do.
-* Execute: take the values from the registers, actually add them together.
-* Store: store the result back into another register.
+![Instruction Cycle](./pics/ca/6.png)
 
-**Classes of instructions:**
-1. Data movement instructions: Load, Store.
-1. Arithmetic and logic (ALU) instructions: Add, Sub, Shift...
-1. Branch instructions(control flow instructions): Br, Brz.
+ Fetch
+: get the instruction from memory into the processor.
 
-**Program Counter (PC)**
-* The program counter (PC) incremented during the instruction fetch to point to the next instruction to be executed.
-* Controls program flow.
+ Decode
+: internally decode what it has to do.
 
-**Branch target address:**
-* A target address is specified in a branch or jump instruction.
+ Execute
+: take the values from the registers, actually add them together.
+
+ Store
+: store the result back into another register.
+
+### Classes of instructions
+
+1. _Data movement instructions_: `Load, Store`
+1. _Arithmetic and logic_ (ALU) instructions: `Add, Sub, Shift`
+1. _Branch_ instructions(control flow instructions): `Br, Brz`
+
+### Program Counter (PC)
+
+* _incremented_ during the _instruction fetch_ to _point_ to the _next instruction_ to be executed.
+* controls program flow.
+
+### Branch target address
+
+* A target address is specified in a `branch` or `jump` instruction.
 * The target address is loaded into the PC, replacing the address stored there.
 * A branch may be:
-  - Unconditional, as is the C goto statement.
-  - Conditional, which means it depends on whether some condition within the processor state is true or false.
+  - **Unconditional**, as is the C `goto` statement.
+  - **Conditional**, depends on whether some condition within the processor state is true or false.
 
-**Condition Code (CC):**
- - There is no machine instruction that corresponds directly to the conditional statements.
- - The approach most machines take is to set various status flags within the CPU as a result of ALU operations.
- - the condition code register also called
-    * the processor status word (PSW).
-    * the status register.
- - It is the bit or bits that describe the condition are stored in it.
+### Condition Code (CC)
+> The bit(s) that describe the condition stored in it.
+>> also called:
+* the processor status word (PSW).
+* the status register.
 
-**Hypothetical machine models:**
+- **No** machine instruction corresponds directly to the conditional statements.
 
-there are 5(0 -> 4) types of them:
-  1. 3 address instruction: specifies memory addresses for both operands and the result.
-  1. 2 address instruction: overwrites one operand in memory with the result.
-  1. 1 address instruction: has a register, called the accumulator register to hold one operand & the result.
-  1. 0 address instruction: uses a CPU register stack to hold both operands and the result.
-  1. 4 address instruction: like 3 address but also allows the address of the next instruction to specified explicitly.
+> The approach most machines take is to set various ___status flags___ within the CPU as a result of ALU operations.
+
+- The instruction set contains a number of conditional branch instructions that test various of these flags and then branch or not according to their settings.
+
+### Hypothetical machine models
+
+there are **5** types of them:
+
+|  address instruction  |                                             use                                             |
+|:---------------------:|:-------------------------------------------------------------------------------------------:|
+| 3 address instruction |                     memory addresses for both operands and the result.                      |
+| 2 address instruction |                      overwrites one operand in memory with the result                       |
+| 1 address instruction |                 a register **(accumulator)** hold one operand & the result.                 |
+| 0 address instruction |              a CPU register **(stack)** to hold both operands and the result.               |
+| 4 address instruction | like 3 address but also allows the address of the next instruction to specified explicitly. |
 
 *[ALU]: Arithmetic Logic Unit
 *[PSW]: Processor Status Word
 *[ISA]: Instruction Set Architecture
+*[PC]: Program Counter
+*[CC]: Condition Code
