@@ -2,7 +2,7 @@
 
 - [x] [Lecture 1](#lecture-1)
 - [x] [Lecture 2](#lecture-2)
-- [ ] [Lecture 3](#lecture-3):construction:
+- [ ] [Lecture 3](#lecture-3) :construction:
 - [ ] [Lecture 4](#lecture-4)
 - [ ] [Lecture 5](#lecture-5)
 - [ ] [Lecture 6](#lecture-6)
@@ -12,42 +12,36 @@
 ### What is inside a computer?
 
 There are **five** classic components of a computer:
-  1. **Processor**:
-    * Divided into two groups:
-      - **Data section (_data path_)**:
-          * contains the registers and the Arithmetic Logic unit.
-          * is capable of performing certain operations on data items.
-      - **Control section**:
-          * the control unit that generates control signals that direct the operation of memory and data path.
-          * control signals do the following:
-            - tell memory to send or receive data.
-            - tell the ALU what operation to perform.
-            - route data between different parts of the data path.
-
-  1. **Registers**:
-    * the storage element for data inside the CPU.
-    * hold temporary data during calculations.
-    * faster in accessing than memory.
-
-  1. **Main Memory**:
-    * Large collection of circuits, each capable of storing a single bit and is arranged in small cells.
-    * Each cell has a unique address
-    * Longer strings stored by using consecutive cells.
-
-    ![main memory](./pics/ca/1.png)
-
-  1. **System Bus**:
-    * Group of signal lines have the same function.
-    * Allow transferring the signals between different parts of the computer and from one device to another.
-    * There are **three** types of system buses:
-      - _data_ bus:
-        * transfers data from CPU to memory and vice-versa.
-        * connects I/O ports and CPU.
-      - _address_ bus: determines where the address of memory locations should be sent.
-      - _control_ bus: determines the operation.
-
-      ![system bus](./pics/ca/2.png)
-
+1. **Processor**:
+  * Divided into two groups:
+    - **Data section (_data path_)**:
+        * contains the registers and the Arithmetic Logic unit.
+        * is capable of performing certain operations on data items.
+    - **Control section**:
+        * the control unit that generates control signals that direct the operation of memory and data path.
+        * control signals do the following:
+          - tell memory to send or receive data.
+          - tell the ALU what operation to perform.
+          - route data between different parts of the data path.
+1. **Registers**:
+  * the storage element for data inside the CPU.
+  * hold temporary data during calculations.
+  * faster in accessing than memory.
+1. **Main Memory**:
+  * Large collection of circuits, each capable of storing a single bit and is arranged in small cells.
+  * Each cell has a unique address
+  * Longer strings stored by using consecutive cells.
+  ![main memory](./pics/ca/1.png)
+1. **System Bus**:
+  * Group of signal lines have the same function.
+  * Allow transferring the signals between different parts of the computer and from one device to another.
+  * There are **three** types of system buses:
+    - _data_ bus:
+      * transfers data from CPU to memory and vice-versa.
+      * connects I/O ports and CPU.
+    - _address_ bus: determines where the address of memory locations should be sent.
+    - _control_ bus: determines the operation.
+    ![system bus](./pics/ca/2.png)
 
 
 there are two pieces of information that should be known to solve this example:
@@ -98,7 +92,7 @@ Assembler
 : converts assembly language program to machine language.
 
 Linker
-:links separately assembled modules together into a single module suitable for loading and execution.
+: links separately assembled modules together into a single module suitable for loading and execution.
 
 Loader
 : part of operating system responsible for loading executable files into memory and execute them.
