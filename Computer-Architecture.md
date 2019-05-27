@@ -9,50 +9,52 @@
 
 ## Lecture 1
 
-**What is inside a computer?**
-- There are five classic components of a computer.
-  1. Processor:
+### What is inside a computer?
+
+There are **five** classic components of a computer:
+  1. **Processor**:
     * Divided into two groups:
-      - Data section:
-          * also called datapath.
+      - **Data section (_data path_)**:
           * contains the registers and the Arithmetic Logic unit.
           * is capable of performing certain operations on data items.
-      - Control section:
-          * the control unit that generates control signals that direct the operation of memory and datapath.
+      - **Control section**:
+          * the control unit that generates control signals that direct the operation of memory and data path.
           * control signals do the following:
             - tell memory to send or receive data.
             - tell the ALU what operation to perform.
-            - route data between different parts of the datapath.
+            - route data between different parts of the data path.
 
-  2. Registers:
+  1. **Registers**:
     * the storage element for data inside the CPU.
     * hold temporary data during calculations.
     * faster in accessing than memory.
 
-  3. Main Memory:
+  1. **Main Memory**:
     * Large collection of circuits, each capable of storing a single bit and is arranged in small cells.
     * Each cell has a unique address
     * Longer strings stored by using consecutive cells.
-    <!-- place image of main memory -->
 
-  4. System Bus:
+    ![main memory](./pics/ca/1.png)
+
+  1. **System Bus**:
     * Group of signal lines have the same function.
     * Allow transferring the signals between different parts of the computer and from one device to another.
-    * There are three types of system buses:
-      - data bus:
-        * transfer data from CPU to memory and vice-versa.
+    * There are **three** types of system buses:
+      - _data_ bus:
+        * transfers data from CPU to memory and vice-versa.
         * connects I/O ports and CPU.
-      - address bus: determine where the address of memory locations should be sent.
-      - control bus: determine the operation.
+      - _address_ bus: determines where the address of memory locations should be sent.
+      - _control_ bus: determines the operation.
 
-      <!-- place image of system bus -->
+      ![system bus](./pics/ca/2.png)
+
 
 
 there are two pieces of information that should be known to solve this example:
 1. If there are N address lines in address bus, that means we can directly address 2^N of memory locations.
 in other words, if we have N address lines, then our memory has 2^N cell.
 
-2. The number of data lines used in the data bus is equal to the
+1. The number of data lines used in the data bus is equal to the
 size of data word that can be written or read.
 
 *Example:*
@@ -73,31 +75,46 @@ N =  9.
 
 ---
 
-**Levels of transformation**
-<!-- place image of levels -->
-* They create abstraction.
-* Abstraction: A higher level only needs to know about the interface to the lower level, not how the lower level is implemented.
-* it improves the productivity.
+### Levels of transformation
 
-**Convert C program to machine language:**
-<!-- place image of phases -->
+![levels of transformation](./pics/ca/3.png)
+![levels of transformation](./pics/ca/my-diagram.png)  
 
-* Machine Language is fundamental instructions expressed as 0s and 1s.
-* Assembly Language is human-readable equivalent of machine language.
-* Assembler converts assembly language program to machine language.
-* Linker links separately assembled modules together into a single module suitable for loading and execution.
-* Loader is a part of operating system and is responsible for loading executable files into memory and execute them.
+Abstraction
+: A higher level only needs to know about the **interface** to the lower level, _not how the lower level is implemented._
 
-**What is computer architecture?**
+
+### Convert C program to machine language:
+
+![levels of transformation](./pics/ca/4.png)
+
+Machine Language
+: fundamental instructions expressed as 0s and 1s.
+
+Assembly Language
+: human-readable equivalent of machine language.
+
+Assembler
+: converts assembly language program to machine language.
+
+Linker
+:links separately assembled modules together into a single module suitable for loading and execution.
+
+Loader
+: part of operating system responsible for loading executable files into memory and execute them.
+
+### What is computer architecture?
+
 Simply:
-computer architecture = Machine organization + Instruction Set Architecture.
+>Computer Architecture = Machine organization + Instruction Set Architecture
+
 
 * Instruction Set Architecture (ISA): Interfaces the software to the hardware, and provides support for programming.
 
 * It provides the mechanism by which the software tells the
 hardware what should be done.
 
-<!-- place image of ISA -->
+![ISA](./pics/ca/5.png)
 
 ## Lecture 2
 
@@ -108,9 +125,9 @@ hardware what should be done.
 
 **Every instruction need to specify four things:**
 1. Which operation to perform.
-2. Where to find the operand or operands, if there are operands.
-3. Where to put the result, if there is a result.
-4. Where to find the next instruction.
+1. Where to find the operand or operands, if there are operands.
+1. Where to put the result, if there is a result.
+1. Where to find the next instruction.
 
 *Example:*
 MOVE.W D4, D5
@@ -131,8 +148,8 @@ Find next instruction => implicitly in the word following this instruction.
 
 **Classes of instructions:**
 1. Data movement instructions: Load, Store.
-2. Arithmetic and logic (ALU) instructions: Add, Sub, Shift...
-3. Branch instructions(control flow instructions): Br, Brz.
+1. Arithmetic and logic (ALU) instructions: Add, Sub, Shift...
+1. Branch instructions(control flow instructions): Br, Brz.
 
 **Program Counter (PC)**
 * The program counter (PC) incremented during the instruction fetch to point to the next instruction to be executed.
@@ -154,9 +171,13 @@ Find next instruction => implicitly in the word following this instruction.
  - It is the bit or bits that describe the condition are stored in it.
 
 **Hypothetical machine models:**
-there are 5 types of them:
+
+there are 5(0 -> 4) types of them:
   1. 3 address instruction: specifies memory addresses for both operands and the result.
-  2. 2 address instruction: overwrites one operand in memory with the result.
-  3. 1 address instruction: has a register, called the accumulator register to hold one operand & the result.
-  4. 0 address instruction: uses a CPU register stack to hold both operands and the result.
-  5. 4 address instruction: like 3 address but also allows the address of the next instruction to specified explicitly.
+  1. 2 address instruction: overwrites one operand in memory with the result.
+  1. 1 address instruction: has a register, called the accumulator register to hold one operand & the result.
+  1. 0 address instruction: uses a CPU register stack to hold both operands and the result.
+  1. 4 address instruction: like 3 address but also allows the address of the next instruction to specified explicitly.
+
+*[ALU]: Arithmetic Logic Unit
+*[PSW]: Processor Status Word
