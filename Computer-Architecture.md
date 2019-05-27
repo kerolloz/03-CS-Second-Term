@@ -127,9 +127,9 @@ Simply,
 
 `MOVE.W D4, D5`  
 
-MOVE => operations  
-D4 => location of the operands  
-D5 => location to put the results  
+MOVE => operation  
+D4 => location of the operand  
+D5 => location to put the result  
 Find next instruction => implicitly in the word following this instruction.  
 
 
@@ -137,17 +137,19 @@ Find next instruction => implicitly in the word following this instruction.
 
 ![Instruction Cycle](./pics/ca/6.png)
 
- Fetch
+For example, to do the add instruction:
+
+Fetch
 : get the instruction from memory into the processor.
 
- Decode
+Decode
 : internally decode what it has to do.
 
- Execute
+Execute
 : take the values from the registers, actually add them together.
 
- Store
-: store the result back into another register.
+Store
+: store the result back into another register.(_retiring_ the instruction)
 
 ### Classes of instructions
 
