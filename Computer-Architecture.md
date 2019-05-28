@@ -205,19 +205,17 @@ there are **5** types of them:
 
 ## Lecture 3
 
-for a 2-operand arithmetic instruction we need to specify:
-1. The operation to be performed.
-1. Location of the 1st operand.
-1. Location of the 2nd operand.
-1. Place to store the result.
-1. Location of next instruction to be performed
-
+- for a 2-operand arithmetic instruction we need to specify:
+  1. The operation to be performed.
+  1. Location of the 1st operand.
+  1. Location of the 2nd operand.
+  1. Place to store the result.
+  1. Location of next instruction to be performed
 - the variation in specifying the five items makes various types of hypothetical machine models.  
 - in each machine we study the encoding of an ALU instruction.  
 
 
-
-* assume the following:
+- assume the following:
  - data lines in data bus = 24 => then size of data word = 3 Bytes.
  - address lines = 24 => then the size of address of each operand = 3 Bytes
  - we have 128 instructions then every instruction is encoded in 7 bit ≅ 8 Bits (1 byte) (approximately)
@@ -231,28 +229,32 @@ for a 2-operand arithmetic instruction we need to specify:
 |            number of memory Accesses            | 5 (for fetching the instruction) + 2 (for fetching the 1st and 2nd operands) + 1 (for storing the result) = 8 memory accesses | 4 (for fetching the instruction) +  2 (for fetching the 1st and 2nd operands) +1 (for storing the result) = 7 memory accesses | 3 (for fetching the instruction) + 2 (for fetching the 1st and 2nd operands) + 1 (for storing the result) = 6 memory accesses | 2 (for fetching the instruction) + 1 (for fetching one operand or storing the result) = 3 memory accesses |
 | PC register handles address of next instruction |                                                              :x:                                                              |                                                      :heavy_check_mark:                                                       |                                                      :heavy_check_mark:                                                       |                                            :heavy_check_mark:                                             |
 
+<br>
+<br>
 
-- 4-address machine
+#### 4-address machine
 
-*NOTE:* not normally seen in machine design, Because of the large instruction word size and number of memory accesses.  
+>*NOTE:* not normally seen in machine design, Because of the large instruction word size and number of memory accesses.  
+
 ![4-address machine](./pics/ca/7.png)  
 
-- 3-address machine
+#### 3-address machine
 
 ![3-address machine](./pics/ca/8.png)  
 
-- 2-address machine
+#### 2-address machine
 
 ![2-address machine](./pics/ca/9.png)  
 
-- 1-address machine (accumulator machine)
+#### 1-address machine (accumulator machine)
+>- Requires two special instructions:
+    * LDA Addr; Load the content of Addr to accumulator.
+    * STA Addr; Stores the content of accumulator to address Addr.
+ - Generally provide a minimum in the size of both program and CPU memory required.
+
 
 ![1-address machine](./pics/ca/10.png)  
 
-  - Requires two special instructions:
-      * LDA Addr; Load the content of Addr to accumulator.
-      * STA Addr; Stores the content of accumulator to address Addr.
-  - Generally provide a minimum in the size of both program and CPU memory required.
 
 
 *Example:*
@@ -513,17 +515,14 @@ CISC
 - Constants cl, c2, c3.
 - The notation `M[x]` means the value stored at word x in memory.
 
+
 1. Accessing Memory: The Load and Store Instructions
   - The load and store instructions are the only SRC instructions to access operands in memory.
 ![examples](./pics/ca/21.png)  
-
-*Example:*
-
-Encode the instruction `ld r22, 24(r4)`.
-the opcode for ld = 1.
-
-*Solution:*
-
+*Example:*  
+Encode the instruction `ld r22, 24(r4)`.  
+the opcode for ld = 1.  
+*Solution:*  
 the instruction means:
 ```
   R[r22] = M[24 + R[r4]];
@@ -534,23 +533,21 @@ the instruction means:
     1      22     4           24
   00001  10110  00100  00000000000011000
 ```
-2. Arithmetic and Logic Instructions:
+1. Arithmetic and Logic Instructions:
   - The instruction neg (op = 15): takes the 2's complement of the contents of register R[rc] and stores it in register R[ra].
   - The not (op = 24) instruction: takes the logical (1's) complement of the contents of register R[rc] and stores it in register R[ra].
-
-  * Review: (1's) complement
+  * Review: (1's) complement  
   ![Review](./pics/ca/22.png)   
- * Review: (2's) complement
- ![Review](./pics/ca/23.png)   
-
+  * Review: (2's) complement  
+  ![Review](./pics/ca/23.png)   
   There are two types of ALU instructions:  
     * Register ALU Instructions: add, sub, and, or.
     * Immediate Addressing ALU Instructions: addi, andi, ori.
-
+    ```
     Add: adds the value in two registers.
     Addi: adds an immediate value (constant) to the register.
-
-3. Miscellaneous Instructions
+    ```
+1. Miscellaneous Instructions
 
 | instruction | opcode |              purpose               |
 |:-----------:|:------:|:----------------------------------:|
