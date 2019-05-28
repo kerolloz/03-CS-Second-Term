@@ -7,8 +7,8 @@
 - [x] [Lecture 5](#lecture-5)
 - [x] [Lecture 6](#lecture-6)
 - [x] [Lecture 7](#lecture-7)
-- [ ] [Lecture 8](#lecture-8) :construction:
-- [ ] [Lecture 9](#lecture-9)
+- [x] [Lecture 8](#lecture-8)
+- [x] [Lecture 9](#lecture-9)
 
 ## Lecture 1
 
@@ -570,3 +570,112 @@ the instruction means:
   https://www.youtube.com/watch?v=jFDMZpkUWCw
 
 ## Lecture 8
+
+4. Shift instructions: Shift the operand in R[rb] right, or left," from 1 to 32 bits,
+and place the result in R[ra].
+- The amount of the shift is governed by an encoded 5-bit unsigned integer, so shifts from 0 to 31 bits are possible.
+- The integer representing the shift count is stored as an immediate value in the 5 least significant bits in the instruction.
+- for example: shr shifts zeros in from the left as the value is shifted right.
+
+5. Branch Instructions:
+<!-- place image of the table -->
+
+## Lecture 9
+
+**Instruction Processing “Cycle”:**
+  - Instructions are processed under the direction of a “control unit” step by step.
+  - Instruction cycle: Sequence of steps to process an instruction
+  - Fundamentally, there are six phases:
+    1. Fetch
+    2. Decode
+    3. Evaluate Address
+    4. Fetch Operands
+    5. Execute
+    6. Store Result
+  - Not all instructions require all six phases
+
+**Instruction Processing “Cycle” vs. Machine Clock Cycle:**
+1. Single-cycle machine: All six phases of the instruction processing cycle take a single machine clock cycle to complete.
+  - All state updates made at the end of an instruction’s execution.
+  - Big disadvantage: The slowest instruction determines cycle time, Therefore, long clock cycle time.
+<!-- place image of SCM -->
+2. Multi-cycle machine: All six phases of the instruction processing cycle can take multiple machine clock cycles to complete.
+  - In fact, each phase can take multiple clock cycles to complete
+  - Instruction processing broken into multiple cycles/stages
+  - State updates can be made during an instruction’s execution
+  - Architectural state updates made only at the end of an instruction’s execution
+  - Advantage over single-cycle: The slowest “stage” determines cycle time.
+  <!-- place image of MCM -->
+
+**Single-cycle vs. Multi-cycle:
+Control & Data**
+                                  control                               data
+Single-cycle machine:       Control signals are generated        Everything related to an instruction
+                            in the same clock cycle as the       happens in one clock cycle (serialized
+                            one during which data signals        processing)
+                            are operated on.
+
+Multi-cycle machine:        Control signals needed                Latency of control processing can be
+                            in the next cycle can be              overlapped with latency of datapath
+                            generated in the current cycle        operation (more parallelism)
+
+**Performance of Computer Systems:**
+- *Response time:* the time between the start and the completion of a task (in time units)
+- *Throughput:* the total amount of tasks done in a given time period (in number of tasks per unit of time)
+
+- The computer user is interested in response time (or execution time) – the time between the start and completion of a given task (program).
+- The manager of a data processing center is interested in throughput – the total amount of work done in given time.
+- The computer user wants response time to decrease, while the manager wants throughput increased.
+
+**CPU Time or CPU Execution Time:**
+CPU time (or CPU Execution time) is the time between the start and the end of execution of a given program.
+
+- This time accounts for the time CPU is computing the given program, including operating system routines executed on the program’s behalf.
+- It does not include the time waiting for I/O and running other programs.
+- CPU time is a true measure of processor/memory performance.
+
+**Analysis of CPU Time:**
+
+CPU time depends on the program which is executed, including:
+- the number of instructions executed,
+- types of instructions executed and their frequency of usage.
+
+**Clock rate:**
+- refers to the frequency at which a chip like a central processing unit (CPU) is running and is used as an indicator of the processor's speed
+- is given in Hz (=1/sec).
+- defines duration of discrete time intervals called clock cycle times or clock cycle periods:
+      clock_cycle_time = 1/clock_rate (in sec)
+
+<!-- place table of units -->
+
+
+*Example:*
+A processor having a clock cycle time of 0.25 nsec will have a clock rate of …….
+- 1000MHz
+- 2000MHz
+- 3000MHz
+- **4000MHz**
+
+Solution:
+  Clock cycle time C is the reciprocal of the clock rate f:
+  C = 1 / f
+  f= 1/C = 1/0.25ns = 4 GHz or 4000 MHz
+
+**CPU Time Equation:**
+  CPU time = Clock cycles for a program * Clock cycle time
+           = Clock cycles for a program / Clock rate
+           = Instruction count * CPI / Clock rate
+- Clock cycles for a program is a total number of clock cycles needed to execute all instructions of a given program.
+- Instruction count is a number of instructions executed, sometimes referred as the instruction path length.
+- CPI – the average number of clock cycles per instruction
+    CPI = Clock cycles for a program / Instructions count
+
+
+Single cycle microarchitecture performance:
+- CPI = 1
+- Clock cycle time = long
+
+Multi-cycle microarchitecture performance:
+- CPI => different for each instruction
+- Average CPI => small
+- Clock cycle time => short
