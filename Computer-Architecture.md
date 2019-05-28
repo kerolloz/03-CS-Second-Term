@@ -232,6 +232,21 @@ for a 2-operand arithmetic instruction we need to specify:
 | PC register handles address of next instruction |                                                              :x:                                                              |                                                      :heavy_check_mark:                                                       |                                                      :heavy_check_mark:                                                       |                                            :heavy_check_mark:                                             |
 
 
+1. 4-address machine:
+![4-address machine](./pics/ca/7.png)
+*NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.
+1. 3-address machine
+![3-address machine](./pics/ca/8.png)
+1. 2-address machine
+![2-address machine](./pics/ca/9.png)
+1. 1-address machine (accumulator machine)
+![1-address machine](./pics/ca/10.png)
+  - Requires two special instructions:
+      * LDA Addr; Load the content of Addr to accumulator.
+      * STA Addr; Stores the content of accumulator to address Addr.
+  - Generally provide a minimum in the size of both program and CPU memory required.
+
+
 *Example:*
 
 - Assuming that we have only 2^24 memory cells and the width of the data bus is 24 bits.
