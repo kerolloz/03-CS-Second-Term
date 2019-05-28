@@ -583,19 +583,21 @@ Branch Instructions:
 
 ## Lecture 9
 
-**Instruction Processing “Cycle”:**
-  - Instructions are processed under the direction of a “control unit” step by step.
-  - Instruction cycle: Sequence of steps to process an instruction
-  - Fundamentally, there are six phases:
-    1. Fetch
-    2. Decode
-    3. Evaluate Address
-    4. Fetch Operands
-    5. Execute
-    6. Store Result
-  - Not all instructions require all six phases
+### Instruction Processing “Cycle”
 
-**Instruction Processing “Cycle” vs. Machine Clock Cycle:**
+- Instructions are processed under the direction of a “control unit” step by step.
+- Instruction cycle: Sequence of steps to process an instruction
+- Fundamentally, there are six phases:
+  1. Fetch
+  2. Decode
+  3. Evaluate Address
+  4. Fetch Operands
+  5. Execute
+  6. Store Result
+- Not all instructions require all six phases
+
+### Instruction Processing “Cycle” vs. Machine Clock Cycle
+
 1. Single-cycle machine:
   - All six phases of the instruction processing cycle take a single machine clock cycle to complete.
   - All state updates made at the end of an instruction’s execution.
@@ -610,8 +612,7 @@ Branch Instructions:
   - Advantage over single-cycle: The slowest “stage” determines cycle time.
   <!-- place image of MCM -->
 
-**Single-cycle vs. Multi-cycle:
-Control & Data**
+### Single-cycle vs. Multi-cycle: Control & Data
 
 |   Machine    |                                          Control                                           |                                                 Data                                                  |
 |:------------:|:------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------:|
@@ -620,49 +621,56 @@ Control & Data**
 
 
 ### Performance of Computer Systems
+
 Response time
 : the time between the start and the completion of a task (in time units)
 
 Throughput
 : the total amount of tasks done in a given time period (in number of tasks per unit of time)
 
-- The computer user is interested in response time (or execution time) – the time between the start and completion of a given task (program).
-- The manager of a data processing center is interested in throughput – the total amount of work done in given time.
+- The computer user is interested in response time (or execution time)
+- The manager of a data processing center is interested in throughput
 - The computer user wants response time to decrease, while the manager wants throughput increased.
 
-**CPU Time or CPU Execution Time:**
-CPU time (or CPU Execution time) is the time between the start and the end of execution of a given program.
+### CPU Time or CPU Execution Time
+
+CPU time (or CPU Execution time)
+: the time between the start and the end of execution of a given program.
 
 - This time accounts for the time CPU is computing the given program, including operating system routines executed on the program’s behalf.
 - It does not include the time waiting for I/O and running other programs.
 - CPU time is a true measure of processor/memory performance.
 
-**Analysis of CPU Time:**
+#### Analysis of CPU Time
 
 CPU time depends on the program which is executed, including:
+
 - the number of instructions executed,
 - types of instructions executed and their frequency of usage.
 
-**Clock rate:**
+### Clock rate
+
 - refers to the frequency at which a chip like a central processing unit (CPU) is running and is used as an indicator of the processor's speed
-- is given in Hz (=1/sec).
+- is given in Hz (= 1/sec).
 - defines duration of discrete time intervals called clock cycle times or clock cycle periods:
-      clock_cycle_time = 1/clock_rate (in sec)
+      `clock_cycle_time = 1/clock_rate (in sec)`
 
 <!-- place table of units -->
 
 
 *Example:*
-A processor having a clock cycle time of 0.25 nsec will have a clock rate of …….
+
+A processor having a clock cycle time of 0.25 nsec will have a clock rate of …….  
 - 1000MHz
 - 2000MHz
 - 3000MHz
 - **4000MHz**
 
-Solution:
-  Clock cycle time C is the reciprocal of the clock rate f:
-  C = 1 / f
-  f= 1/C = 1/0.25ns = 4 GHz or 4000 MHz
+*Solution:*
+
+Clock cycle time C is the reciprocal of the clock rate f:  
+C = 1 / f  
+f= 1/C = 1/0.25ns = 4 GHz or 4000 MHz  
 
 **CPU Time Equation:**
 ```
