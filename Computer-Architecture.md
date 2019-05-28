@@ -198,4 +198,79 @@ there are **5** types of them:
 *[PSW]: Processor Status Word
 *[ISA]: Instruction Set Architecture
 *[PC]: Program Counter
-*[CC]: Condition Code
+*[CC]: Condition Code*
+
+## Lecture 3
+
+- it is known that for a 2-operand arithmetic instruction we need to specify:
+1. The operation to be performed.
+2. Location of the 1st operand.
+3. Location of the 2nd operand.
+4. Place to store the result.
+5. Location of next instruction to be performed
+
+- the variation in specifying the five items makes various types of hypothetical machine models.
+- in each machine we study the encoding of an ALU instruction.
+
+
+
+* assume the following:
+ - data lines in data bus = 24 => then size of data word = 3 bytes.
+ - address lines = 24 => then the size of address of each operand = 3 bytes
+ - we have 128 instructions then every instruction is encoded in 7 bit = 8 Byte <!--replace = with approximation sign-->
+<!-- make this part as a table -->    
+
+1. 4-address machine:
+<!-- place image for 4AM  -->
+  - Number of bytes required for each instruction:
+     number of operand's addresses(4) * size of address for each operand(3) + size of opcode(1) = 13 bytes.  
+  *NOTE:* the instruction is fetched in 5 memory accesses => ceil(size of instruction / size of data word) = ceil(13/3).
+  - Number of memory access:
+    5 (for fetching the instruction) +
+    2 (for fetching the 1st and 2nd operands) +
+    1 (for storing the result) = 8 memory accesses
+
+  *NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.
+
+2. 3-address machine
+<!-- place image for 3AM  -->
+  - An instruction of this machine specifies only 3 addresses in the list (1st operand, 2nd operand, and the result).
+  - The address of next instruction is handled by The Program Counter (PC) register.
+  - Number of bytes required for each instruction:
+     number of operand's addresses(3) * size of address for each operand(3) + size of opcode(1) = 10 bytes.  
+   *NOTE:* the instruction is fetched in 4 memory accesses => ceil(size of instruction / size of data word) = ceil(10/3).
+  - Number of memory access:
+    4 (for fetching the instruction) +
+    2 (for fetching the 1st and 2nd operands) +
+    1 (for storing the result) = 7 memory accesses
+
+
+3. 2-address machine
+<!-- place image for 2AM  -->
+  - An instruction of this machine specifies only 2 addresses in the list (1st operand, 2nd operand).
+  - The result is stored in the address of one of the operands.
+  - The address of next instruction is handled by The Program Counter (PC) register.
+
+  - Number of bytes required for each instruction:
+     number of operand's addresses(2) * size of address for each operand(3) + size of opcode(1) = 7 bytes.  
+   *NOTE:* the instruction is fetched in 3 memory accesses => ceil(size of instruction / size of data word) = ceil(7/3).
+  - Number of memory access:
+    3 (for fetching the instruction) +
+    2 (for fetching the 1st and 2nd operands) +
+    1 (for storing the result) = 6 memory accesses
+
+4. 1-address machine (accumulator machine)
+<!-- place image for 1AM  -->
+  - An instruction of this machine specifies only 1 address (1st operand).
+  - The Accumulator register is the source of 2nd operand and also the storage for the result.
+  - The address of next instruction is handled by The Program Counter (PC) register.
+  - Requires two special instructions:
+      * LDA Addr; Load the content of Addr to accumulator.
+      * STA Addr; Stores the content of accumulator to address Addr.
+  - Generally provide a minimum in the size of both program and CPU memory required.
+  - Number of bytes required for each instruction:
+     number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.  
+   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).
+  - Number of memory access:
+    2 (for fetching the instruction) +
+    1 (for fetching one operand or storing the result) = 3 memory accesses
