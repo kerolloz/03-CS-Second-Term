@@ -536,10 +536,10 @@ the instruction means:
 1. Arithmetic and Logic Instructions:
   - The instruction neg (op = 15): takes the 2's complement of the contents of register R[rc] and stores it in register R[ra].
   - The not (op = 24) instruction: takes the logical (1's) complement of the contents of register R[rc] and stores it in register R[ra].
-  * Review: (1's) complement  
-  ![Review](./pics/ca/22.png)   
-  * Review: (2's) complement  
-  ![Review](./pics/ca/23.png)   
+  * Review: (1's) complement  <br><br>
+  ![Review](./pics/ca/22.png)   <br><br>
+  * Review: (2's) complement  <br><br>
+  ![Review](./pics/ca/23.png)   <br><br>
   There are two types of ALU instructions:  
     * Register ALU Instructions: add, sub, and, or.
     * Immediate Addressing ALU Instructions: addi, andi, ori.
