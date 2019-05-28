@@ -205,15 +205,15 @@ there are **5** types of them:
 
 ## Lecture 3
 
-- it is known that for a 2-operand arithmetic instruction we need to specify:
+for a 2-operand arithmetic instruction we need to specify:
 1. The operation to be performed.
-2. Location of the 1st operand.
-3. Location of the 2nd operand.
-4. Place to store the result.
-5. Location of next instruction to be performed
+1. Location of the 1st operand.
+1. Location of the 2nd operand.
+1. Place to store the result.
+1. Location of next instruction to be performed
 
-- the variation in specifying the five items makes various types of hypothetical machine models.
-- in each machine we study the encoding of an ALU instruction.
+- the variation in specifying the five items makes various types of hypothetical machine models.  
+- in each machine we study the encoding of an ALU instruction.  
 
 
 
@@ -221,62 +221,31 @@ there are **5** types of them:
  - data lines in data bus = 24 => then size of data word = 3 bytes.
  - address lines = 24 => then the size of address of each operand = 3 bytes
  - we have 128 instructions then every instruction is encoded in 7 bit = 8 Byte <!--replace = with approximation sign-->
-<!-- make this part as a table -->    
+<!-- make this part as a table -->
+
+|                                                 |                                                       4-address machine                                                       |                                                       3-address machine                                                       |                                                       2-address machine                                                       |                                  1-address machine (accumulator machine)                                  |
+|:-----------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|
+|                   instruction                   |                                  Operation result operand1 operand2 addressOfNextInstruction                                  |                      specifies only 3 addresses in the list (1st operand, 2nd operand, and the result).                       |                       2 addresses in the list (1st operand, 2nd operand). result in one of the operands                       |                        1 address (1st operand). accumulator (2nd operand, result)                         |
+|           bytes for each instruction            |             number of operand's addresses(4) * size of address for each operand(3) + size of opcode(1) = 13 bytes             |            number of operand's addresses(3) * size of address for each operand(3) + size of opcode(1) = 10 bytes.             |             number of operand's addresses(2) * size of address for each operand(3) + size of opcode(1) = 7 bytes.             |   number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.   |
+|       memory access to fetch instruction        |                       5 memory accesses => ceil(size of instruction / size of data word) = ceil(13/3).                        |                       4 memory accesses => ceil(size of instruction / size of data word) = ceil(10/3).                        |                        3 memory accesses => ceil(size of instruction / size of data word) = ceil(7/3).                        |              2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).              |
+|            number of memory Accesses            | 5 (for fetching the instruction) + 2 (for fetching the 1st and 2nd operands) + 1 (for storing the result) = 8 memory accesses | 4 (for fetching the instruction) +  2 (for fetching the 1st and 2nd operands) +1 (for storing the result) = 7 memory accesses | 3 (for fetching the instruction) + 2 (for fetching the 1st and 2nd operands) + 1 (for storing the result) = 6 memory accesses | 2 (for fetching the instruction) + 1 (for fetching one operand or storing the result) = 3 memory accesses |
+| PC register handles address of next instruction |                                                              :x:                                                              |                                                      :heavy_check_mark:                                                       |                                                      :heavy_check_mark:                                                       |                                            :heavy_check_mark:                                             |
+
 
 1. 4-address machine:
-<!-- place image for 4AM  -->
-  - Number of bytes required for each instruction:
-     number of operand's addresses(4) * size of address for each operand(3) + size of opcode(1) = 13 bytes.  
-  *NOTE:* the instruction is fetched in 5 memory accesses => ceil(size of instruction / size of data word) = ceil(13/3).
-  - Number of memory access:
-    5 (for fetching the instruction) +
-    2 (for fetching the 1st and 2nd operands) +
-    1 (for storing the result) = 8 memory accesses
-
-  *NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.
-
-2. 3-address machine
-<!-- place image for 3AM  -->
-  - An instruction of this machine specifies only 3 addresses in the list (1st operand, 2nd operand, and the result).
-  - The address of next instruction is handled by The Program Counter (PC) register.
-  - Number of bytes required for each instruction:
-     number of operand's addresses(3) * size of address for each operand(3) + size of opcode(1) = 10 bytes.  
-   *NOTE:* the instruction is fetched in 4 memory accesses => ceil(size of instruction / size of data word) = ceil(10/3).
-  - Number of memory access:
-    4 (for fetching the instruction) +
-    2 (for fetching the 1st and 2nd operands) +
-    1 (for storing the result) = 7 memory accesses
-
-
-3. 2-address machine
-<!-- place image for 2AM  -->
-  - An instruction of this machine specifies only 2 addresses in the list (1st operand, 2nd operand).
-  - The result is stored in the address of one of the operands.
-  - The address of next instruction is handled by The Program Counter (PC) register.
-
-  - Number of bytes required for each instruction:
-     number of operand's addresses(2) * size of address for each operand(3) + size of opcode(1) = 7 bytes.  
-   *NOTE:* the instruction is fetched in 3 memory accesses => ceil(size of instruction / size of data word) = ceil(7/3).
-  - Number of memory access:
-    3 (for fetching the instruction) +
-    2 (for fetching the 1st and 2nd operands) +
-    1 (for storing the result) = 6 memory accesses
-
-4. 1-address machine (accumulator machine)
-<!-- place image for 1AM  -->
-  - An instruction of this machine specifies only 1 address (1st operand).
-  - The Accumulator register is the source of 2nd operand and also the storage for the result.
-  - The address of next instruction is handled by The Program Counter (PC) register.
+![4-address machine](./pics/ca/7.png)
+*NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.
+1. 3-address machine
+![3-address machine](./pics/ca/8.png)
+1. 2-address machine
+![2-address machine](./pics/ca/9.png)
+1. 1-address machine (accumulator machine)
+![1-address machine](./pics/ca/10.png)
   - Requires two special instructions:
       * LDA Addr; Load the content of Addr to accumulator.
       * STA Addr; Stores the content of accumulator to address Addr.
   - Generally provide a minimum in the size of both program and CPU memory required.
-  - Number of bytes required for each instruction:
-     number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.  
-   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).
-  - Number of memory access:
-    2 (for fetching the instruction) +
-    1 (for fetching one operand or storing the result) = 3 memory accesses
+
 
 *Example:*
 
@@ -290,31 +259,37 @@ Solution:
 A = B - C * ( D + E )
 
 3-address :
-                  Size                  Memory Accesses
-  ADD A, D, E   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
-  MPY A, A, C   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
-  SUB A, B, A   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
-  Total           30 bytes             21 memory accesses
+
+| Instruction |       Size       |  Memory Accesses   |
+|:-----------:|:----------------:|:------------------:|
+| ADD A, D, E | 1+3*3 = 10 bytes | ceil(10/3) + 3 = 7 |
+| MPY A, A, C | 1+3*3 = 10 bytes | ceil(10/3) + 3 = 7 |
+| SUB A, B, A | 1+3*3 = 10 bytes | ceil(10/3) + 3 = 7 |
+|    Total    |     30 bytes     | 21 memory accesses |
 
 2-address :
-                    Size                Memory Accesses
-  MOV T, D      1+3*2 = 7 bytes       ceil(7/3) + 2 = 5
-  ADD T, E      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
-  MPY T, C      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
-  MOV A, B      1+3*2 = 7 bytes       ceil(7/3) + 2 = 5
-  SUB A, T      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
-  Total           35 bytes             28 memory accesses
+
+| Instruction |      Size       |  Memory Accesses   |
+|:-----------:|:---------------:|:------------------:|
+|  MOV T, D   | 1+3*2 = 7 bytes | ceil(7/3) + 2 = 5  |
+|  ADD T, E   | 1+3*2 = 7 bytes | ceil(7/3) + 3 = 6  |
+|  MPY T, C   | 1+3*2 = 7 bytes | ceil(7/3) + 3 = 6  |
+|  MOV A, B   | 1+3*2 = 7 bytes | ceil(7/3) + 2 = 5  |
+|  SUB A, T   | 1+3*2 = 7 bytes | ceil(7/3) + 3 = 6  |
+|    Total    |    35 bytes     | 28 memory accesses |
 
 1-address:
-                    Size                Memory Accessses
-  LDA D         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  ADD E         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  MPY C         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  STA A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  LDA B         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  SUB A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  STA A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  Total           28 bytes             21 memory accesses
+
+| Instruction |     Size      |  Memory Accesses   |
+|:-----------:|:-------------:|:------------------:|
+|    LDA D    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    ADD E    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    MPY C    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    STA A    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    LDA B    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    SUB A    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    STA A    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    Total    |   28 bytes    | 21 memory accesses |
 
 
 ## Lecture 4
@@ -325,23 +300,28 @@ A = B - C * ( D + E )
   - A stack (of registers) is used as the source of operands and also the destination of the result.
   - For executing the instruction, the operands are popped from the stack and then the result is pushed to it.
   - Requires two special instructions:
-    * PUSH Addr; push the content of Addr to the top of stack
-    * POP Addr; pop the top of the stack and store it in Addr
+      ```
+      PUSH Addr; push the content of Addr to the top of stack
+      POP Addr; pop the top of the stack and store it in Addr
+      ```
   - The address of next instruction is handled by The Program Counter (PC) register.
   - The code to add two memory operands will be like this:
-      Op3 = Op1 + Op2 =>  PUSH Op1;
-                          PUSH Op2;
-                          ADD;
-                          POP Op3;
-  - Number of bytes required for each instruction:
+      `Op3 = Op1 + Op2`  
+      ```
+      PUSH Op1;
+      PUSH Op2;
+      ADD;
+      POP Op3;
+      ```
+  - Number of bytes required for each instruction:  
      number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.
   - An ALU instruction is encoded in 1 byte.  
-   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).
+   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).  
   - Number of memory access:
-    2 (for fetching the push or pop instruction) +
+    2 (for fetching the `push` or `pop` instruction) +
     1 (for fetching one operand or storing the result) = 3 memory accesses
     **OR**
-    1 (for fetching the ALU instruction) = 1 memory access
+    1 (for fetching ALU instructions) = 1 memory access
 
 *Example:*
 
@@ -359,16 +339,18 @@ Solution:
 A = B - C * ( D + E )
 
 0-address :
-                    Size                  Memory Accesses
-  PUSH D       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  PUSH E       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  ADD          1 bytes                   ceil(1/3) = 1
-  PUSH C       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  MPY          1 bytes                   ceil(1/3) = 1
-  PUSH B       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  SUB          1 bytes                   ceil(1/3) = 1
-  POP A        1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  Total           23 bytes               18 memory accesses
+
+| Instruction |      Size       |  Memory Accesses   |
+|:-----------:|:---------------:|:------------------:|
+|   PUSH D    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|   PUSH E    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|     ADD     |     1 bytes     |   ceil(1/3) = 1    |
+|   PUSH C    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|     MPY     |     1 bytes     |   ceil(1/3) = 1    |
+|   PUSH B    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|     SUB     |     1 bytes     |   ceil(1/3) = 1    |
+|    POP A    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    Total    |    23 bytes     | 18 memory accesses |
 
 
 6. The General Register machine
@@ -412,16 +394,18 @@ A = B - C * ( D + E )
   - Size of address for any operand in memory = 24 bits
   - The width of the data bus is 24 bits => the size of data word = 24 bits.
 
-                            Size                        Memory Accesses
-  LOAD R1, B            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  LOAD R2, C            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  ADD R1, R1, R2        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
-  LOAD R3, D            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  LOAD R4, E            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  ADD R3, R3, R4        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
-  MPY R1, R1, R3        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
-  STORE A, R1           8 + 24 + 5 = 37 bits          ceil(37/24) + 1 = 3
-  Total                     245 bits                   18 memory accesses
+
+|  Instruction   |          Size           |   Memory Accesses   |
+|:--------------:|:-----------------------:|:-------------------:|
+|   LOAD R1, B   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+|   LOAD R2, C   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+| ADD R1, R1, R2 | 8 + 5 + 5 + 5 = 23 bits |   ceil(23/24) = 1   |
+|   LOAD R3, D   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+|   LOAD R4, E   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+| ADD R3, R3, R4 | 8 + 5 + 5 + 5 = 23 bits |   ceil(23/24) = 1   |
+| MPY R1, R1, R3 | 8 + 5 + 5 + 5 = 23 bits |   ceil(23/24) = 1   |
+|  STORE A, R1   |  8 + 24 + 5 = 37 bits   | ceil(37/24) + 1 = 3 |
+|     Total      |        245 bits         | 18 memory accesses  |
 
 
 * Trade-offs in instruction types:
@@ -531,6 +515,7 @@ the opcode for ld = 1.
 Solution:
 
 the instruction means:
+```
   R[r22] = M[24 + R[r4]];
   ld = 1
   ra = 22
@@ -538,7 +523,7 @@ the instruction means:
   c = 24
     1      22     4           24
   00001  10110  00100  00000000000011000
-
+```
 2. Arithmetic and Logic Instructions:
   - The instruction neg (op = 15): takes the 2's complement of the contents of register R[rc] and stores it in register R[ra].
   - The not (op = 24) instruction: takes the logical (1's) complement of the contents of register R[rc] and stores it in register R[ra].
