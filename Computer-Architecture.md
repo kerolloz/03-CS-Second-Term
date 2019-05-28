@@ -233,14 +233,14 @@ for a 2-operand arithmetic instruction we need to specify:
 
 
 1. 4-address machine:
-![4-address machine](./pics/ca/7.png)
-*NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.
+  ![4-address machine](./pics/ca/7.png)  
+  *NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.  
 1. 3-address machine
-![3-address machine](./pics/ca/8.png)
+  ![3-address machine](./pics/ca/8.png)
 1. 2-address machine
-![2-address machine](./pics/ca/9.png)
+  ![2-address machine](./pics/ca/9.png)
 1. 1-address machine (accumulator machine)
-![1-address machine](./pics/ca/10.png)
+  ![1-address machine](./pics/ca/10.png)
   - Requires two special instructions:
       * LDA Addr; Load the content of Addr to accumulator.
       * STA Addr; Stores the content of accumulator to address Addr.
@@ -545,24 +545,25 @@ the instruction means:
   - stop (op = 31), whose purpose is to halt the machine.
 
 ## Lecture 7
-  - This lecture concerned with the fetch, decode, execute, store instruction cycle in more details.
+
+  - This lecture is concerned with the fetch, decode, execute, store instruction cycle in more details.
   - General Concepts:
     * The program counter (PC): is pointing to the next instruction to be executed.
     * Memory Address Register (MAR): is the CPU register that either stores the memory address from which data will be fetched for the CPU, or the address to which data will be sent and stored. In other words, MAR holds the memory location of data that needs to be accessed.
     * Memory Data Register (MDR) or Memory Buffer Register (MBR): is the register of a computer's control unit that contains the data to be stored in the computer storage (e.g. RAM), or the data after a fetch from the computer storage.
-    * Instruction register (IR) or current instruction register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
+    * Instruction Register (IR) or Current Instruction Register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
   - This video illustrates the phases in depth with more details.
-  https://www.youtube.com/watch?v=jFDMZpkUWCw
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jFDMZpkUWCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Lecture 8
 
-4. Shift instructions: Shift the operand in R[rb] right, or left," from 1 to 32 bits,
-and place the result in R[ra].
+Shift instructions: Shift the operand in R[rb] right, or left," from 1 to 32 bits, and place the result in R[ra].  
 - The amount of the shift is governed by an encoded 5-bit unsigned integer, so shifts from 0 to 31 bits are possible.
 - The integer representing the shift count is stored as an immediate value in the 5 least significant bits in the instruction.
-- for example: shr shifts zeros in from the left as the value is shifted right.
+- for example: `shr` shifts zeros in from the left as the value is shifted right.
 
-5. Branch Instructions:
+Branch Instructions:
 <!-- place image of the table -->
 
 ## Lecture 9
@@ -580,11 +581,13 @@ and place the result in R[ra].
   - Not all instructions require all six phases
 
 **Instruction Processing “Cycle” vs. Machine Clock Cycle:**
-1. Single-cycle machine: All six phases of the instruction processing cycle take a single machine clock cycle to complete.
+1. Single-cycle machine:
+  - All six phases of the instruction processing cycle take a single machine clock cycle to complete.
   - All state updates made at the end of an instruction’s execution.
   - Big disadvantage: The slowest instruction determines cycle time, Therefore, long clock cycle time.
 <!-- place image of SCM -->
-2. Multi-cycle machine: All six phases of the instruction processing cycle can take multiple machine clock cycles to complete.
+2. Multi-cycle machine:
+  - All six phases of the instruction processing cycle can take multiple machine clock cycles to complete.
   - In fact, each phase can take multiple clock cycles to complete
   - Instruction processing broken into multiple cycles/stages
   - State updates can be made during an instruction’s execution
@@ -594,19 +597,19 @@ and place the result in R[ra].
 
 **Single-cycle vs. Multi-cycle:
 Control & Data**
-                                  control                               data
-Single-cycle machine:       Control signals are generated        Everything related to an instruction
-                            in the same clock cycle as the       happens in one clock cycle (serialized
-                            one during which data signals        processing)
-                            are operated on.
 
-Multi-cycle machine:        Control signals needed                Latency of control processing can be
-                            in the next cycle can be              overlapped with latency of datapath
-                            generated in the current cycle        operation (more parallelism)
+|   Machine    |                                          Control                                           |                                                 Data                                                  |
+|:------------:|:------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------:|
+| Single-cycle | Control signals are generated in the same clock cycle as the one during which data signals |        Everything related to an instruction happens in one clock cycle (serialized processing)        |
+| Multi-cycle  |       Control signals needed in the next cycle can be generated in the current cycle       | Latency of control processing can be overlapped with latency of datapath operation (more parallelism) |
 
-**Performance of Computer Systems:**
-- *Response time:* the time between the start and the completion of a task (in time units)
-- *Throughput:* the total amount of tasks done in a given time period (in number of tasks per unit of time)
+
+### Performance of Computer Systems
+Response time
+: the time between the start and the completion of a task (in time units)
+
+Throughput
+: the total amount of tasks done in a given time period (in number of tasks per unit of time)
 
 - The computer user is interested in response time (or execution time) – the time between the start and completion of a given task (program).
 - The manager of a data processing center is interested in throughput – the total amount of work done in given time.
