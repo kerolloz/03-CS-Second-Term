@@ -232,14 +232,14 @@ for a 2-operand arithmetic instruction we need to specify:
 | PC register handles address of next instruction |                                                              :x:                                                              |                                                      :heavy_check_mark:                                                       |                                                      :heavy_check_mark:                                                       |                                            :heavy_check_mark:                                             |
 
 
-1. 4-address machine:
+- 4-address machine:
   ![4-address machine](./pics/ca/7.png)  
   *NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.  
-1. 3-address machine
+- 3-address machine
   ![3-address machine](./pics/ca/8.png)
-1. 2-address machine
+- 2-address machine
   ![2-address machine](./pics/ca/9.png)
-1. 1-address machine (accumulator machine)
+- 1-address machine (accumulator machine)
   ![1-address machine](./pics/ca/10.png)
   - Requires two special instructions:
       * LDA Addr; Load the content of Addr to accumulator.
@@ -471,7 +471,7 @@ A = B - C * ( D + E )
   - Allows the storage of memory operands at a fixed offset from the current instruction.
   <!-- place image for RA -->
 
-#Lecture 6
+## Lecture 6
 
 **Classification of ISAs:**
  - The architectural designs of CPU are
@@ -552,9 +552,8 @@ the instruction means:
     * Memory Address Register (MAR): is the CPU register that either stores the memory address from which data will be fetched for the CPU, or the address to which data will be sent and stored. In other words, MAR holds the memory location of data that needs to be accessed.
     * Memory Data Register (MDR) or Memory Buffer Register (MBR): is the register of a computer's control unit that contains the data to be stored in the computer storage (e.g. RAM), or the data after a fetch from the computer storage.
     * Instruction Register (IR) or Current Instruction Register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
-  - This video illustrates the phases in depth with more details.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jFDMZpkUWCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  - This video illustrates the phases in depth with more details:
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/jFDMZpkUWCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Lecture 8
 
