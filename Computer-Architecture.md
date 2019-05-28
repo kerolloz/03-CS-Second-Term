@@ -366,3 +366,66 @@ A = B - C * ( D + E )
   SUB          1 bytes                   ceil(1/3) = 1
   POP A        1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
   Total           23 bytes               18 memory accesses
+
+
+6. The General Register machine
+  <!-- place image for GRM -->
+  - Uses a set of registers to retain intermediate results (for complex operations) inside the CPU. ALU instructions operates on registers.
+  - In an instruction, a register is addressed by extra bits (half address):
+      N registers requires a code of length log2(N).
+      for example: 32 registers are addressed by 5 bits.
+  - An ALU instruction usually uses 3 registers.
+      for example: ADD R2, R4, R6; => R2 = R4+R6
+  - An instruction that specifies one operand in memory and one operand in a register are known as a 1½ address instruction.
+  - Assuming that there are 32 general-purpose registers => then each register reference requires 5 bits to specify 1 of the 32 registers.
+  - Number of bytes required for 3-register add instruction:
+     number of operand's addresses(3) * size of address for each operand(5) + size of opcode(8) = 23 bits.  
+     That means the instruction is fetched in 1 memory accesses => ceil(size of instruction / size of data word) = ceil(23 bits/24 bits).
+
+  - Number of memory accesses required for 3-register add instruction:
+    1 (for fetching the instruction).
+    *NOTE:* There is no memory accesses for operands.
+
+  - Number of bytes required for load instruction:
+    5 bits for the register +
+    24 bits for memory address of the operand +
+    8 bits for the operation = 37 bits
+    That means the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(37 bits/24 bits).
+
+    - Number of memory accesses required for load instruction:
+      2 (for fetching the instruction) +
+      1 (for fetching the operand) = 3 memory accesses.
+
+
+*Example:*
+  Consider a General Register Machine that includes 32 general purpose registers. Assume that every opcode is encoded in 1 byte, the memory is addressed by 24 bits and the width of the data bus is 24 bits.
+
+  1. Write the assembly code to implement the expression A = ( B + C ) * ( D + E ) on the above machine.
+  2. Compute the memory size (in bytes) required for the code in (1).
+  3. Compute the number of memory accesses required to execute the expression (1) on the specified machine.
+
+  Solution:
+  - The machine includes 32 general purpose registers => size of address of register = 5 bits
+  - Size of address for any operand in memory = 24 bits
+  - The width of the data bus is 24 bits => the size of data word = 24 bits.
+
+                            Size                        Memory Accesses
+  LOAD R1, B            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
+  LOAD R2, C            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
+  ADD R1, R1, R2        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
+  LOAD R3, D            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
+  LOAD R4, E            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
+  ADD R3, R3, R4        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
+  MPY R1, R1, R3        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
+  STORE A, R1           8 + 24 + 5 = 37 bits          ceil(37/24) + 1 = 3
+  Total                     245 bits                   18 memory accesses
+
+
+* Trade-offs in instruction types:
+  - The 3-address machines have the shortest code sequences but require large number of bits per instruction.
+
+  - The 0-address machines have the longest code sequences and require small number of bits per instruction.
+
+  - Even in 0-address machines there are 1-address instructions, push and pop.
+
+  - General register machines can use 3-address instructions with small instruction size by using 2 register operands and 1 memory address.
