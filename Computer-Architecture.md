@@ -6,8 +6,8 @@
 - [x] [Lecture 4](#lecture-4)
 - [x] [Lecture 5](#lecture-5)
 - [x] [Lecture 6](#lecture-6)
-- [ ] [Lecture 7](#lecture-7) :construction:
-- [ ] [Lecture 8](#lecture-8)
+- [x] [Lecture 7](#lecture-7)
+- [ ] [Lecture 8](#lecture-8) :construction:
 - [ ] [Lecture 9](#lecture-9)
 
 ## Lecture 1
@@ -560,3 +560,13 @@ the instruction means:
   - stop (op = 31), whose purpose is to halt the machine.
 
 ## Lecture 7
+  - This lecture concerned with the fetch, decode, execute, store instruction cycle in more details.
+  - General Concepts:
+    * The program counter (PC): is pointing to the next instruction to be executed.
+    * Memory Address Register (MAR): is the CPU register that either stores the memory address from which data will be fetched for the CPU, or the address to which data will be sent and stored. In other words, MAR holds the memory location of data that needs to be accessed.
+    * Memory Data Register (MDR) or Memory Buffer Register (MBR): is the register of a computer's control unit that contains the data to be stored in the computer storage (e.g. RAM), or the data after a fetch from the computer storage.
+    * Instruction register (IR) or current instruction register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
+  - This video illustrates the phases in depth with more details.
+  https://www.youtube.com/watch?v=jFDMZpkUWCw
+
+## Lecture 8
