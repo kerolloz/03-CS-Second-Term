@@ -552,7 +552,8 @@ the instruction means:
     * Memory Data Register (MDR) or Memory Buffer Register (MBR): is the register of a computer's control unit that contains the data to be stored in the computer storage (e.g. RAM), or the data after a fetch from the computer storage.
     * Instruction register (IR) or current instruction register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
   - This video illustrates the phases in depth with more details.
-  https://www.youtube.com/watch?v=jFDMZpkUWCw
+  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jFDMZpkUWCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Lecture 8
 
