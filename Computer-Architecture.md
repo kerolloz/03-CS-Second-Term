@@ -2,8 +2,8 @@
 
 - [x] [Lecture 1](#lecture-1)
 - [x] [Lecture 2](#lecture-2)
-- [x] [Lecture 3](#lecture-3) 
-- [ ] [Lecture 4](#lecture-4) :construction:
+- [ ] [Lecture 3](#lecture-3) :construction:
+- [ ] [Lecture 4](#lecture-4)
 - [ ] [Lecture 5](#lecture-5)
 - [ ] [Lecture 6](#lecture-6)
 
@@ -62,12 +62,10 @@ then number of memory locations (or memory cells) = 2^N = 2^14 locations.
 
 Suppose that a computer’s Main Memory has 1013 cells. How many address lines are needed in order for all the cells to be usable?
 
-```
-2^N = 1013  
-then to get N we need to take log for base 2 for both sides  
-log(2^N) = ceil(log(1013))  
-N =  10.  
-```
+2^N = 1013
+then to get N we need to take log for base 2 for both sides
+log(2^N) = ceil(log(1013))
+N =  9.
 
 ---
 
@@ -276,3 +274,44 @@ there are **5** types of them:
   - Number of memory access:
     2 (for fetching the instruction) +
     1 (for fetching one operand or storing the result) = 3 memory accesses
+
+*Example:*
+
+- Assuming that we have only 2^24 memory cells and the width of the data bus is 24 bits.
+- Write the code to implement the expression A = B - C*(D+E) on 3-, 2-, and 1- address machines. In accordance with programming language practice, computing the expression should not change the values of its operands.
+
+Solution:
+- We have 2^24 memory cells => size of address for any operand = log(2^24) = 24 bits = 3 bytes.
+- The width of the data bus is 24 bits => the size of data word = 3 bytes.
+
+A = B - C * ( D + E )
+
+3-address :
+                  Size                  Memory Accesses
+  ADD A, D, E   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
+  MPY A, A, C   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
+  SUB A, B, A   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
+  Total           30 bytes             21 memory accesses
+
+2-address :
+                    Size                Memory Accesses
+  MOV T, D      1+3*2 = 7 bytes       ceil(7/3) + 2 = 5
+  ADD T, E      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
+  MPY T, C      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
+  MOV A, B      1+3*2 = 7 bytes       ceil(7/3) + 2 = 5
+  SUB A, T      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
+  Total           35 bytes             28 memory accesses
+
+1-address:
+                    Size                Memory Accessses
+  LDA D         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  ADD E         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  MPY C         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  STA A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  LDA B         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  SUB A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  STA A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
+  Total           28 bytes             21 memory accesses
+
+
+## Lecture 4
