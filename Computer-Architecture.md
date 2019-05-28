@@ -259,31 +259,37 @@ Solution:
 A = B - C * ( D + E )
 
 3-address :
-                  Size                  Memory Accesses
-  ADD A, D, E   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
-  MPY A, A, C   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
-  SUB A, B, A   1+3*3 = 10 bytes      ceil(10/3) + 3 = 7
-  Total           30 bytes             21 memory accesses
+
+| Instruction |       Size       |  Memory Accesses   |
+|:-----------:|:----------------:|:------------------:|
+| ADD A, D, E | 1+3*3 = 10 bytes | ceil(10/3) + 3 = 7 |
+| MPY A, A, C | 1+3*3 = 10 bytes | ceil(10/3) + 3 = 7 |
+| SUB A, B, A | 1+3*3 = 10 bytes | ceil(10/3) + 3 = 7 |
+|    Total    |     30 bytes     | 21 memory accesses |
 
 2-address :
-                    Size                Memory Accesses
-  MOV T, D      1+3*2 = 7 bytes       ceil(7/3) + 2 = 5
-  ADD T, E      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
-  MPY T, C      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
-  MOV A, B      1+3*2 = 7 bytes       ceil(7/3) + 2 = 5
-  SUB A, T      1+3*2 = 7 bytes       ceil(7/3) + 3 = 6
-  Total           35 bytes             28 memory accesses
+
+| Instruction |      Size       |  Memory Accesses   |
+|:-----------:|:---------------:|:------------------:|
+|  MOV T, D   | 1+3*2 = 7 bytes | ceil(7/3) + 2 = 5  |
+|  ADD T, E   | 1+3*2 = 7 bytes | ceil(7/3) + 3 = 6  |
+|  MPY T, C   | 1+3*2 = 7 bytes | ceil(7/3) + 3 = 6  |
+|  MOV A, B   | 1+3*2 = 7 bytes | ceil(7/3) + 2 = 5  |
+|  SUB A, T   | 1+3*2 = 7 bytes | ceil(7/3) + 3 = 6  |
+|    Total    |    35 bytes     | 28 memory accesses |
 
 1-address:
-                    Size                Memory Accessses
-  LDA D         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  ADD E         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  MPY C         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  STA A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  LDA B         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  SUB A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  STA A         1+3 = 4 bytes         ceil(4/3) + 1 = 3
-  Total           28 bytes             21 memory accesses
+
+| Instruction |     Size      |  Memory Accesses   |
+|:-----------:|:-------------:|:------------------:|
+|    LDA D    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    ADD E    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    MPY C    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    STA A    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    LDA B    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    SUB A    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    STA A    | 1+3 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    Total    |   28 bytes    | 21 memory accesses |
 
 
 ## Lecture 4
