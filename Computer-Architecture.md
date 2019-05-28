@@ -5,7 +5,10 @@
 - [x] [Lecture 3](#lecture-3)
 - [x] [Lecture 4](#lecture-4)
 - [x] [Lecture 5](#lecture-5)
-- [ ] [Lecture 6](#lecture-6) :construction:
+- [x] [Lecture 6](#lecture-6)
+- [ ] [Lecture 7](#lecture-7) :construction:
+- [ ] [Lecture 8](#lecture-8)
+- [ ] [Lecture 9](#lecture-9)
 
 ## Lecture 1
 
@@ -484,6 +487,76 @@ A = B - C * ( D + E )
   - Allows the storage of memory operands at a fixed offset from the current instruction.
   <!-- place image for RA -->
 
-
-
 #Lecture 6
+
+**Classification of ISAs:**
+ - The architectural designs of CPU are
+    * RISC (Reduced instruction set computing).
+    * CISC (Complex instruction set computing).
+
+***RISC:*** is a computer which only uses simple commands that can be divided into several instructions which achieve low-level operation within a single CLK cycle.
+
+***CISC:**** is a computer where single instructions can perform numerous low-level operations like a load from memory, an arithmetic operation, and a memory store. Or are accomplished by multi-step processes or addressing modes in single instructions.
+
+**Simple Risc Computer (SRC):**
+  - 32-bit general purpose registers.
+  - PC (Program Counter Register): holds the next instruction.
+  - IR (Instruction Register): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
+  - 32-bit words (4 bytes) can be fetched or stored.
+  - Contains 2^32 Bytes of memory.
+  - Memory addresses ranges from 0 to 232 -1.
+
+<!-- place image of Programmer's Model of the SRC -->
+
+**Instruction Formats:**
+  - Arithmetic instructions: There are four arithmetic instructions: add, addi, sub, and neg.
+  - Logical and shift instructions: There are nine logical and shift instructions: and, andi, or, ori, not, shr, sha, shl, and shc.
+  - Miscellaneous instructions: There are two zero-operand instructions: nop and stop.
+  - Load and store instructions: There are four load instructions Id, Idr, la, and lar, and two store instructions st and str.
+  - Branch instructions: There are two branch instructions, br and brl.
+  - All instructions are 32 bits long.
+  - All instructions have a 5-bit opcode field, allowing 32 different instructions.
+  - The ra, rb, and rc fields are 5-bit fields that specify one of the 32 general purpose registers.
+  - Constants cl, c2, c3.
+  - The notation M[x] means the value stored at word x in memory.
+
+1. Accessing Memory: The Load and Store Instructions
+  - The load and store instructions are the only SRC instructions to access operands in memory.
+<!-- place image of examples  -->
+
+*Example:*
+Encode the instruction ld r22, 24(r4).
+the opcode for ld = 1.
+
+Solution:
+
+the instruction means:
+  R[r22] = M[24 + R[r4]];
+  ld = 1
+  ra = 22
+  rb = 4
+  c = 24
+    1      22     4           24
+  00001  10110  00100  00000000000011000
+
+2. Arithmetic and Logic Instructions:
+  - The instruction neg (op = 15): takes the 2's complement of the contents of register R[rc] and stores it in register R[ra].
+  - The not (op = 24) instruction: takes the logical (1's) complement of the contents of register R[rc] and stores it in register R[ra].
+
+  * Review: (1's) complement
+  <!-- place image  -->
+  * Review: (2's) complement
+  <!-- place image  -->
+
+  There are two types of ALU instructions:
+    * Register ALU Instructions: add, sub, and, or.
+    * Immediate Addressing ALU Instructions: addi, andi, ori.
+
+    Add: adds the value in two registers.
+    Addi: adds an immediate value (constant) to the register.
+
+3. Miscellaneous Instructions
+  - nop (op = 0), whose purpose is to do nothing. it is used as a time waster.
+  - stop (op = 31), whose purpose is to halt the machine.
+
+## Lecture 7
