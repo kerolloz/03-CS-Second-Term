@@ -300,23 +300,28 @@ A = B - C * ( D + E )
   - A stack (of registers) is used as the source of operands and also the destination of the result.
   - For executing the instruction, the operands are popped from the stack and then the result is pushed to it.
   - Requires two special instructions:
-    * PUSH Addr; push the content of Addr to the top of stack
-    * POP Addr; pop the top of the stack and store it in Addr
+      ```
+      PUSH Addr; push the content of Addr to the top of stack
+      POP Addr; pop the top of the stack and store it in Addr
+      ```
   - The address of next instruction is handled by The Program Counter (PC) register.
   - The code to add two memory operands will be like this:
-      Op3 = Op1 + Op2 =>  PUSH Op1;
-                          PUSH Op2;
-                          ADD;
-                          POP Op3;
-  - Number of bytes required for each instruction:
+      `Op3 = Op1 + Op2`  
+      ```
+      PUSH Op1;
+      PUSH Op2;
+      ADD;
+      POP Op3;
+      ```
+  - Number of bytes required for each instruction:  
      number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.
   - An ALU instruction is encoded in 1 byte.  
-   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).
+   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).  
   - Number of memory access:
-    2 (for fetching the push or pop instruction) +
+    2 (for fetching the `push` or `pop` instruction) +
     1 (for fetching one operand or storing the result) = 3 memory accesses
     **OR**
-    1 (for fetching the ALU instruction) = 1 memory access
+    1 (for fetching ALU instructions) = 1 memory access
 
 *Example:*
 
@@ -334,16 +339,18 @@ Solution:
 A = B - C * ( D + E )
 
 0-address :
-                    Size                  Memory Accesses
-  PUSH D       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  PUSH E       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  ADD          1 bytes                   ceil(1/3) = 1
-  PUSH C       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  MPY          1 bytes                   ceil(1/3) = 1
-  PUSH B       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  SUB          1 bytes                   ceil(1/3) = 1
-  POP A        1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
-  Total           23 bytes               18 memory accesses
+
+| Instruction |      Size       |  Memory Accesses   |
+|:-----------:|:---------------:|:------------------:|
+|   PUSH D    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|   PUSH E    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|     ADD     |     1 bytes     |   ceil(1/3) = 1    |
+|   PUSH C    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|     MPY     |     1 bytes     |   ceil(1/3) = 1    |
+|   PUSH B    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|     SUB     |     1 bytes     |   ceil(1/3) = 1    |
+|    POP A    | 1+3*1 = 4 bytes | ceil(4/3) + 1 = 3  |
+|    Total    |    23 bytes     | 18 memory accesses |
 
 
 6. The General Register machine
@@ -387,16 +394,18 @@ A = B - C * ( D + E )
   - Size of address for any operand in memory = 24 bits
   - The width of the data bus is 24 bits => the size of data word = 24 bits.
 
-                            Size                        Memory Accesses
-  LOAD R1, B            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  LOAD R2, C            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  ADD R1, R1, R2        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
-  LOAD R3, D            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  LOAD R4, E            8 + 5 + 24 = 37 bits          ceil(37/24) + 1 = 3
-  ADD R3, R3, R4        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
-  MPY R1, R1, R3        8 + 5 + 5 + 5 = 23 bits       ceil(23/24) = 1
-  STORE A, R1           8 + 24 + 5 = 37 bits          ceil(37/24) + 1 = 3
-  Total                     245 bits                   18 memory accesses
+
+|  Instruction   |          Size           |   Memory Accesses   |
+|:--------------:|:-----------------------:|:-------------------:|
+|   LOAD R1, B   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+|   LOAD R2, C   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+| ADD R1, R1, R2 | 8 + 5 + 5 + 5 = 23 bits |   ceil(23/24) = 1   |
+|   LOAD R3, D   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+|   LOAD R4, E   |  8 + 5 + 24 = 37 bits   | ceil(37/24) + 1 = 3 |
+| ADD R3, R3, R4 | 8 + 5 + 5 + 5 = 23 bits |   ceil(23/24) = 1   |
+| MPY R1, R1, R3 | 8 + 5 + 5 + 5 = 23 bits |   ceil(23/24) = 1   |
+|  STORE A, R1   |  8 + 24 + 5 = 37 bits   | ceil(37/24) + 1 = 3 |
+|     Total      |        245 bits         | 18 memory accesses  |
 
 
 * Trade-offs in instruction types:
@@ -506,6 +515,7 @@ the opcode for ld = 1.
 Solution:
 
 the instruction means:
+```
   R[r22] = M[24 + R[r4]];
   ld = 1
   ra = 22
@@ -513,7 +523,7 @@ the instruction means:
   c = 24
     1      22     4           24
   00001  10110  00100  00000000000011000
-
+```
 2. Arithmetic and Logic Instructions:
   - The instruction neg (op = 15): takes the 2's complement of the contents of register R[rc] and stores it in register R[ra].
   - The not (op = 24) instruction: takes the logical (1's) complement of the contents of register R[rc] and stores it in register R[ra].
