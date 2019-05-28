@@ -315,3 +315,54 @@ A = B - C * ( D + E )
 
 
 ## Lecture 4
+
+5. 0-address machine
+  <!-- place image for 0AM  -->
+  - An instruction of this machine specifies no address.
+  - A stack (of registers) is used as the source of operands and also the destination of the result.
+  - For executing the instruction, the operands are popped from the stack and then the result is pushed to it.
+  - Requires two special instructions:
+    * PUSH Addr; push the content of Addr to the top of stack
+    * POP Addr; pop the top of the stack and store it in Addr
+  - The address of next instruction is handled by The Program Counter (PC) register.
+  - The code to add two memory operands will be like this:
+      Op3 = Op1 + Op2 =>  PUSH Op1;
+                          PUSH Op2;
+                          ADD;
+                          POP Op3;
+  - Number of bytes required for each instruction:
+     number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.
+  - An ALU instruction is encoded in 1 byte.  
+   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).
+  - Number of memory access:
+    2 (for fetching the push or pop instruction) +
+    1 (for fetching one operand or storing the result) = 3 memory accesses
+    **OR**
+    1 (for fetching the ALU instruction) = 1 memory access
+
+*Example:*
+
+- Assuming that we have only 2^24 memory cells and the width of the data bus is 24 bits.
+- Assuming that every opcode is encoded in 1 byte
+
+Write the code to implement the expression
+
+A = B - C*(D+E) on 0-address machines. In accordance with programming language practice, computing the expression should not change the values of its operands.
+
+Solution:
+- We have 2^24 memory cells => size of address for any operand = log(2^24) = 24 bits = 3 bytes.
+- The width of the data bus is 24 bits => the size of data word = 3 bytes.
+
+A = B - C * ( D + E )
+
+0-address :
+                    Size                  Memory Accesses
+  PUSH D       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
+  PUSH E       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
+  ADD          1 bytes                   ceil(1/3) = 1
+  PUSH C       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
+  MPY          1 bytes                   ceil(1/3) = 1
+  PUSH B       1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
+  SUB          1 bytes                   ceil(1/3) = 1
+  POP A        1+3*1 = 4 bytes           ceil(4/3) + 1 = 3
+  Total           23 bytes               18 memory accesses
