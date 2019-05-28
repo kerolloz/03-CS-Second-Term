@@ -233,14 +233,14 @@ for a 2-operand arithmetic instruction we need to specify:
 
 
 1. 4-address machine:
-![4-address machine](./pics/ca/7.png)
-*NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.
+  ![4-address machine](./pics/ca/7.png)  
+  *NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.  
 1. 3-address machine
-![3-address machine](./pics/ca/8.png)
+  ![3-address machine](./pics/ca/8.png)
 1. 2-address machine
-![2-address machine](./pics/ca/9.png)
+  ![2-address machine](./pics/ca/9.png)
 1. 1-address machine (accumulator machine)
-![1-address machine](./pics/ca/10.png)
+  ![1-address machine](./pics/ca/10.png)
   - Requires two special instructions:
       * LDA Addr; Load the content of Addr to accumulator.
       * STA Addr; Stores the content of accumulator to address Addr.
