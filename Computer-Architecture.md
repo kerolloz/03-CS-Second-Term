@@ -2,10 +2,10 @@
 
 - [x] [Lecture 1](#lecture-1)
 - [x] [Lecture 2](#lecture-2)
-- [ ] [Lecture 3](#lecture-3) :construction:
-- [ ] [Lecture 4](#lecture-4)
-- [ ] [Lecture 5](#lecture-5)
-- [ ] [Lecture 6](#lecture-6)
+- [x] [Lecture 3](#lecture-3)
+- [x] [Lecture 4](#lecture-4)
+- [x] [Lecture 5](#lecture-5)
+- [ ] [Lecture 6](#lecture-6) :construction:
 
 ## Lecture 1
 
@@ -429,3 +429,61 @@ A = B - C * ( D + E )
   - Even in 0-address machines there are 1-address instructions, push and pop.
 
   - General register machines can use 3-address instructions with small instruction size by using 2 register operands and 1 memory address.
+
+## Lecture 5
+
+**Effective address:** To access an operand in memory, the CPU must first compute its address, this address is called effective address.
+- This address is then issued to the memory subsystem.
+
+**Addressing modes:**
+- There are seven ways to compute the effective address:
+  1. Immediate addressing
+  2. Direct addressing
+  3. Indirect addressing
+  4. Register direct addressing
+  5. Register indirect addressing
+  6. Displacement (based or indexed) addressing
+  7. Relative addressing
+
+---
+
+1. Immediate addressing:
+  - Is used to access constants stored in the instruction.
+  - It supplies an operand immediately without computing an address.
+<!-- place image for IA -->
+
+2. Direct addressing:
+  - The address of the operand is specified as a constant in the instruction.
+  <!-- place image for DA -->
+
+3. Indirect addressing:
+  - In indirect addressing, a constant in the instruction specifies not the address of the value, but the address of the address of the value.
+  - The indirect addressing is used in implementing pointers.
+  - Two memory accesses are required to access the value:
+      * fetching the pointer, which is stored in memory;
+      * having that address, the CPU accesses the value stored at that address.
+      <!-- place image for IDA -->
+
+4. Register Direct addressing:
+  - In the register direct mode, the operand is contained in the specified register.
+  <!-- place image for RDA -->
+
+5. Register Indirect addressing:
+  - This addressing mode is used to sequentially access the elements of an array stored in memory:
+      * The starting address of the array is stored in a register,
+      * an access is made to the current element, then the register is incremented to point to the next element.
+      <!-- place image for RIDA -->
+
+6. Displacement (Indexing) addressing:
+  - The memory address is formed by adding a constant contained within the instruction, to the address value contained in a register.
+  - Used to access C structs or Pascal Records.
+  <!-- place image for DisA -->
+
+7. Relative addressing:
+  - Similar to indexed, but the base address is held in the PC rather than in another register.
+  - Allows the storage of memory operands at a fixed offset from the current instruction.
+  <!-- place image for RA -->
+
+
+
+#Lecture 6
