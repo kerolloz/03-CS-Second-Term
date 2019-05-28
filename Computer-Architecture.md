@@ -594,15 +594,12 @@ and place the result in R[ra].
 
 **Single-cycle vs. Multi-cycle:
 Control & Data**
-                                  control                               data
-Single-cycle machine:       Control signals are generated        Everything related to an instruction
-                            in the same clock cycle as the       happens in one clock cycle (serialized
-                            one during which data signals        processing)
-                            are operated on.
 
-Multi-cycle machine:        Control signals needed                Latency of control processing can be
-                            in the next cycle can be              overlapped with latency of datapath
-                            generated in the current cycle        operation (more parallelism)
+|   Machine    |                                          Control                                           |                                                 Data                                                  |
+|:------------:|:------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------:|
+| Single-cycle | Control signals are generated in the same clock cycle as the one during which data signals |        Everything related to an instruction happens in one clock cycle (serialized processing)        |
+| Multi-cycle  |       Control signals needed in the next cycle can be generated in the current cycle       | Latency of control processing can be overlapped with latency of datapath operation (more parallelism) |
+
 
 **Performance of Computer Systems:**
 - *Response time:* the time between the start and the completion of a task (in time units)
