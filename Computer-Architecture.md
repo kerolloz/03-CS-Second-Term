@@ -62,10 +62,12 @@ then number of memory locations (or memory cells) = 2^N = 2^14 locations.
 
 Suppose that a computer’s Main Memory has 1013 cells. How many address lines are needed in order for all the cells to be usable?
 
-2^N = 1013
-then to get N we need to take log for base 2 for both sides
-log(2^N) = ceil(log(1013))
-N =  9.
+```
+2^N = 1013  
+then to get N we need to take log for base 2 for both sides  
+log(2^N) = ceil(log(1013))  
+N =  10.  
+```
 
 ---
 
