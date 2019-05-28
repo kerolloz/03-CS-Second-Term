@@ -232,15 +232,23 @@ for a 2-operand arithmetic instruction we need to specify:
 | PC register handles address of next instruction |                                                              :x:                                                              |                                                      :heavy_check_mark:                                                       |                                                      :heavy_check_mark:                                                       |                                            :heavy_check_mark:                                             |
 
 
-- 4-address machine:
-  ![4-address machine](./pics/ca/7.png)  
-  *NOTE:* Because of the large instruction word size and number of memory accesses, the 4-address machine and instruction format is not normally seen in machine design.  
+- 4-address machine
+
+*NOTE:* not normally seen in machine design, Because of the large instruction word size and number of memory accesses.  
+![4-address machine](./pics/ca/7.png)  
+
 - 3-address machine
-  ![3-address machine](./pics/ca/8.png)
+
+![3-address machine](./pics/ca/8.png)  
+
 - 2-address machine
-  ![2-address machine](./pics/ca/9.png)
+
+![2-address machine](./pics/ca/9.png)  
+
 - 1-address machine (accumulator machine)
-  ![1-address machine](./pics/ca/10.png)
+
+![1-address machine](./pics/ca/10.png)  
+
   - Requires two special instructions:
       * LDA Addr; Load the content of Addr to accumulator.
       * STA Addr; Stores the content of accumulator to address Addr.
@@ -294,7 +302,8 @@ A = B - C * ( D + E )
 
 ## Lecture 4
 
-5. 0-address machine
+### 0-address machine
+
   <!-- place image for 0AM  -->
   - An instruction of this machine specifies no address.
   - A stack (of registers) is used as the source of operands and also the destination of the result.
@@ -338,7 +347,7 @@ Solution:
 
 A = B - C * ( D + E )
 
-0-address :
+#### 0-address
 
 | Instruction |      Size       |  Memory Accesses   |
 |:-----------:|:---------------:|:------------------:|
@@ -353,7 +362,7 @@ A = B - C * ( D + E )
 |    Total    |    23 bytes     | 18 memory accesses |
 
 
-6. The General Register machine
+### The General Register machine
   <!-- place image for GRM -->
   - Uses a set of registers to retain intermediate results (for complex operations) inside the CPU. ALU instructions operates on registers.
   - In an instruction, a register is addressed by extra bits (half address):
@@ -419,11 +428,14 @@ A = B - C * ( D + E )
 
 ## Lecture 5
 
-**Effective address:** To access an operand in memory, the CPU must first compute its address, this address is called effective address.
-- This address is then issued to the memory subsystem.
+Effective address
+: the address that the CPU must first compute to access an operand in memory.
 
-**Addressing modes:**
-- There are seven ways to compute the effective address:
+This address is then issued to the memory subsystem.
+
+#### Addressing modes
+
+- There are **7** ways to compute the effective address:
   1. Immediate addressing
   2. Direct addressing
   3. Indirect addressing
@@ -493,14 +505,14 @@ A = B - C * ( D + E )
 <!-- place image of Programmer's Model of the SRC -->
 
 **Instruction Formats:**
-  - Arithmetic instructions: There are four arithmetic instructions: add, addi, sub, and neg.
-  - Logical and shift instructions: There are nine logical and shift instructions: and, andi, or, ori, not, shr, sha, shl, and shc.
-  - Miscellaneous instructions: There are two zero-operand instructions: nop and stop.
-  - Load and store instructions: There are four load instructions Id, Idr, la, and lar, and two store instructions st and str.
-  - Branch instructions: There are two branch instructions, br and brl.
+  - Arithmetic instructions: There are four arithmetic instructions: `add`, `addi`, `sub`, and `neg`.
+  - Logical and shift instructions: There are nine logical and shift instructions: `and`, `andi`, `or`, `ori`, `not`, `shr`, `sha`, `shl`, and `shc`.
+  - Miscellaneous instructions: There are two zero-operand instructions: `nop` and `stop`.
+  - Load and store instructions: There are four load instructions `Id`, `Idr`, `la`, and `lar`, and two store instructions `st` and `str`.
+  - Branch instructions: There are two branch instructions: `br` and `brl`.
   - All instructions are 32 bits long.
   - All instructions have a 5-bit opcode field, allowing 32 different instructions.
-  - The ra, rb, and rc fields are 5-bit fields that specify one of the 32 general purpose registers.
+  - The `ra`, `rb`, and `rc` fields are 5-bit fields that specify one of the 32 general purpose registers.
   - Constants cl, c2, c3.
   - The notation M[x] means the value stored at word x in memory.
 
@@ -509,7 +521,7 @@ A = B - C * ( D + E )
 <!-- place image of examples  -->
 
 *Example:*
-Encode the instruction ld r22, 24(r4).
+Encode the instruction `ld r22, 24(r4)`.
 the opcode for ld = 1.
 
 Solution:
@@ -649,13 +661,22 @@ Solution:
   f= 1/C = 1/0.25ns = 4 GHz or 4000 MHz
 
 **CPU Time Equation:**
-  CPU time = Clock cycles for a program * Clock cycle time
-           = Clock cycles for a program / Clock rate
-           = Instruction count * CPI / Clock rate
-- Clock cycles for a program is a total number of clock cycles needed to execute all instructions of a given program.
-- Instruction count is a number of instructions executed, sometimes referred as the instruction path length.
-- CPI – the average number of clock cycles per instruction
-    CPI = Clock cycles for a program / Instructions count
+```
+CPU time = Clock cycles for a program * Clock cycle time
+         = Clock cycles for a program / Clock rate
+         = Instruction count * CPI / Clock rate
+```
+
+Clock cycles for a program
+: total number of clock cycles needed to execute all instructions of a given program.
+
+Instruction count
+: number of instructions executed, sometimes referred as the instruction path length.
+
+CPI
+: the average number of clock cycles per instruction
+
+>CPI = Clock cycles for a program / Instructions count
 
 
 Single cycle microarchitecture performance:
