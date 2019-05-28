@@ -652,10 +652,9 @@ CPU time depends on the program which is executed, including:
 - refers to the frequency at which a chip like a central processing unit (CPU) is running and is used as an indicator of the processor's speed
 - is given in Hz (= 1/sec).
 - defines duration of discrete time intervals called clock cycle times or clock cycle periods:
-      `clock_cycle_time = 1/clock_rate (in sec)`
+    `clock_cycle_time = 1/clock_rate (in sec)`
 
-<!-- place table of units -->
-
+![table of units](./pics/ca/27.png)
 
 *Example:*
 
