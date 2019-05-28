@@ -218,9 +218,9 @@ for a 2-operand arithmetic instruction we need to specify:
 
 
 * assume the following:
- - data lines in data bus = 24 => then size of data word = 3 bytes.
- - address lines = 24 => then the size of address of each operand = 3 bytes
- - we have 128 instructions then every instruction is encoded in 7 bit = 8 Byte <!--replace = with approximation sign-->
+ - data lines in data bus = 24 => then size of data word = 3 Bytes.
+ - address lines = 24 => then the size of address of each operand = 3 Bytes
+ - we have 128 instructions then every instruction is encoded in 7 bit ≅ 8 Bits (1 byte) (approximately)
 <!-- make this part as a table -->
 
 |                                                 |                                                       4-address machine                                                       |                                                       3-address machine                                                       |                                                       2-address machine                                                       |                                  1-address machine (accumulator machine)                                  |
@@ -304,50 +304,50 @@ A = B - C * ( D + E )
 
 ### 0-address machine
 
-  <!-- place image for 0AM  -->
-  - An instruction of this machine specifies no address.
-  - A stack (of registers) is used as the source of operands and also the destination of the result.
-  - For executing the instruction, the operands are popped from the stack and then the result is pushed to it.
-  - Requires two special instructions:
-      ```
-      PUSH Addr; push the content of Addr to the top of stack
-      POP Addr; pop the top of the stack and store it in Addr
-      ```
-  - The address of next instruction is handled by The Program Counter (PC) register.
-  - The code to add two memory operands will be like this:
-      `Op3 = Op1 + Op2`  
-      ```
-      PUSH Op1;
-      PUSH Op2;
-      ADD;
-      POP Op3;
-      ```
-  - Number of bytes required for each instruction:  
-     number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.
-  - An ALU instruction is encoded in 1 byte.  
-   *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).  
-  - Number of memory access:
-    2 (for fetching the `push` or `pop` instruction) +
-    1 (for fetching one operand or storing the result) = 3 memory accesses
-    **OR**
-    1 (for fetching ALU instructions) = 1 memory access
+![0-address machine](./pics/ca/11.png)  
+
+- An instruction of this machine specifies no address.
+- A stack (of registers) is used as the source of operands and also the destination of the result.
+- For executing the instruction, the operands are popped from the stack and then the result is pushed to it.
+- Requires two special instructions:
+```
+PUSH Addr; push the content of Addr to the top of stack
+POP Addr; pop the top of the stack and store it in Addr
+```
+- The address of next instruction is handled by The Program Counter (PC) register.
+- The code to add two memory operands will be like this:
+`Op3 = Op1 + Op2`  
+```
+PUSH Op1;
+PUSH Op2;
+ADD;
+POP Op3;
+```
+- Number of bytes required for each instruction:  
+   number of operand's addresses(1) * size of address for each operand(3) + size of opcode(1) = 4 bytes.
+- An ALU instruction is encoded in 1 byte.  
+ *NOTE:* the instruction is fetched in 2 memory accesses => ceil(size of instruction / size of data word) = ceil(4/3).  
+- Number of memory access:
+  2 (for fetching the `push` or `pop` instruction) +  
+  1 (for fetching one operand or storing the result)  
+  = 3 memory accesses
+  **OR**  
+  1 (for fetching ALU instructions) = 1 memory access
 
 *Example:*
 
 - Assuming that we have only 2^24 memory cells and the width of the data bus is 24 bits.
 - Assuming that every opcode is encoded in 1 byte
 
-Write the code to implement the expression
+Write the code to implement the expression `A = B - C*(D+E)` on 0-address machine.  
+In accordance with programming language practice, computing the expression should not change the values of its operands.
 
-A = B - C*(D+E) on 0-address machines. In accordance with programming language practice, computing the expression should not change the values of its operands.
+*Solution:*
 
-Solution:
 - We have 2^24 memory cells => size of address for any operand = log(2^24) = 24 bits = 3 bytes.
 - The width of the data bus is 24 bits => the size of data word = 3 bytes.
 
-A = B - C * ( D + E )
-
-#### 0-address
+`A = B - C * ( D + E )`
 
 | Instruction |      Size       |  Memory Accesses   |
 |:-----------:|:---------------:|:------------------:|
@@ -363,7 +363,7 @@ A = B - C * ( D + E )
 
 
 ### The General Register machine
-  <!-- place image for GRM -->
+![GRM](./pics/ca/12.png)  
   - Uses a set of registers to retain intermediate results (for complex operations) inside the CPU. ALU instructions operates on registers.
   - In an instruction, a register is addressed by extra bits (half address):
       N registers requires a code of length log2(N).
@@ -392,16 +392,17 @@ A = B - C * ( D + E )
 
 
 *Example:*
-  Consider a General Register Machine that includes 32 general purpose registers. Assume that every opcode is encoded in 1 byte, the memory is addressed by 24 bits and the width of the data bus is 24 bits.
+Consider a General Register Machine that includes 32 general purpose registers. Assume that every opcode is encoded in 1 byte, the memory is addressed by 24 bits and the width of the data bus is 24 bits.
 
-  1. Write the assembly code to implement the expression A = ( B + C ) * ( D + E ) on the above machine.
-  2. Compute the memory size (in bytes) required for the code in (1).
-  3. Compute the number of memory accesses required to execute the expression (1) on the specified machine.
+1. Write the assembly code to implement the expression `A = ( B + C ) * ( D + E )` on the above machine.
+2. Compute the memory size (in bytes) required for the code in (1).
+3. Compute the number of memory accesses required to execute the expression (1) on the specified machine.
 
-  Solution:
-  - The machine includes 32 general purpose registers => size of address of register = 5 bits
-  - Size of address for any operand in memory = 24 bits
-  - The width of the data bus is 24 bits => the size of data word = 24 bits.
+*Solution:*
+
+- The machine includes 32 general purpose registers => size of address of register = 5 bits
+- Size of address for any operand in memory = 24 bits
+- The width of the data bus is 24 bits => the size of data word = 24 bits.
 
 
 |  Instruction   |          Size           |   Memory Accesses   |
@@ -449,39 +450,33 @@ This address is then issued to the memory subsystem.
 1. Immediate addressing:
   - Is used to access constants stored in the instruction.
   - It supplies an operand immediately without computing an address.
-<!-- place image for IA -->
-
+![addressing](./pics/ca/13.png)  
 2. Direct addressing:
   - The address of the operand is specified as a constant in the instruction.
-  <!-- place image for DA -->
-
+![addressing](./pics/ca/14.png)  
 3. Indirect addressing:
   - In indirect addressing, a constant in the instruction specifies not the address of the value, but the address of the address of the value.
   - The indirect addressing is used in implementing pointers.
   - Two memory accesses are required to access the value:
       * fetching the pointer, which is stored in memory;
-      * having that address, the CPU accesses the value stored at that address.
-      <!-- place image for IDA -->
-
+      * having that address, the CPU accesses the value stored at that address
+      ![addressing](./pics/ca/15.png)  
 4. Register Direct addressing:
   - In the register direct mode, the operand is contained in the specified register.
-  <!-- place image for RDA -->
-
+![addressing](./pics/ca/16.png)  
 5. Register Indirect addressing:
   - This addressing mode is used to sequentially access the elements of an array stored in memory:
       * The starting address of the array is stored in a register,
       * an access is made to the current element, then the register is incremented to point to the next element.
-      <!-- place image for RIDA -->
-
+![addressing](./pics/ca/17.png)  
 6. Displacement (Indexing) addressing:
   - The memory address is formed by adding a constant contained within the instruction, to the address value contained in a register.
   - Used to access C structs or Pascal Records.
-  <!-- place image for DisA -->
-
+![addressing](./pics/ca/18.png)  
 7. Relative addressing:
   - Similar to indexed, but the base address is held in the PC rather than in another register.
   - Allows the storage of memory operands at a fixed offset from the current instruction.
-  <!-- place image for RA -->
+![addressing](./pics/ca/19.png)  
 
 ## Lecture 6
 
@@ -490,9 +485,11 @@ This address is then issued to the memory subsystem.
     * RISC (Reduced instruction set computing).
     * CISC (Complex instruction set computing).
 
-***RISC:*** is a computer which only uses simple commands that can be divided into several instructions which achieve low-level operation within a single CLK cycle.
+RISC
+: is a computer which only uses simple commands that can be divided into several instructions which achieve low-level operation within a single CLK cycle.
 
-***CISC:**** is a computer where single instructions can perform numerous low-level operations like a load from memory, an arithmetic operation, and a memory store. Or are accomplished by multi-step processes or addressing modes in single instructions.
+CISC
+: is a computer where single instructions can perform numerous low-level operations like a load from memory, an arithmetic operation, and a memory store. Or are accomplished by multi-step processes or addressing modes in single instructions.
 
 **Simple Risc Computer (SRC):**
   - 32-bit general purpose registers.
@@ -501,30 +498,31 @@ This address is then issued to the memory subsystem.
   - 32-bit words (4 bytes) can be fetched or stored.
   - Contains 2^32 Bytes of memory.
   - Memory addresses ranges from 0 to 232 -1.
+![src](./pics/ca/20.png)  
 
-<!-- place image of Programmer's Model of the SRC -->
+### Instruction Formats
 
-**Instruction Formats:**
-  - Arithmetic instructions: There are four arithmetic instructions: `add`, `addi`, `sub`, and `neg`.
-  - Logical and shift instructions: There are nine logical and shift instructions: `and`, `andi`, `or`, `ori`, `not`, `shr`, `sha`, `shl`, and `shc`.
-  - Miscellaneous instructions: There are two zero-operand instructions: `nop` and `stop`.
-  - Load and store instructions: There are four load instructions `Id`, `Idr`, `la`, and `lar`, and two store instructions `st` and `str`.
-  - Branch instructions: There are two branch instructions: `br` and `brl`.
-  - All instructions are 32 bits long.
-  - All instructions have a 5-bit opcode field, allowing 32 different instructions.
-  - The `ra`, `rb`, and `rc` fields are 5-bit fields that specify one of the 32 general purpose registers.
-  - Constants cl, c2, c3.
-  - The notation M[x] means the value stored at word x in memory.
+- Arithmetic instructions: There are four arithmetic instructions: `add`, `addi`, `sub`, and `neg`.
+- Logical and shift instructions: There are nine logical and shift instructions: `and`, `andi`, `or`, `ori`, `not`, `shr`, `sha`, `shl`, and `shc`.
+- Miscellaneous instructions: There are two zero-operand instructions: `nop` and `stop`.
+- Load and store instructions: There are four load instructions `Id`, `Idr`, `la`, and `lar`, and two store instructions `st` and `str`.
+- Branch instructions: There are two branch instructions: `br` and `brl`.
+- All instructions are 32 bits long.
+- All instructions have a 5-bit opcode field, allowing 32 different instructions.
+- The `ra`, `rb`, and `rc` fields are 5-bit fields that specify one of the 32 general purpose registers.
+- Constants cl, c2, c3.
+- The notation `M[x]` means the value stored at word x in memory.
 
 1. Accessing Memory: The Load and Store Instructions
   - The load and store instructions are the only SRC instructions to access operands in memory.
-<!-- place image of examples  -->
+![examples](./pics/ca/21.png)  
 
 *Example:*
+
 Encode the instruction `ld r22, 24(r4)`.
 the opcode for ld = 1.
 
-Solution:
+*Solution:*
 
 the instruction means:
 ```
@@ -541,9 +539,9 @@ the instruction means:
   - The not (op = 24) instruction: takes the logical (1's) complement of the contents of register R[rc] and stores it in register R[ra].
 
   * Review: (1's) complement
-  <!-- place image  -->
-  * Review: (2's) complement
-  <!-- place image  -->
+  ![Review](./pics/ca/22.png)   
+ * Review: (2's) complement
+ ![Review](./pics/ca/23.png)   
 
   There are two types of ALU instructions:  
     * Register ALU Instructions: add, sub, and, or.
@@ -554,22 +552,22 @@ the instruction means:
 
 3. Miscellaneous Instructions
 
-| instruction | opcode |                 purpose                  |
-|:-----------:|:------:|:----------------------------------------:|
-|     nop     |   0    | do nothing. it is used as a time waster. |
-|    stop     |   31   |            halt the machine.             |
+| instruction | opcode |              purpose               |
+|:-----------:|:------:|:----------------------------------:|
+|     nop     |   0    | do nothing, used as a time waster. |
+|    stop     |   31   |         halt the machine.          |
 
 
 ## Lecture 7
 
-  - This lecture is concerned with the fetch, decode, execute, store instruction cycle in more details.
-  - General Concepts:
-    * The program counter (PC): is pointing to the next instruction to be executed.
-    * Memory Address Register (MAR): is the CPU register that either stores the memory address from which data will be fetched for the CPU, or the address to which data will be sent and stored. In other words, MAR holds the memory location of data that needs to be accessed.
-    * Memory Data Register (MDR) or Memory Buffer Register (MBR): is the register of a computer's control unit that contains the data to be stored in the computer storage (e.g. RAM), or the data after a fetch from the computer storage.
-    * Instruction Register (IR) or Current Instruction Register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
-  - This video illustrates the phases in depth with more details:
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/jFDMZpkUWCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+- This lecture is concerned with the fetch, decode, execute, store instruction cycle in more details.
+- General Concepts:
+  * The program counter (PC): is pointing to the next instruction to be executed.
+  * Memory Address Register (MAR): is the CPU register that either stores the memory address from which data will be fetched for the CPU, or the address to which data will be sent and stored. In other words, MAR holds the memory location of data that needs to be accessed.
+  * Memory Data Register (MDR) or Memory Buffer Register (MBR): is the register of a computer's control unit that contains the data to be stored in the computer storage (e.g. RAM), or the data after a fetch from the computer storage.
+  * Instruction Register (IR) or Current Instruction Register (CIR): is the part of a CPU's control unit that holds the instruction currently being executed or decoded.
+- This video illustrates the phases in depth with more details:
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/jFDMZpkUWCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Lecture 8
 
@@ -578,8 +576,9 @@ Shift instructions: Shift the operand in R[rb] right, or left," from 1 to 32 bit
 - The integer representing the shift count is stored as an immediate value in the 5 least significant bits in the instruction.
 - for example: `shr` shifts zeros in from the left as the value is shifted right.
 
-Branch Instructions:
-<!-- place image of the table -->
+Branch Instructions:  
+![table](./pics/ca/24.png)   
+
 
 ## Lecture 9
 
@@ -602,7 +601,7 @@ Branch Instructions:
   - All six phases of the instruction processing cycle take a single machine clock cycle to complete.
   - All state updates made at the end of an instruction’s execution.
   - Big disadvantage: The slowest instruction determines cycle time, Therefore, long clock cycle time.
-<!-- place image of SCM -->
+  ![SCM](./pics/ca/25.png)   
 2. Multi-cycle machine:
   - All six phases of the instruction processing cycle can take multiple machine clock cycles to complete.
   - In fact, each phase can take multiple clock cycles to complete
@@ -610,7 +609,7 @@ Branch Instructions:
   - State updates can be made during an instruction’s execution
   - Architectural state updates made only at the end of an instruction’s execution
   - Advantage over single-cycle: The slowest “stage” determines cycle time.
-  <!-- place image of MCM -->
+  ![MCM](./pics/ca/26.png)   
 
 ### Single-cycle vs. Multi-cycle: Control & Data
 
