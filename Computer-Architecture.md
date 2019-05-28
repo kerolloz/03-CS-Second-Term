@@ -545,7 +545,7 @@ the instruction means:
   * Review: (2's) complement
   <!-- place image  -->
 
-  There are two types of ALU instructions:
+  There are two types of ALU instructions:  
     * Register ALU Instructions: add, sub, and, or.
     * Immediate Addressing ALU Instructions: addi, andi, ori.
 
@@ -553,8 +553,12 @@ the instruction means:
     Addi: adds an immediate value (constant) to the register.
 
 3. Miscellaneous Instructions
-  - nop (op = 0), whose purpose is to do nothing. it is used as a time waster.
-  - stop (op = 31), whose purpose is to halt the machine.
+
+| instruction | opcode |                 purpose                  |
+|:-----------:|:------:|:----------------------------------------:|
+|     nop     |   0    | do nothing. it is used as a time waster. |
+|    stop     |   31   |            halt the machine.             |
+
 
 ## Lecture 7
 
