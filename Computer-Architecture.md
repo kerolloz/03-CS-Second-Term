@@ -541,8 +541,8 @@ the instruction means:
   * Review: (2's) complement  <br><br>
   ![Review](./pics/ca/23.png)   <br><br>
   * There are two types of ALU instructions:  
-    * Register ALU Instructions: add, sub, and, or.
-    * Immediate Addressing ALU Instructions: addi, andi, ori.
+      * Register ALU Instructions: add, sub, and, or.
+      * Immediate Addressing ALU Instructions: addi, andi, ori.
     ```
     Add: adds the value in two registers.
     Addi: adds an immediate value (constant) to the register.
