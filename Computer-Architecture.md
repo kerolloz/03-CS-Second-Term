@@ -540,7 +540,7 @@ the instruction means:
   ![Review](./pics/ca/22.png)   <br><br>
   * Review: (2's) complement  <br><br>
   ![Review](./pics/ca/23.png)   <br><br>
-  There are two types of ALU instructions:  
+  * There are two types of ALU instructions:  
     * Register ALU Instructions: add, sub, and, or.
     * Immediate Addressing ALU Instructions: addi, andi, ori.
     ```
