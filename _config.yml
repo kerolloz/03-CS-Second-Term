@@ -1,4 +1,4 @@
-remote_theme: YoussefRaafatNasry/portfolYOU
+theme: jekyll-theme-cayman
 plugins:
   - jemoji
 search_enabled: true # Enable or disable the site search
