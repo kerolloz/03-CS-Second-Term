@@ -299,6 +299,7 @@ assisting with the problem statement:
   3. Cost-related resource policies
   4. Equipment capabilities evaluation
 
+
 # Lecture 4
 
 ## Project Management Concepts:
@@ -306,7 +307,7 @@ assisting with the problem statement:
 1. Project parameters, standard measurements:
   * Time:
     - Associated with the project schedule, which is implemented as a Gantt chart.
-    - If there are significant differences between the actual project progress and the project schedule, something may be incorrect .
+    - If there are significant differences between the actual project progress and the project schedule, something may be incorrect.
     -  If the project is continuously ahead of schedule, the following situations may exist:
       - The budget is being consumed at an excessive rate.
       - Excess resources are assigned to the project.
@@ -315,7 +316,6 @@ assisting with the problem statement:
       - Expenditures are being delayed.
       - Insufficient resources are assigned to the project.
       - The project is much more complex than originally estimated.
-
   * Cost:
     - The cost parameter means that there is a budget associated with the project.
     - Simulation project costs may include computer hardware and software.
@@ -328,57 +328,46 @@ assisting with the problem statement:
       - The budget is being consumed at an excessive rate.
       - Excess resources are assigned to the project.
       - The project is much larger or more complex than originally estimated.
-
   * Technical performance:  
     - Specified in the problem statement phase of the project.
     - The project must achieve these objectives in order to be considered successful from a technical performance standpoint.
-
-
 2. Project life cycles, common phases:
   * Conceptual:
     - During this phase, the organization will formally assign the project to the project manager.
     - The problem formulation process may be completed during this life cycle phase.
-
   * Planning:
     - During the planning phase, the project manager will identify all of the project team members.
     - The simulation-planning process activities involving the work breakdown structure, linear responsibility chart, and Gantt chart are conducted during this life-cycle phase.
-
   * Execution:
     - Most of the simulation project activities for the project will be completed.
     - These activities include:
-      the system definition,
-      input data collection and analysis,
-      model translation,
-      verification,
-      validation,
-      experimentation, and analysis.
-
+      - the system definition,
+      - input data collection and analysis,
+      - model translation,
+      - verification,
+      - validation,
+      - experimentation, and analysis.
   * Completion:
     - Turning over the results of the project and primarily include the simulation project report.
-
 3. Project stakeholders
   * Internal stakeholders:
     - Individuals who are directly associated with the simulation project team => (Practitioner/project manager, Analysts, Statisticians, Data collectors).
-
   * External stakeholders:
     - Individuals or organizations who are not directly associated with the simulation project team.
-
   * Stakeholder strategy
 
 
 ## Simulation Project Manager Functions:
 
-* There are five generally accepted project manager functions that will affect the success or failure of the simulation project:
+There are **five** generally accepted project manager functions that will affect the success or failure of the simulation project:
 
 1. Planning:
   - This process includes the development of a work breakdown   structure and a Gantt chart.
   - A work breakdown structure is the successive division of project tasks to the point that individual responsibility and accountability can be assigned.
   - A Gantt chart illustrates the duration and relationships among the work breakdown structure tasks.
-
 2. Organizing:
   - identifying, acquiring, and aligning the simulation project team.
   - The relationship between the host organizations and the different projects that the team members are assigned can be clarified through the use of a matrix organizational chart.
-
 3. Motivating
 4. Directing
 5. Controlling
@@ -391,7 +380,7 @@ assisting with the problem statement:
 
 ## Developing the Simulation Project Plan
 
-* The project-planning process as a minimum consists of developing:
+The project-planning process as a minimum consists of developing:
   - A work breakdown structure (WBS)
   - A linear responsibility chart (LRC)
   - A Gantt chart:
