@@ -154,9 +154,9 @@
 
 ## Types of Models:
 
-* Dynamic vs. Static
-* Stochastic vs. Deterministic
-* Discrete vs. Continuous
+* Dynamic :vs: Static
+* Stochastic :vs: Deterministic
+* Discrete :vs: Continuous
 
 <!-- place image in slide 20 -->
 
