@@ -166,13 +166,12 @@ State variables – Number of messages waiting to be transmitted
 ## Characterizing a Simulation Model:
 
 
-|                        Deterministic                         |    Stochastic (NON-DETERMINISTIC or PROBABILISTIC)     |
-|:------------------------------------------------------------:|:------------------------------------------------------:|
-|               No random variable in the model.               |   model has one or more random variables as inputs.    |
-|                   behavior is predictable.                   |             behavior cannot be predicted.              |
-| patients arriving at a clinic at scheduled appointment time. | Bank: random customer inter-arrival and service times. |
+|                  |                      Deterministic                       |    Stochastic (NON-DETERMINISTIC or PROBABILISTIC)     |
+|:----------------:|:--------------------------------------------------------:|:------------------------------------------------------:|
+| Random variables |             No random variable in the model.             |   model has one or more random variables as inputs.    |
+|     behavior     |                 behavior is predictable.                 |             behavior cannot be predicted.              |
+|     Example      | Clinic: patients arriving at scheduled appointment time. | Bank: random customer inter-arrival and service times. |
 
-<br>
 
 |                       Static                       |                                                                     Dynamic                                                                     |
 |:--------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -180,7 +179,6 @@ State variables – Number of messages waiting to be transmitted
 |        Time Independent view of the system.        |                                                       Time dependent view of the system.                                                        |
 | e.g. Class has same number of students in an year. | E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect. |
 
-<br>
 
 |                                            Discrete system                                            |                               Continuous system                                |
 |:-----------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
