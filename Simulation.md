@@ -61,18 +61,20 @@
 
 <!-- place image in slide 8 -->
 
-* **Simulation:** is the imitation of the operation of real- world process or system over time.
+Simulation
+: is the imitation of the operation of real- world process or system over time.
+
 * A model construct a conceptual framework that describes a system.
 * Simulations involve designing a model of a system and carrying out experiments on it as it progresses through time.
 
 
 ## Goal of modeling and simulation:
+
 * A model can be used to investigate a wide verity of “what if” questions about real-world system.
 * Simulation can be used as:
   - Analysis tool for predicating the effect of changes.
   - Design tool to predicate the performance of new system.
 * It is better to do simulation before implementation.
-
 
 ## Reason for using a model:
 
@@ -96,8 +98,8 @@
 * If resource or time are not available.
 * If system behavior is too complex like human behavior
 
-
 <!-- make the next two points as a table -->
+
 ## Advantages of simulation:
 
 * New policies, operating procedures, information flows and so on can be explored without disrupting ongoing operation of the real system.
@@ -111,7 +113,6 @@
 * Vendors of simulation software have been actively developing packages that contain models that only need input (templates).
 * Simulation results can be difficult to interpret.
 * Simulation modeling and analysis can be time consuming and expensive.
-
 
 ## Areas of application:
 
@@ -256,7 +257,7 @@ All of it is just section problems.
 
 * There are two common tools available to the practitioner for
 assisting with the problem statement:
-  1. Fishbone/Cause-Effect/Ishikawa Chart
+  1. Fishbone / Cause-Effect / Ishikawa Chart:
     - The purpose of this chart is to identify the cause of the problem or effect of interest.
     - The head of the fish is labeled with the problem or effect.
     - When the Fishbone diagram is complete, the practitioner can concentrate on the most important sources or causes of the problem.
