@@ -172,12 +172,15 @@ State variables – Number of messages waiting to be transmitted
 |                   behavior is predictable.                   |             behavior cannot be predicted.              |
 | patients arriving at a clinic at scheduled appointment time. | Bank: random customer inter-arrival and service times. |
 
+<br>
+
 |                       Static                       |                                                                     Dynamic                                                                     |
 |:--------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
 |                  No time element.                  |                                                   Passage of time is important part of model.                                                   |
 |        Time Independent view of the system.        |                                                       Time dependent view of the system.                                                        |
 | e.g. Class has same number of students in an year. | E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect. |
 
+<br>
 
 |                                            Discrete system                                            |                               Continuous system                                |
 |:-----------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
