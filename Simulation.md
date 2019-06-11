@@ -32,7 +32,6 @@
 
 ## Examples on components of a system:
 
-<!-- make it as a table -->
 * Banking System
 
 |  Entites  | Attributes  |                  Activities                  |         Events          |                        State variables                        |
@@ -40,7 +39,6 @@
 | Customers | the balance | making deposits in their checking  accounts. | arrival, <br>departure. | number of busy tellers, <br>arrival time of the next customer |
 
 * Rail System
-
 
 |  Entites  |        Attributes        | Activities |                   Events                   |                                State variables                                |
 |:---------:|:------------------------:|:----------:|:------------------------------------------:|:-----------------------------------------------------------------------------:|
@@ -52,12 +50,11 @@
 |:--------:|:--------------------------------:|:--------------------------:|:---------:|:---------------------------------------:|
 | Machines | Speed , Capacity, Breakdown rate | Welding, Cutting, Stamping | breakdown | Status of machines – busy, idle or down |
 
-Examples: Communications System
-Entities – Messages
-Attributes – Length , Destination
-Activities – Transmitting
-Events – arrival at destination
-State variables – Number of messages waiting to be transmitted
+* Communications System
+
+| Entites  |      Attributes      |  Activities  |         Events         |               State variables                |
+|:--------:|:--------------------:|:------------:|:----------------------:|:--------------------------------------------:|
+| Messages | Length , Destination | Transmitting | arrival at destination | Number of messages waiting to be transmitted |
 
 
 ## Ways to study a system:
