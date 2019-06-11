@@ -28,35 +28,29 @@
 * **Event:** is defined as an instantaneous occurrence that may change the state of the system.
 * **Endogenous** – used to describe the activities and events occurring within a system.
 * **Exogenous** – is used to describe activities and events in the environment that affect the system.
-  - In the bank: arrival of a customer is exogenous event
-                 completion of service of a customer is endogenous event.
+  - In the bank: arrival of a customer is exogenous event completion of service of a customer is endogenous event.
+
 ## Examples on components of a system:
 
 <!-- make it as a table -->
-                      Entites     Attributes            Activities             Events         State variables
+* Banking System
 
-* Banking System     Customers    the balance           making deposits.     arrival,       The number of busy tellers,
-                                                                                            the number of customers waiting in line or being served,
-                                                                                            and the arrival time of the next customer.
-                                  in their checking                          departure.
-                                  accounts.
+|  Entites  | Attributes  |                  Activities                  |         Events          |                        State variables                        |
+|:---------:|:-----------:|:--------------------------------------------:|:-----------------------:|:-------------------------------------------------------------:|
+| Customers | the balance | making deposits in their checking  accounts. | arrival, <br>departure. | number of busy tellers, <br>arrival time of the next customer |
+
+* Rail System
 
 
+|  Entites  |        Attributes        | Activities |                   Events                   |                                State variables                                |
+|:---------:|:------------------------:|:----------:|:------------------------------------------:|:-----------------------------------------------------------------------------:|
+| Commuters | Origination, Destination | Traveling  | arrival at station, arrival at destination | Number of commuters waiting at each station,<br>number of commuters traveling |
 
-Examples: Rail System
-Entities – Commuters
-Attributes – Origination , Destination
-Activities – Traveling
-Events – arrival at station, arrival at destination
-State variables – Number of commuters waiting at each station,
-                  number of commuters traveling
+* Production System
 
-Examples: Production System
-Entities – Machines
-Attributes – Speed , Capacity, Breakdown rate
-Activities – Welding, Cutting, Stamping
-Events – breakdown
-State variables – Status of machines – busy, idle or down
+| Entites  |            Attributes            |         Activities         |  Events   |             State variables             |
+|:--------:|:--------------------------------:|:--------------------------:|:---------:|:---------------------------------------:|
+| Machines | Speed , Capacity, Breakdown rate | Welding, Cutting, Stamping | breakdown | Status of machines – busy, idle or down |
 
 Examples: Communications System
 Entities – Messages
@@ -85,9 +79,9 @@ State variables – Number of messages waiting to be transmitted
 
 ## Reason for using a model:
 
-1. Helps in understanding the behaviour of a real system before it is built.
+1. Helps in understanding the behavior of a real system before it is built.
 2. Cost of building and experimenting with a model is less.
-3. Models have the capability of scale time or space in favourable manner.
+3. Models have the capability of scale time or space in favorable manner.
 
 <!-- make the next two points as a table -->
 
@@ -173,31 +167,19 @@ State variables – Number of messages waiting to be transmitted
 
 <!-- make this part as a table -->
 
-* Deterministic:
-  - No random variable in the model.
-  - behavior is predictable.
-  - patients arriving at a clinic at scheduled appointment time.
+|                         Deterministic                          |     Stochastic (NON-DETERMINISTIC or PROBABILISTIC)      |                        Static                        |                                                                      Dynamic                                                                      |                                             Discrete system                                             |                                Continuous system                                 |
+|:--------------------------------------------------------------:|:--------------------------------------------------------:|:----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+|               - No random variable in the model.               |   - model has one or more random variables as inputs.    |                  - No time element.                  |                                                   - Passage of time is important part of model.                                                   | - state variables change only at discrete set of points in time (a countable number of points in time). | - the state variables change continuously over time (infinite number of states). |
+|                   - behavior is predictable.                   |             - behavior cannot be predicted.              |        - Time Independent view of the system.        |                                                       - Time dependent view of the system.                                                        |                                                                                                         |                                                                                  |
+| - patients arriving at a clinic at scheduled appointment time. | - Bank: random customer inter-arrival and service times. | - e.g. Class has same number of students in an year. | - E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect. |                                                                                                         |                                                                                  |
 
-* Stochastic (NON-DETERMINISTIC or PROBABILISTIC)
-  - model has one or more random variables as inputs.
-  - behavior cannot be predicted.
-  - Bank: random customer inter-arrival and service times.
 
-* Static:
-  - No time element.
-  - Time Independent view of the system.
-  - e.g. Class has same number of students in an year.
 
-* Dynamic:
-  - Passage of time is important part of model.
-  - Time dependent view of the system.
-  - E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect.
 
-* Discrete system:
- - state variables change only at discrete set of points in time (a countable number of points in time).
 
-* Continuous system:
- - the state variables change continuously over time (infinite number of states).
+
+
+
 
 
 ## How to develop a model?
