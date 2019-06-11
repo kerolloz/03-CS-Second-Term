@@ -344,7 +344,7 @@ assisting with the problem statement:
 
 ## Simulation Project Manager Functions:
 
-* There are five generally accepted project manager functions that will affect the success or failure of the simulation project:
+There are **five** generally accepted project manager functions that will affect the success or failure of the simulation project:
 
 1. Planning:
   - This process includes the development of a work breakdown   structure and a Gantt chart.
