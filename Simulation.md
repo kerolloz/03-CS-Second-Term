@@ -290,56 +290,56 @@ assisting with the problem statement:
 ## Project Management Concepts:
 
 1. Project parameters, standard measurements:
-  * Time:
-    - Associated with the project schedule, which is implemented as a Gantt chart.
-    - If there are significant differences between the actual project progress and the project schedule, something may be incorrect .
-    -  If the project is continuously ahead of schedule, the following situations may exist:
-      - The budget is being consumed at an excessive rate.
-      - Excess resources are assigned to the project.
-      - The project is much less complex than originally estimated.
-    - if the project is continuously behind schedule, any of the following situations may be present:
-      - Expenditures are being delayed.
-      - Insufficient resources are assigned to the project.
-      - The project is much more complex than originally estimated.
-  * Cost:
-    - The cost parameter means that there is a budget associated with the project.
-    - Simulation project costs may include computer hardware and software.
-    - The budget is perhaps the most easily tracked project parameter.
-    - In the event that the project is continuously under budget, the following situations may be present:
-      - Expenditures are being delayed.
-      - Insufficient or inexperienced resources are assigned to the project.
-      - The project is much smaller or less complex than originally estimated.
-    - Problems may also exist if the project is continuously over budget, Typical causes are:
-      - The budget is being consumed at an excessive rate.
-      - Excess resources are assigned to the project.
-      - The project is much larger or more complex than originally estimated.
-  * Technical performance:  
-    - Specified in the problem statement phase of the project.
-    - The project must achieve these objectives in order to be considered successful from a technical performance standpoint.
+  - Time:  
+    - Associated with the project schedule, which is implemented as a Gantt chart.  
+    - If there are significant differences between the actual project progress and the project schedule, something may be incorrect .  
+    -  If the project is continuously ahead of schedule, the following situations may exist:  
+      - The budget is being consumed at an excessive rate.  
+      - Excess resources are assigned to the project.  
+      - The project is much less complex than originally estimated.  
+    - if the project is continuously behind schedule, any of the following situations may be present:  
+      - Expenditures are being delayed.  
+      - Insufficient resources are assigned to the project.  
+      - The project is much more complex than originally estimated.  
+  - Cost:  
+    - The cost parameter means that there is a budget associated with the project.  
+    - Simulation project costs may include computer hardware and software.  
+    - The budget is perhaps the most easily tracked project parameter.  
+    - In the event that the project is continuously under budget, the following situations may be present:  
+      - Expenditures are being delayed.  
+      - Insufficient or inexperienced resources are assigned to the project.  
+      - The project is much smaller or less complex than originally estimated.  
+    - Problems may also exist if the project is continuously over budget, Typical causes are:  
+      - The budget is being consumed at an excessive rate.  
+      - Excess resources are assigned to the project.  
+      - The project is much larger or more complex than originally estimated.  
+  - Technical performance:  
+    - Specified in the problem statement phase of the project.  
+    - The project must achieve these objectives in order to be considered successful from a technical performance standpoint.  
 1. Project life cycles, common phases:
-  * Conceptual:
-    - During this phase, the organization will formally assign the project to the project manager.
-    - The problem formulation process may be completed during this life cycle phase.
-  * Planning:
-    - During the planning phase, the project manager will identify all of the project team members.
-    - The simulation-planning process activities involving the work breakdown structure, linear responsibility chart, and Gantt chart are conducted during this life-cycle phase.
-  * Execution:
-    - Most of the simulation project activities for the project will be completed.
-    - These activities include:
-      the system definition,
-      input data collection and analysis,
-      model translation,
-      verification,
-      validation,
-      experimentation, and analysis.
-  * Completion:
-    - Turning over the results of the project and primarily include the simulation project report.
-1. Project stakeholders
-  * Internal stakeholders:
-    - Individuals who are directly associated with the simulation project team => (Practitioner/project manager, Analysts, Statisticians, Data collectors).
-  * External stakeholders:
-    - Individuals or organizations who are not directly associated with the simulation project team.
-  * Stakeholder strategy
+  * Conceptual:  
+    - During this phase, the organization will formally assign the project to the project manager.  
+    - The problem formulation process may be completed during this life cycle phase.  
+  * Planning:  
+    - During the planning phase, the project manager will identify all of the project team members.  
+    - The simulation-planning process activities involving the work breakdown structure, linear responsibility chart, and Gantt chart are conducted during this life-cycle phase.  
+  * Execution:  
+    - Most of the simulation project activities for the project will be completed.  
+    - These activities include:  
+      the system definition,  
+      input data collection and analysis,  
+      model translation,  
+      verification,  
+      validation,  
+      experimentation, and analysis.  
+  * Completion:  
+    - Turning over the results of the project and primarily include the simulation project report.  
+1. Project stakeholders  
+  * Internal stakeholders:  
+    - Individuals who are directly associated with the simulation project team => (Practitioner/project manager, Analysts, Statisticians, Data collectors).  
+  * External stakeholders:  
+    - Individuals or organizations who are not directly associated with the simulation project team.  
+  * Stakeholder strategy  
 
 
 ## Simulation Project Manager Functions:
