@@ -203,7 +203,7 @@ State variables – Number of messages waiting to be transmitted
 ## Steps in Simulation Study:
 <!-- place image in slide 29 -->
 
-# Lectire 2
+# Lecture 2
 
 All of it is just section problems.
 
