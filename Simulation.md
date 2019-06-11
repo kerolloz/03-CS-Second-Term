@@ -59,7 +59,7 @@
 
 ## Ways to study a system:
 
-<!-- place image in slide 8 -->
+![ways to study a System](./pics/simulation/1.png)
 
 Simulation
 : is the imitation of the operation of real- world process or system over time.
@@ -159,7 +159,7 @@ Simulation
 * Stochastic :vs: Deterministic
 * Discrete :vs: Continuous
 
-<!-- place image in slide 20 -->
+![types of models](./pics/simulation/2.png)
 
 ## Characterizing a Simulation Model:
 
@@ -210,7 +210,8 @@ Simulation
   - simulation language.
 
 ## Steps in Simulation Study:
-<!-- place image in slide 29 -->
+
+![steps in simulation Study](./pics/simulation/3.png)
 
 # Lecture 2
 
