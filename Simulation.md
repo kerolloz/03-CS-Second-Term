@@ -62,7 +62,7 @@
 ![ways to study a System](./pics/simulation/1.png)
 
 Simulation
-: is the imitation of the operation of real- world process or system over time.
+: is the imitation of the operation of real-world process or system over time.
 
 * A model construct a conceptual framework that describes a system.
 * Simulations involve designing a model of a system and carrying out experiments on it as it progresses through time.
