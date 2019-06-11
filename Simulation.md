@@ -28,59 +28,66 @@
 * **Event:** is defined as an instantaneous occurrence that may change the state of the system.
 * **Endogenous** – used to describe the activities and events occurring within a system.
 * **Exogenous** – is used to describe activities and events in the environment that affect the system.
-  - In the bank: arrival of a customer is exogenous event completion of service of a customer is endogenous event.
-
+  - In the bank: arrival of a customer is exogenous event
+                 completion of service of a customer is endogenous event.
 ## Examples on components of a system:
 
-* Banking System
+<!-- make it as a table -->
+                      Entites     Attributes            Activities             Events         State variables
 
-|  Entites  | Attributes  |                  Activities                  |         Events          |                        State variables                        |
-|:---------:|:-----------:|:--------------------------------------------:|:-----------------------:|:-------------------------------------------------------------:|
-| Customers | the balance | making deposits in their checking  accounts. | arrival, <br>departure. | number of busy tellers, <br>arrival time of the next customer |
+* Banking System     Customers    the balance           making deposits.     arrival,       The number of busy tellers,
+                                                                                            the number of customers waiting in line or being served,
+                                                                                            and the arrival time of the next customer.
+                                  in their checking                          departure.
+                                  accounts.
 
-* Rail System
 
-|  Entites  |        Attributes        | Activities |                   Events                   |                                State variables                                |
-|:---------:|:------------------------:|:----------:|:------------------------------------------:|:-----------------------------------------------------------------------------:|
-| Commuters | Origination, Destination | Traveling  | arrival at station, arrival at destination | Number of commuters waiting at each station,<br>number of commuters traveling |
 
-* Production System
+Examples: Rail System
+Entities – Commuters
+Attributes – Origination , Destination
+Activities – Traveling
+Events – arrival at station, arrival at destination
+State variables – Number of commuters waiting at each station,
+                  number of commuters traveling
 
-| Entites  |            Attributes            |         Activities         |  Events   |             State variables             |
-|:--------:|:--------------------------------:|:--------------------------:|:---------:|:---------------------------------------:|
-| Machines | Speed , Capacity, Breakdown rate | Welding, Cutting, Stamping | breakdown | Status of machines – busy, idle or down |
+Examples: Production System
+Entities – Machines
+Attributes – Speed , Capacity, Breakdown rate
+Activities – Welding, Cutting, Stamping
+Events – breakdown
+State variables – Status of machines – busy, idle or down
 
-* Communications System
-
-| Entites  |      Attributes      |  Activities  |         Events         |               State variables                |
-|:--------:|:--------------------:|:------------:|:----------------------:|:--------------------------------------------:|
-| Messages | Length , Destination | Transmitting | arrival at destination | Number of messages waiting to be transmitted |
+Examples: Communications System
+Entities – Messages
+Attributes – Length , Destination
+Activities – Transmitting
+Events – arrival at destination
+State variables – Number of messages waiting to be transmitted
 
 
 ## Ways to study a system:
 
-![ways to study a System](./pics/simulation/1.png)
+<!-- place image in slide 8 -->
 
-Simulation
-: is the imitation of the operation of real-world process or system over time.
-
+* **Simulation:** is the imitation of the operation of real- world process or system over time.
 * A model construct a conceptual framework that describes a system.
 * Simulations involve designing a model of a system and carrying out experiments on it as it progresses through time.
 
 
 ## Goal of modeling and simulation:
-
 * A model can be used to investigate a wide verity of “what if” questions about real-world system.
 * Simulation can be used as:
   - Analysis tool for predicating the effect of changes.
   - Design tool to predicate the performance of new system.
 * It is better to do simulation before implementation.
 
+
 ## Reason for using a model:
 
-1. Helps in understanding the behavior of a real system before it is built.
+1. Helps in understanding the behaviour of a real system before it is built.
 2. Cost of building and experimenting with a model is less.
-3. Models have the capability of scale time or space in favorable manner.
+3. Models have the capability of scale time or space in favourable manner.
 
 <!-- make the next two points as a table -->
 
@@ -98,8 +105,8 @@ Simulation
 * If resource or time are not available.
 * If system behavior is too complex like human behavior
 
-<!-- make the next two points as a table -->
 
+<!-- make the next two points as a table -->
 ## Advantages of simulation:
 
 * New policies, operating procedures, information flows and so on can be explored without disrupting ongoing operation of the real system.
@@ -113,6 +120,7 @@ Simulation
 * Vendors of simulation software have been actively developing packages that contain models that only need input (templates).
 * Simulation results can be difficult to interpret.
 * Simulation modeling and analysis can be time consuming and expensive.
+
 
 ## Areas of application:
 
@@ -155,34 +163,42 @@ Simulation
 
 ## Types of Models:
 
-* Dynamic :vs: Static
-* Stochastic :vs: Deterministic
-* Discrete :vs: Continuous
+* Dynamic vs. Static
+* Stochastic vs. Deterministic
+* Discrete vs. Continuous
 
-![types of models](./pics/simulation/2.png)
+<!-- place image in slide 20 -->
 
 ## Characterizing a Simulation Model:
 
+<!-- make this part as a table -->
 
-|                      |                      Deterministic                       |    Stochastic (NON-DETERMINISTIC or PROBABILISTIC)     |
-|:--------------------:|:--------------------------------------------------------:|:------------------------------------------------------:|
-| **Random variables** |             No random variable in the model.             |   model has one or more random variables as inputs.    |
-|     **Behavior**     |                 behavior is predictable.                 |             behavior cannot be predicted.              |
-|     **Example**      | Clinic: patients arriving at scheduled appointment time. | Bank: random customer inter-arrival and service times. |
+* Deterministic:
+  - No random variable in the model.
+  - behavior is predictable.
+  - patients arriving at a clinic at scheduled appointment time.
 
-<br>
+* Stochastic (NON-DETERMINISTIC or PROBABILISTIC)
+  - model has one or more random variables as inputs.
+  - behavior cannot be predicted.
+  - Bank: random customer inter-arrival and service times.
 
-|                       Static                       |                                                                     Dynamic                                                                     |
-|:--------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
-|                  No time element.                  |                                                   Passage of time is important part of model.                                                   |
-|        Time Independent view of the system.        |                                                       Time dependent view of the system.                                                        |
-| e.g. Class has same number of students in an year. | E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect. |
+* Static:
+  - No time element.
+  - Time Independent view of the system.
+  - e.g. Class has same number of students in an year.
 
-<br>
+* Dynamic:
+  - Passage of time is important part of model.
+  - Time dependent view of the system.
+  - E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect.
 
-|                                            Discrete system                                            |                               Continuous system                                |
-|:-----------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
-| state variables change only at discrete set of points in time (a countable number of points in time). | the state variables change continuously over time (infinite number of states). |
+* Discrete system:
+ - state variables change only at discrete set of points in time (a countable number of points in time).
+
+* Continuous system:
+ - the state variables change continuously over time (infinite number of states).
+
 
 ## How to develop a model?
 
@@ -210,10 +226,9 @@ Simulation
   - simulation language.
 
 ## Steps in Simulation Study:
+<!-- place image in slide 29 -->
 
-![steps in simulation Study](./pics/simulation/3.png)
-
-# Lecture 2
+# Lectire 2
 
 All of it is just section problems.
 
@@ -258,7 +273,7 @@ All of it is just section problems.
 
 * There are two common tools available to the practitioner for
 assisting with the problem statement:
-  1. Fishbone / Cause-Effect / Ishikawa Chart:
+  1. Fishbone/Cause-Effect/Ishikawa Chart
     - The purpose of this chart is to identify the cause of the problem or effect of interest.
     - The head of the fish is labeled with the problem or effect.
     - When the Fishbone diagram is complete, the practitioner can concentrate on the most important sources or causes of the problem.
@@ -283,3 +298,103 @@ assisting with the problem statement:
   2. Performance-related resources policies
   3. Cost-related resource policies
   4. Equipment capabilities evaluation
+
+# Lecture 4
+
+## Project Management Concepts:
+
+1. Project parameters, standard measurements:
+  * Time:
+    - Associated with the project schedule, which is implemented as a Gantt chart.
+    - If there are significant differences between the actual project progress and the project schedule, something may be incorrect .
+    -  If the project is continuously ahead of schedule, the following situations may exist:
+      - The budget is being consumed at an excessive rate.
+      - Excess resources are assigned to the project.
+      - The project is much less complex than originally estimated.
+    - if the project is continuously behind schedule, any of the following situations may be present:
+      - Expenditures are being delayed.
+      - Insufficient resources are assigned to the project.
+      - The project is much more complex than originally estimated.
+
+  * Cost:
+    - The cost parameter means that there is a budget associated with the project.
+    - Simulation project costs may include computer hardware and software.
+    - The budget is perhaps the most easily tracked project parameter.
+    - In the event that the project is continuously under budget, the following situations may be present:
+      - Expenditures are being delayed.
+      - Insufficient or inexperienced resources are assigned to the project.
+      - The project is much smaller or less complex than originally estimated.
+    - Problems may also exist if the project is continuously over budget, Typical causes are:
+      - The budget is being consumed at an excessive rate.
+      - Excess resources are assigned to the project.
+      - The project is much larger or more complex than originally estimated.
+
+  * Technical performance:  
+    - Specified in the problem statement phase of the project.
+    - The project must achieve these objectives in order to be considered successful from a technical performance standpoint.
+
+
+2. Project life cycles, common phases:
+  * Conceptual:
+    - During this phase, the organization will formally assign the project to the project manager.
+    - The problem formulation process may be completed during this life cycle phase.
+
+  * Planning:
+    - During the planning phase, the project manager will identify all of the project team members.
+    - The simulation-planning process activities involving the work breakdown structure, linear responsibility chart, and Gantt chart are conducted during this life-cycle phase.
+
+  * Execution:
+    - Most of the simulation project activities for the project will be completed.
+    - These activities include:
+      the system definition,
+      input data collection and analysis,
+      model translation,
+      verification,
+      validation,
+      experimentation, and analysis.
+
+  * Completion:
+    - Turning over the results of the project and primarily include the simulation project report.
+
+3. Project stakeholders
+  * Internal stakeholders:
+    - Individuals who are directly associated with the simulation project team => (Practitioner/project manager, Analysts, Statisticians, Data collectors).
+
+  * External stakeholders:
+    - Individuals or organizations who are not directly associated with the simulation project team.
+
+  * Stakeholder strategy
+
+
+## Simulation Project Manager Functions:
+
+* There are five generally accepted project manager functions that will affect the success or failure of the simulation project:
+
+1. Planning:
+  - This process includes the development of a work breakdown   structure and a Gantt chart.
+  - A work breakdown structure is the successive division of project tasks to the point that individual responsibility and accountability can be assigned.
+  - A Gantt chart illustrates the duration and relationships among the work breakdown structure tasks.
+
+2. Organizing:
+  - identifying, acquiring, and aligning the simulation project team.
+  - The relationship between the host organizations and the different projects that the team members are assigned can be clarified through the use of a matrix organizational chart.
+
+3. Motivating
+4. Directing
+5. Controlling
+  - The control process consists of:
+    * Setting project standards
+    * Observing performance
+    * Comparing the observed performance with the project standards
+    * Taking corrective action
+
+
+## Developing the Simulation Project Plan
+
+* The project-planning process as a minimum consists of developing:
+  - A work breakdown structure (WBS)
+  - A linear responsibility chart (LRC)
+  - A Gantt chart:
+    * Common relationships:
+      - Start-to-Start: This sort of situation may occur when a single previous process splits into two different tasks that must be worked on simultaneously.
+      - Finish-to-Finish: is found when both tasks are desired to be completed at the same time.
