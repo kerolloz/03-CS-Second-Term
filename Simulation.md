@@ -1,9 +1,9 @@
 # Simulation Lectures
 
 - [x] [Lecture 1](#lecture-1)
-- [ ] [Lecture 2](#lecture-2) :construction:
-- [ ] [Lecture 3](#lecture-3)
-- [ ] [Lecture 4](#lecture-4)
+- [x] [Lecture 2](#lecture-2)
+- [x] [Lecture 3](#lecture-3)
+- [ ] [Lecture 4](#lecture-4) :construction:
 - [ ] [Lecture 5](#lecture-5)
 - [ ] [Lecture 6](#lecture-6)
 
@@ -227,3 +227,74 @@ State variables – Number of messages waiting to be transmitted
 
 ## Steps in Simulation Study:
 <!-- place image in slide 29 -->
+
+# Lectire 2
+
+All of it is just section problems.
+
+# Lecture 3
+
+* Problem formulation is the most important step in a simulation study. It have a significant impact on the success of the simulation study.
+* The first step in simulation project is to ensure that adequate attention has been directed toward understanding what is to be accomplished by performing the study.
+* Problem formulation process consist of:
+  1. A formal problem statement
+  2. Orientation of the system
+  3. Establishment of specific project objectives
+
+**1. Formal Problem Statement:**
+  - Goal: provide both the practitioner and the potential audience with a clearly understandable high-level justification for the simulation.
+  - The goal including:
+    1. Increasing customer satisfaction.
+      - is of fundamental interest in any system involving service operations.
+      - This type of system typically includes waiting or processing queues.
+      - Reductions in queue time usually result in increased customer satisfaction.
+      - Reductions in the number of late jobs will reduce operating costs and will increase customer satisfaction.
+
+    2. Increasing throughput.
+      - involves the amount of products or number of jobs that can be processed over a given period of time.
+      - This can involve the elimination or improvement of different process operations.
+      - It can also include the identification and redesign of bottleneck processes.
+
+    3. Reducing waste.
+      - Reducing waste results in reduced operating costs and increased net profits.
+      - Waste can be reduced through reductions in damage and old-fashion.
+      - damage can involve processes that are time and temperature critical.
+      - old-fashion waste can result from an organization’s to bring its product to the market on time.
+
+    4. Reducing work in progress.
+      - Work in progress is work that requires further processing for completion.
+      - Work in progress is commonly found in processes that require multiple discrete operations.
+      - Work in progress typically requires storage before the next process can be carried out.
+      - Reducing work in progress reduces process costs associated with resource capacity and storage requirements.
+
+
+
+## Tools for Developing the Problem Statement:
+
+* There are two common tools available to the practitioner for
+assisting with the problem statement:
+  1. Fishbone/Cause-Effect/Ishikawa Chart
+    - The purpose of this chart is to identify the cause of the problem or effect of interest.
+    - The head of the fish is labeled with the problem or effect.
+    - When the Fishbone diagram is complete, the practitioner can concentrate on the most important sources or causes of the problem.
+
+  2. Pareto Chart:
+    -  Only a few factors are the cause of many problems. This is frequently referred to as the 80–20 rule: 80% of the problem is caused by 20% of the factors.
+
+**2. Orientation of the system:**
+  * Goal: The practitioner’s familiarizing himself or herself with the system.
+  * Orientation Process/Types:
+    1. Initial orientation visit:
+      - Goal: To obtain a high-level understanding of the basic inputs and outputs of the system.
+    2. Detailed flow orientation visit:
+      - Goal: An understanding of how the system operates.
+    3. Review orientation visit
+      - Goal: To ensure that the understanding of the system operation is consistent with the practitioners’ understanding of the system and/or flow chart.
+
+**3. Project Objectives:**
+
+* Common project objectives may involve
+  1. Performance-related operating policies
+  2. Performance-related resources policies
+  3. Cost-related resource policies
+  4. Equipment capabilities evaluation
