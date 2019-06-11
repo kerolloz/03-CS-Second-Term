@@ -165,12 +165,11 @@ State variables – Number of messages waiting to be transmitted
 
 ## Characterizing a Simulation Model:
 
-<!-- make this part as a table -->
 
-|                        Deterministic                         | Stochastic (NON-DETERMINISTIC or PROBABILISTIC)        |
-|:------------------------------------------------------------:|:-------------------------------------------------------|
-|               No random variable in the model.               | model has one or more random variables as inputs.      |
-|                   behavior is predictable.                   | behavior cannot be predicted.                          |
+|                        Deterministic                         |    Stochastic (NON-DETERMINISTIC or PROBABILISTIC)     |
+|:------------------------------------------------------------:|:------------------------------------------------------:|
+|               No random variable in the model.               |   model has one or more random variables as inputs.    |
+|                   behavior is predictable.                   |             behavior cannot be predicted.              |
 | patients arriving at a clinic at scheduled appointment time. | Bank: random customer inter-arrival and service times. |
 
 |                       Static                       |                                                                     Dynamic                                                                     |
