@@ -175,13 +175,6 @@ State variables – Number of messages waiting to be transmitted
 
 
 
-
-
-
-
-
-
-
 ## How to develop a model?
 
 1. Determine the goals and objectives.
