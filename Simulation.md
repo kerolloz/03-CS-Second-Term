@@ -167,13 +167,22 @@ State variables – Number of messages waiting to be transmitted
 
 <!-- make this part as a table -->
 
-|                         Deterministic                          |     Stochastic (NON-DETERMINISTIC or PROBABILISTIC)      |                        Static                        |                                                                      Dynamic                                                                      |                                             Discrete system                                             |                                Continuous system                                 |
-|:--------------------------------------------------------------:|:--------------------------------------------------------:|:----------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-|               - No random variable in the model.               |   - model has one or more random variables as inputs.    |                  - No time element.                  |                                                   - Passage of time is important part of model.                                                   | - state variables change only at discrete set of points in time (a countable number of points in time). | - the state variables change continuously over time (infinite number of states). |
-|                   - behavior is predictable.                   |             - behavior cannot be predicted.              |        - Time Independent view of the system.        |                                                       - Time dependent view of the system.                                                        |                                                                                                         |                                                                                  |
-| - patients arriving at a clinic at scheduled appointment time. | - Bank: random customer inter-arrival and service times. | - e.g. Class has same number of students in an year. | - E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect. |                                                                                                         |                                                                                  |
+|                        Deterministic                         | Stochastic (NON-DETERMINISTIC or PROBABILISTIC)        |
+|:------------------------------------------------------------:|:-------------------------------------------------------|
+|               No random variable in the model.               | model has one or more random variables as inputs.      |
+|                   behavior is predictable.                   | behavior cannot be predicted.                          |
+| patients arriving at a clinic at scheduled appointment time. | Bank: random customer inter-arrival and service times. |
+
+|                       Static                       |                                                                     Dynamic                                                                     |
+|:--------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
+|                  No time element.                  |                                                   Passage of time is important part of model.                                                   |
+|        Time Independent view of the system.        |                                                       Time dependent view of the system.                                                        |
+| e.g. Class has same number of students in an year. | E.g. ATM can accept card only when it is in ready state. ATM cannot read card when it is in ERROR state. Thus state of ATM is a dynamic aspect. |
 
 
+|                                            Discrete system                                            |                               Continuous system                                |
+|:-----------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+| state variables change only at discrete set of points in time (a countable number of points in time). | the state variables change continuously over time (infinite number of states). |
 
 ## How to develop a model?
 
